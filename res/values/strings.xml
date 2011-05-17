@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Welcome to your Bitcoin Wallet!</string>
+    <string name="app_name">Bitcoin</string>
+    <string name="send_money">Send Money</string>
+    <string name="receive_money">Receive Money</string>
+    <string name="balance">Your currently have BTC 0.00 </string>
+</resources>
