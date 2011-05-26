@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical">
-<TextView  
-    android:layout_height="wrap_content" android:text="@string/hello" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_marginTop="20dip" android:layout_marginBottom="20dip"/>
-<Button android:text="@string/send_money" android:gravity="center_horizontal" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center"></Button>
-<Button android:text="@string/receive_money" android:gravity="center_horizontal" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center"></Button>
-<TextView android:layout_width="wrap_content" android:text="@string/balance" android:layout_gravity="center" android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_marginTop="20dip" android:layout_marginBottom="20dip"></TextView>
-</LinearLayout>
+    <TableLayout android:id="@+id/tableLayout1" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="1">
+        <TableRow android:id="@+id/tableRow1" android:baselineAligned="false">
+            <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="@string/app_name" android:layout_marginTop="10dip"></TextView>
+            <Button android:layout_height="wrap_content" android:id="@+id/button1" android:layout_width="wrap_content" android:text="@string/send_button" android:layout_gravity="right"></Button>
+            <Button android:layout_height="wrap_content" android:id="@+id/button2" android:layout_width="wrap_content" android:text="@string/receive_button"></Button>
+        </TableRow>
+        <TableLayout android:id="@+id/tableLayout2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stretchColumns="1">
+            <TableRow android:id="@+id/tableRow2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:baselineAligned="false">
+                <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/balance_label"></TextView>
+                <TextView android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/amount_placeholder"></TextView>
+            </TableRow>
+        </TableLayout>
+    </TableLayout>
