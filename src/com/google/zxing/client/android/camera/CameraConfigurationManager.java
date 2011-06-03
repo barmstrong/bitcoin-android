@@ -73,9 +73,14 @@ final class CameraConfigurationManager {
     parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
     setFlash(parameters);
     setZoom(parameters);
+    
+    //change zxing back to portrait
+    //parameters.set("orientation", "portrait");
+    //parameters.setRotation(90);
+    
     //setSharpness(parameters);
     camera.setParameters(parameters);
-    camera.setDisplayOrientation(90);
+    //camera.setDisplayOrientation(90);
   }
 
   Point getCameraResolution() {

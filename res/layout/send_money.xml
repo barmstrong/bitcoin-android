@@ -9,15 +9,15 @@
 	<TextView android:id="@+id/textView2" android:text="@string/address_label"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_marginTop="15dip"></TextView>
-	<EditText android:text="EditText" android:id="@+id/address"
+	<EditText android:id="@+id/address"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
 	<TextView android:id="@+id/textView3" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="@string/amount_label"></TextView>
-	<EditText android:text="EditText" android:id="@+id/amount"
+	<EditText android:id="@+id/amount"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
 	<TextView android:id="@+id/textView4" android:text="@string/memo_label"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	<EditText android:text="EditText" android:id="@+id/memo"
+	<EditText android:id="@+id/memo"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
 	<Button android:text="@string/send_money_button" android:id="@+id/button1"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"

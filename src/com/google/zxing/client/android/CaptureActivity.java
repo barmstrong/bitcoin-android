@@ -32,9 +32,12 @@ import com.google.zxing.client.android.share.ShareActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
@@ -57,6 +60,7 @@ import android.text.ClipboardManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
@@ -65,6 +69,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -175,6 +185,19 @@ public final class CaptureActivity extends Activity implements
 		Window window = getWindow();
 		window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		setContentView(R.layout.capture);
+
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.rotate);
+		anim.setFillAfter(true);
+		TextView fl = (TextView) findViewById(R.id.status_view);
+		fl.startAnimation(anim);
+		Button manualButton = (Button) findViewById(R.id.manual_button);
+		manualButton.startAnimation(anim);
+		
+		manualButton.setOnClickListener(new View.OnClickListener() {
+	        public void onClick(View v) {
+	        	startActivity(new Intent(CaptureActivity.this, SendMoney.class));
+	        }
+	    });
 
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
@@ -417,8 +440,6 @@ public final class CaptureActivity extends Activity implements
 			playBeepSoundAndVibrate();
 			drawResultPoints(barcode, rawResult);
 
-			Log.d("XXX", rawResult.toString());
-
 			try {
 				Bundle b = new Bundle();
 				String link = rawResult.toString();
@@ -435,15 +456,25 @@ public final class CaptureActivity extends Activity implements
 					pair = parts[i].split("=");
 					b.putString(pair[0], pair[1]);
 				}
-				
-				Intent intent = new Intent(CaptureActivity.this, SendMoney.class);
+
+				Intent intent = new Intent(CaptureActivity.this,
+						SendMoney.class);
 				intent.putExtras(b);
 				startActivity(intent);
 			} catch (Exception e) {
-				Toast.makeText(this,
-						"Not a valid Bitcoin address.  Please try again.",
-						Toast.LENGTH_LONG).show();
-				startActivity(new Intent(CaptureActivity.this, CaptureActivity.class));
+				 Toast.makeText(this,
+				 "Not a valid Bitcoin address.  Please try again.",
+				 Toast.LENGTH_LONG).show();
+
+				resetStatusView();
+				// sleep 3 seconds before restarting scanning
+				handler.postDelayed(new Runnable() {
+					public void run() {
+						if (handler != null) {
+							handler.sendEmptyMessage(R.id.restart_preview);
+						}
+					}
+				}, 3000);
 			}
 		}
 	}
