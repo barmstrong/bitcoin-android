@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <TableLayout android:id="@+id/tableLayout1" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="1">
-        <TableRow android:id="@+id/tableRow1" android:baselineAligned="false">
-            <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="@string/app_name" android:layout_marginTop="10dip"></TextView>
-            <Button android:layout_height="wrap_content" android:id="@+id/button1" android:layout_width="wrap_content" android:text="@string/send_button" android:layout_gravity="right"></Button>
-            <Button android:layout_height="wrap_content" android:id="@+id/button2" android:layout_width="wrap_content" android:text="@string/receive_button"></Button>
-        </TableRow>
-        <TableLayout android:id="@+id/tableLayout2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stretchColumns="1">
-            <TableRow android:id="@+id/tableRow2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:baselineAligned="false">
-                <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/balance_label"></TextView>
-                <TextView android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/amount_placeholder"></TextView>
-            </TableRow>
-        </TableLayout>
-    </TableLayout>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/MainActivity">
+
+	<include android:id="@+id/header" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" layout="@layout/header" />
+
+	<LinearLayout android:id="@+id/linearLayout1"
+		android:orientation="horizontal" android:layout_below="@+id/header"
+		android:layout_centerHorizontal="true" android:paddingTop="20dip"
+		android:paddingBottom="10dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button android:layout_marginRight="20dip"
+			android:layout_height="wrap_content" android:id="@+id/send_button"
+			android:layout_width="wrap_content" android:text="@string/send_button"></Button>
+		<Button android:layout_height="wrap_content" android:id="@+id/receive_button"
+			android:layout_width="wrap_content" android:text="@string/receive_button"></Button>
+	</LinearLayout>
+
+	<TableLayout android:id="@+id/tableLayout2"
+		android:layout_below="@id/linearLayout1" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:stretchColumns="1">
+		<TableRow android:id="@+id/tableRow2" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:baselineAligned="false">
+			<TextView android:id="@+id/textView2" android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:text="@string/balance_label"></TextView>
+			<TextView android:layout_height="wrap_content" android:id="@+id/textView3"
+				android:layout_width="wrap_content" android:layout_gravity="right"
+				android:text="@string/amount_placeholder"></TextView>
+		</TableRow>
+	</TableLayout>
+
+</RelativeLayout>

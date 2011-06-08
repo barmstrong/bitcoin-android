@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/MainActivity">
+
+	<RelativeLayout android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:id="@+id/receive_money_layout">
+
+		<include android:id="@+id/header" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" layout="@layout/header" />
+
+		<TextView android:id="@+id/textView2" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:text="@string/receive_label" android:textSize="24sp"
+			android:layout_below="@id/header" android:layout_marginTop="0dip" />
+
+		<TextView android:id="@+id/address" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:textSize="12sp" android:color="#333333" android:layout_below="@id/textView2"
+			android:layout_marginBottom="4dip" />
+
+		<ImageView android:id="@+id/qr_code" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:layout_below="@id/address" />
+
+		<LinearLayout android:id="@+id/linearLayout1"
+			android:orientation="vertical" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_below="@id/qr_code">
+			<TextView android:id="@+id/textView2" android:text="Requested Amount (optional)"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			<EditText android:id="@+id/receive_amount"
+				android:layout_height="wrap_content" android:layout_width="match_parent"
+				android:inputType="numberDecimal"></EditText>
+		</LinearLayout>
+
+		<Button android:layout_below="@id/linearLayout1"
+			android:layout_centerHorizontal="true" android:text="Or Send This Address"
+			android:id="@+id/email_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginTop="15dip"></Button>
+	</RelativeLayout>
+
+
+</ScrollView>

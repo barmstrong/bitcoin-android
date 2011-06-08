@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Bitcoin</string>
-	<string name="send_button">Send</string>
-	<string name="receive_button">Receive</string>
+	<string name="send_button">Send Money</string>
+	<string name="receive_button">Receive Money</string>
 	<string name="balance_label">Balance</string>
 	<string name="amount_placeholder">5 BTC</string>
 	<string name="scan_label">Scan QR Code</string>
+	<string name="receive_label">Scannable Address:</string>
 	<string name="blank_label"></string>
 
 	<!-- Imported from zxing -->

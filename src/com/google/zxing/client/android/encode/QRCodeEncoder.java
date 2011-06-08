@@ -49,7 +49,7 @@ import java.util.Hashtable;
  *
  * @author dswitkin@google.com (Daniel Switkin)
  */
-final class QRCodeEncoder {
+public final class QRCodeEncoder {
 
   private static final String TAG = QRCodeEncoder.class.getSimpleName();
 
@@ -62,7 +62,7 @@ final class QRCodeEncoder {
   private String title;
   private BarcodeFormat format;
 
-  QRCodeEncoder(Activity activity, Intent intent) {
+  public QRCodeEncoder(Activity activity, Intent intent) {
     this.activity = activity;
     if (intent == null) {
       throw new IllegalArgumentException("No valid data to encode.");
