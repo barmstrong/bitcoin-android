@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/sec
+END
+SECNamedCurves.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/sec/SECNamedCurves.java
+END
+SECObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/sec/SECObjectIdentifiers.java
+END
+ECPrivateKeyStructure.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/sec/ECPrivateKeyStructure.java
+END

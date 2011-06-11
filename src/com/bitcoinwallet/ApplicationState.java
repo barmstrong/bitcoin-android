@@ -16,7 +16,6 @@ import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Environment;
 import android.util.Log;
 
 import com.google.bitcoin.core.Address;
@@ -25,7 +24,6 @@ import com.google.bitcoin.core.BlockStoreException;
 import com.google.bitcoin.core.BoundedOverheadBlockStore;
 import com.google.bitcoin.core.DnsDiscovery;
 import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.IrcDiscovery;
 import com.google.bitcoin.core.NetworkConnection;
 import com.google.bitcoin.core.NetworkParameters;
 import com.google.bitcoin.core.PeerDiscovery;
@@ -40,7 +38,7 @@ import com.google.bitcoin.core.WalletEventListener;
 public class ApplicationState extends Application {
 	// convenient place to keep global app variables
 
-	boolean TEST_MODE = false;
+	boolean TEST_MODE = true;
 	Wallet wallet;
 	String filePrefix = TEST_MODE ? "android_testnet" : "android_prodnet";
 	String walletFilename = filePrefix + ".wallet";
@@ -126,8 +124,7 @@ public class ApplicationState extends Application {
 
 	private void saveWallet() {
 		try {
-			wallet.saveToFileStream(openFileOutput(walletFilename,
-					Context.MODE_PRIVATE));
+			wallet.saveToFile(new File(getExternalFilesDir(null), walletFilename));
 		} catch (IOException e) {
 			throw new Error("Can't save wallet file.");
 		}
@@ -158,7 +155,7 @@ public class ApplicationState extends Application {
 						"Couldn't connect to network.  Please try again later.");
 			}
 		}
-		Log.d("Wallet", "Connecting to peers...");
+		Log.d("Wallet", "Connecting to peers..."+peers.size());
 		NetworkConnection conn = null;
 		Iterator<InetSocketAddress> itr = peers.iterator();
 		while (itr.hasNext()) {

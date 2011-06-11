@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/srp
+END
+SRP6Server.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/srp/SRP6Server.java
+END
+SRP6Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/srp/SRP6Util.java
+END
+SRP6Client.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/srp/SRP6Client.java
+END
+SRP6VerifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/srp/SRP6VerifierGenerator.java
+END

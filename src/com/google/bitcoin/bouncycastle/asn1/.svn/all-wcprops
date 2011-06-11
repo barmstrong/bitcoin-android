@@ -1,0 +1,515 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1
+END
+BERFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERFactory.java
+END
+DERIA5String.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERIA5String.java
+END
+BERSetParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERSetParser.java
+END
+DERFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERFactory.java
+END
+DERSetParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERSetParser.java
+END
+DERSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERSequence.java
+END
+DERConstructedSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERConstructedSet.java
+END
+BEROctetStringGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BEROctetStringGenerator.java
+END
+DERUTCTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERUTCTime.java
+END
+ASN1ParsingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1ParsingException.java
+END
+BEROutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BEROutputStream.java
+END
+DERUTF8String.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERUTF8String.java
+END
+ASN1ApplicationSpecificParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1ApplicationSpecificParser.java
+END
+ASN1Generator.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Generator.java
+END
+DERBoolean.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERBoolean.java
+END
+BERConstructedOctetString.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERConstructedOctetString.java
+END
+ASN1Set.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Set.java
+END
+BERGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERGenerator.java
+END
+BERApplicationSpecificParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERApplicationSpecificParser.java
+END
+DERGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERGenerator.java
+END
+BERSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERSet.java
+END
+DERSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERSet.java
+END
+BERTaggedObjectParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERTaggedObjectParser.java
+END
+ASN1Object.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Object.java
+END
+ASN1Encodable.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Encodable.java
+END
+DERGeneralString.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERGeneralString.java
+END
+DERBitString.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERBitString.java
+END
+DERString.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERString.java
+END
+DERObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERObject.java
+END
+DERPrintableString.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERPrintableString.java
+END
+BERApplicationSpecific.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERApplicationSpecific.java
+END
+LazyDERSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/LazyDERSequence.java
+END
+BERNull.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERNull.java
+END
+DERObjectIdentifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERObjectIdentifier.java
+END
+DERApplicationSpecific.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERApplicationSpecific.java
+END
+ASN1TaggedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1TaggedObject.java
+END
+DEREncodable.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEREncodable.java
+END
+ConstructedOctetStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ConstructedOctetStream.java
+END
+ASN1SequenceParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1SequenceParser.java
+END
+IndefiniteLengthInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/IndefiniteLengthInputStream.java
+END
+DERTaggedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERTaggedObject.java
+END
+BERConstructedSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERConstructedSequence.java
+END
+DERSequenceParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERSequenceParser.java
+END
+DERConstructedSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERConstructedSequence.java
+END
+ASN1EncodableVector.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1EncodableVector.java
+END
+DERUnknownTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERUnknownTag.java
+END
+DEREncodableVector.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEREncodableVector.java
+END
+ASN1OutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1OutputStream.java
+END
+BERSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERSequence.java
+END
+ASN1OctetStringParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1OctetStringParser.java
+END
+ASN1ObjectParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1ObjectParser.java
+END
+DEROutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEROutputStream.java
+END
+BERSequenceGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERSequenceGenerator.java
+END
+DERSequenceGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERSequenceGenerator.java
+END
+BEROctetStringParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BEROctetStringParser.java
+END
+DERExternal.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERExternal.java
+END
+DEROctetStringParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEROctetStringParser.java
+END
+DERVisibleString.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERVisibleString.java
+END
+ASN1TaggedObjectParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1TaggedObjectParser.java
+END
+LimitedInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/LimitedInputStream.java
+END
+DERNumericString.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERNumericString.java
+END
+DEREnumerated.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEREnumerated.java
+END
+DERInteger.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERInteger.java
+END
+ASN1OctetString.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1OctetString.java
+END
+DERT61String.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERT61String.java
+END
+ASN1Null.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Null.java
+END
+ASN1InputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1InputStream.java
+END
+DERBMPString.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERBMPString.java
+END
+DEROctetString.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DEROctetString.java
+END
+DERGeneralizedTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERGeneralizedTime.java
+END
+BERInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERInputStream.java
+END
+DERNull.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERNull.java
+END
+DERInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERInputStream.java
+END
+OIDTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/OIDTokenizer.java
+END
+BERTaggedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERTaggedObject.java
+END
+ASN1Choice.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Choice.java
+END
+BERSequenceParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/BERSequenceParser.java
+END
+DefiniteLengthInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DefiniteLengthInputStream.java
+END
+DERTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERTags.java
+END
+DERExternalParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERExternalParser.java
+END
+DERUniversalString.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/DERUniversalString.java
+END
+ASN1SetParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1SetParser.java
+END
+ASN1StreamParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1StreamParser.java
+END
+ASN1Sequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ASN1Sequence.java
+END
+LazyDERConstructionEnumeration.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/LazyDERConstructionEnumeration.java
+END

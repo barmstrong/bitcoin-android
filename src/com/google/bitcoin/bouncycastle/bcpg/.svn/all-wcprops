@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg
+END
+SignatureSubpacketInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SignatureSubpacketInputStream.java
+END
+UserAttributeSubpacketInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/UserAttributeSubpacketInputStream.java
+END
+SecretSubkeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SecretSubkeyPacket.java
+END
+ModDetectionCodePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ModDetectionCodePacket.java
+END
+InputStreamPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/InputStreamPacket.java
+END
+UserAttributeSubpacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/UserAttributeSubpacket.java
+END
+OutputStreamPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/OutputStreamPacket.java
+END
+SymmetricKeyEncSessionPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SymmetricKeyEncSessionPacket.java
+END
+BCPGInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/BCPGInputStream.java
+END
+BCPGOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/BCPGOutputStream.java
+END
+HashAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/HashAlgorithmTags.java
+END
+MarkerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/MarkerPacket.java
+END
+DSAPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/DSAPublicBCPGKey.java
+END
+PublicKeyAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/PublicKeyAlgorithmTags.java
+END
+CRC24.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/CRC24.java
+END
+PublicKeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/PublicKeyPacket.java
+END
+DSASecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/DSASecretBCPGKey.java
+END
+OnePassSignaturePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/OnePassSignaturePacket.java
+END
+UserAttributeSubpacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/UserAttributeSubpacketTags.java
+END
+BCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/BCPGKey.java
+END
+SymmetricEncDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SymmetricEncDataPacket.java
+END
+CompressedDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/CompressedDataPacket.java
+END
+SecretKeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SecretKeyPacket.java
+END
+PublicSubkeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/PublicSubkeyPacket.java
+END
+RSAPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/RSAPublicBCPGKey.java
+END
+MPInteger.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/MPInteger.java
+END
+S2K.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/S2K.java
+END
+RSASecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/RSASecretBCPGKey.java
+END
+BCPGObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/BCPGObject.java
+END
+SignatureSubpacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SignatureSubpacket.java
+END
+ElGamalPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ElGamalPublicBCPGKey.java
+END
+Packet.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/Packet.java
+END
+PublicKeyEncSessionPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/PublicKeyEncSessionPacket.java
+END
+TrustPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/TrustPacket.java
+END
+SymmetricKeyAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SymmetricKeyAlgorithmTags.java
+END
+ElGamalSecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ElGamalSecretBCPGKey.java
+END
+LiteralDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/LiteralDataPacket.java
+END
+SignatureSubpacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SignatureSubpacketTags.java
+END
+UserIDPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/UserIDPacket.java
+END
+ExperimentalPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ExperimentalPacket.java
+END
+ArmoredInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ArmoredInputStream.java
+END
+ArmoredOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ArmoredOutputStream.java
+END
+PacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/PacketTags.java
+END
+CompressionAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/CompressionAlgorithmTags.java
+END
+SymmetricEncIntegrityPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SymmetricEncIntegrityPacket.java
+END
+SignaturePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/SignaturePacket.java
+END
+UserAttributePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/UserAttributePacket.java
+END
+ContainedPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/ContainedPacket.java
+END

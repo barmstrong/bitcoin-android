@@ -16,6 +16,8 @@
 
 package com.google.zxing.client.android.camera;
 
+import java.io.IOException;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
@@ -27,10 +29,8 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import com.google.zxing.client.android.PlanarYUVLuminanceSource;
-import com.google.zxing.client.android.PreferencesActivity;
 
-import java.io.IOException;
+import com.google.zxing.client.android.PlanarYUVLuminanceSource;
 
 /**
  * This object wraps the Camera service object and expects to be the only one talking to it. The
@@ -134,10 +134,8 @@ public final class CameraManager {
       }
       configManager.setDesiredCameraParameters(camera);
 
-      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-      if (prefs.getBoolean(PreferencesActivity.KEY_FRONT_LIGHT, false)) {
-        FlashlightManager.enableFlashlight();
-      }
+      //if dark
+      //FlashlightManager.enableFlashlight();
     }
   }
 

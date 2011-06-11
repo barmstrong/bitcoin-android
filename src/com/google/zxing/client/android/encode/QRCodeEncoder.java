@@ -16,18 +16,9 @@
 
 package com.google.zxing.client.android.encode;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.Result;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.android.Contents;
-import com.google.zxing.client.android.Intents;
-import com.bitcoinwallet.R;
-import com.google.zxing.client.result.AddressBookParsedResult;
-import com.google.zxing.client.result.ParsedResult;
-import com.google.zxing.client.result.ResultParser;
-import com.google.zxing.common.BitMatrix;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Hashtable;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -39,9 +30,18 @@ import android.provider.Contacts;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Hashtable;
+import com.bitcoinwallet.R;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.Result;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.android.Contents;
+import com.google.zxing.client.android.Intents;
+import com.google.zxing.client.result.AddressBookParsedResult;
+import com.google.zxing.client.result.ParsedResult;
+import com.google.zxing.client.result.ResultParser;
+import com.google.zxing.common.BitMatrix;
 
 /**
  * This class does the work of decoding the user's request and extracting all the data

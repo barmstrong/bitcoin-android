@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests
+END
+LongDigest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/LongDigest.java
+END
+SHA224Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/SHA224Digest.java
+END
+SHA512Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/SHA512Digest.java
+END
+RIPEMD320Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/RIPEMD320Digest.java
+END
+RIPEMD160Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/RIPEMD160Digest.java
+END
+SHA256Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/SHA256Digest.java
+END
+TigerDigest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/TigerDigest.java
+END
+SHA384Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/SHA384Digest.java
+END
+RIPEMD128Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/RIPEMD128Digest.java
+END
+RIPEMD256Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/RIPEMD256Digest.java
+END
+GeneralDigest.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/GeneralDigest.java
+END
+WhirlpoolDigest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/WhirlpoolDigest.java
+END
+MD2Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/MD2Digest.java
+END
+MD4Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/MD4Digest.java
+END
+GOST3411Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/GOST3411Digest.java
+END
+MD5Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/MD5Digest.java
+END
+ShortenedDigest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/ShortenedDigest.java
+END
+SHA1Digest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/digests/SHA1Digest.java
+END

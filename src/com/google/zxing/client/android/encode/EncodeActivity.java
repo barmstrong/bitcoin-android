@@ -16,33 +16,21 @@
 
 package com.google.zxing.client.android.encode;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.android.FinishListener;
-import com.google.zxing.client.android.Intents;
-import com.bitcoinwallet.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Environment;
 import android.os.Message;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.bitcoinwallet.R;
+import com.google.zxing.client.android.FinishListener;
+import com.google.zxing.client.android.Intents;
 
 /**
  * This class encodes data from an Intent into a QR code, and then displays it full screen so that
@@ -79,7 +67,7 @@ public final class EncodeActivity extends Activity {
           setTitle(getString(R.string.app_name) + " - " + qrCodeEncoder.getTitle());
           qrCodeEncoder.requestBarcode(handler, smallerDimension);
         } catch (IllegalArgumentException e) {
-          showErrorMessage(R.string.msg_encode_contents_failed);
+          showErrorMessage("Couldn't encode this");
         }
         firstLayout = false;
       }
@@ -99,7 +87,7 @@ public final class EncodeActivity extends Activity {
           //qrCodeEncoder = null;
           break;
         case R.id.encode_failed:
-          showErrorMessage(R.string.msg_encode_barcode_failed);
+          showErrorMessage("Barcode encoding failed.");
           qrCodeEncoder = null;
           break;
       }
@@ -119,68 +107,6 @@ public final class EncodeActivity extends Activity {
       }
     }
     finish();
-  }
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    super.onCreateOptionsMenu(menu);
-    menu.add(0, Menu.FIRST, 0, R.string.menu_share).setIcon(android.R.drawable.ic_menu_share);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    if (qrCodeEncoder == null) { // Odd
-      Log.w(TAG, "No existing barcode to send?");
-      return true;
-    }
-
-    String contents = qrCodeEncoder.getContents();
-    Bitmap bitmap;
-    try {
-      bitmap = QRCodeEncoder.encodeAsBitmap(contents, BarcodeFormat.QR_CODE,
-          SHARE_BARCODE_DIMENSION, SHARE_BARCODE_DIMENSION);
-    } catch (WriterException we) {
-      Log.w(TAG, we);
-      return true;
-    }
-
-    File bsRoot = new File(Environment.getExternalStorageDirectory(), "BarcodeScanner");
-    File barcodesRoot = new File(bsRoot, "Barcodes");
-    if (!barcodesRoot.exists() && !barcodesRoot.mkdirs()) {
-      Log.w(TAG, "Couldn't make dir " + barcodesRoot);
-      showErrorMessage(R.string.msg_unmount_usb);
-      return true;
-    }
-    File barcodeFile = new File(barcodesRoot, makeBarcodeFileName(contents) + ".png");
-    barcodeFile.delete();
-    FileOutputStream fos = null;
-    try {
-      fos = new FileOutputStream(barcodeFile);
-      bitmap.compress(Bitmap.CompressFormat.PNG, 0, fos);
-    } catch (FileNotFoundException fnfe) {
-      Log.w(TAG, "Couldn't access file " + barcodeFile + " due to " + fnfe);
-      showErrorMessage(R.string.msg_unmount_usb);
-      return true;
-    } finally {
-      if (fos != null) {
-        try {
-          fos.close();
-        } catch (IOException ioe) {
-          // do nothing
-        }
-      }
-    }
-
-    Intent intent = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
-    intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " - " +
-        qrCodeEncoder.getTitle());
-    intent.putExtra(Intent.EXTRA_TEXT, qrCodeEncoder.getContents());
-    intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + barcodeFile.getAbsolutePath()));
-    intent.setType("image/png");
-    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-    startActivity(Intent.createChooser(intent, null));
-    return true;
   }
 
   private static CharSequence makeBarcodeFileName(CharSequence contents) {
@@ -205,10 +131,10 @@ public final class EncodeActivity extends Activity {
     firstLayout = true;
   }
 
-  private void showErrorMessage(int message) {
+  private void showErrorMessage(String message) {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     builder.setMessage(message);
-    builder.setPositiveButton(R.string.button_ok, new FinishListener(this));
+    builder.setPositiveButton("Ok", new FinishListener(this));
     builder.setOnCancelListener(new FinishListener(this));
     builder.show();
   }

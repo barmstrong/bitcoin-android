@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/encodings
+END
+ISO9796d1Encoding.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/encodings/ISO9796d1Encoding.java
+END
+PKCS1Encoding.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/encodings/PKCS1Encoding.java
+END
+OAEPEncoding.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/encodings/OAEPEncoding.java
+END

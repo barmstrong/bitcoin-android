@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes
+END
+CTSBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/CTSBlockCipher.java
+END
+CFBBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/CFBBlockCipher.java
+END
+AEADBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/AEADBlockCipher.java
+END
+GOFBBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/GOFBBlockCipher.java
+END
+EAXBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/EAXBlockCipher.java
+END
+SICBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/SICBlockCipher.java
+END
+PGPCFBBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/PGPCFBBlockCipher.java
+END
+PaddedBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/PaddedBlockCipher.java
+END
+CCMBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/CCMBlockCipher.java
+END
+OpenPGPCFBBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/OpenPGPCFBBlockCipher.java
+END
+OFBBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/OFBBlockCipher.java
+END
+GCMBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/GCMBlockCipher.java
+END
+CBCBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/CBCBlockCipher.java
+END

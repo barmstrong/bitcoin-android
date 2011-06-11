@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/89/trunk/src/com/google/bitcoin/core
+END
+Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/Utils.java
+END
+VerificationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/core/VerificationException.java
+END
+InventoryMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/24/trunk/src/com/google/bitcoin/core/InventoryMessage.java
+END
+PeerDiscoveryException.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/64/trunk/src/com/google/bitcoin/core/PeerDiscoveryException.java
+END
+Script.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/Script.java
+END
+TransactionInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/81/trunk/src/com/google/bitcoin/core/TransactionInput.java
+END
+TransactionOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/81/trunk/src/com/google/bitcoin/core/TransactionOutput.java
+END
+BlockStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/47/trunk/src/com/google/bitcoin/core/BlockStore.java
+END
+StoredBlock.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/59/trunk/src/com/google/bitcoin/core/StoredBlock.java
+END
+AddressFormatException.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/core/AddressFormatException.java
+END
+GetDataMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/24/trunk/src/com/google/bitcoin/core/GetDataMessage.java
+END
+ProtocolException.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/core/ProtocolException.java
+END
+DumpedPrivateKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/core/DumpedPrivateKey.java
+END
+DiskBlockStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/DiskBlockStore.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/34/trunk/src/com/google/bitcoin/core/Message.java
+END
+Transaction.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/81/trunk/src/com/google/bitcoin/core/Transaction.java
+END
+BlockStoreException.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/47/trunk/src/com/google/bitcoin/core/BlockStoreException.java
+END
+TransactionOutPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/76/trunk/src/com/google/bitcoin/core/TransactionOutPoint.java
+END
+Wallet.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/87/trunk/src/com/google/bitcoin/core/Wallet.java
+END
+VersionMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/58/trunk/src/com/google/bitcoin/core/VersionMessage.java
+END
+WalletEventListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/76/trunk/src/com/google/bitcoin/core/WalletEventListener.java
+END
+MemoryBlockStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/49/trunk/src/com/google/bitcoin/core/MemoryBlockStore.java
+END
+ECKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/51/trunk/src/com/google/bitcoin/core/ECKey.java
+END
+PeerAddress.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/58/trunk/src/com/google/bitcoin/core/PeerAddress.java
+END
+VarInt.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/25/trunk/src/com/google/bitcoin/core/VarInt.java
+END
+UnknownMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/24/trunk/src/com/google/bitcoin/core/UnknownMessage.java
+END
+IrcDiscovery.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/IrcDiscovery.java
+END
+NetworkConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/88/trunk/src/com/google/bitcoin/core/NetworkConnection.java
+END
+InventoryItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/core/InventoryItem.java
+END
+Sha256Hash.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/60/trunk/src/com/google/bitcoin/core/Sha256Hash.java
+END
+DnsDiscovery.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/DnsDiscovery.java
+END
+NetworkParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/core/NetworkParameters.java
+END
+VersionedChecksummedBytes.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/core/VersionedChecksummedBytes.java
+END
+GetBlocksMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/34/trunk/src/com/google/bitcoin/core/GetBlocksMessage.java
+END
+PeerDiscovery.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/64/trunk/src/com/google/bitcoin/core/PeerDiscovery.java
+END
+ScriptException.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/core/ScriptException.java
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/core/Address.java
+END
+BoundedOverheadBlockStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/89/trunk/src/com/google/bitcoin/core/BoundedOverheadBlockStore.java
+END
+Base58.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/core/Base58.java
+END
+AddressMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/34/trunk/src/com/google/bitcoin/core/AddressMessage.java
+END
+Block.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/81/trunk/src/com/google/bitcoin/core/Block.java
+END
+Peer.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/67/trunk/src/com/google/bitcoin/core/Peer.java
+END
+BlockChain.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/89/trunk/src/com/google/bitcoin/core/BlockChain.java
+END

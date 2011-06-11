@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/kdf
+END
+DHKDFParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/kdf/DHKDFParameters.java
+END
+ECDHKEKGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/kdf/ECDHKEKGenerator.java
+END
+DHKEKGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/kdf/DHKEKGenerator.java
+END

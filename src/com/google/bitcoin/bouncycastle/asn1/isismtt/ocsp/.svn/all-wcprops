@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/ocsp
+END
+CertHash.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/ocsp/CertHash.java
+END
+RequestedCertificate.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/ocsp/RequestedCertificate.java
+END

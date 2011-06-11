@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement
+END
+ECDHCBasicAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/ECDHCBasicAgreement.java
+END
+DHAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/DHAgreement.java
+END
+DHBasicAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/DHBasicAgreement.java
+END
+ECMQVBasicAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/ECMQVBasicAgreement.java
+END
+ECDHBasicAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/agreement/ECDHBasicAgreement.java
+END

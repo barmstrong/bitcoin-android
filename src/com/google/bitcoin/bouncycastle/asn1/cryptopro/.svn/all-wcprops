@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro
+END
+GOST3410PublicKeyAlgParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/GOST3410PublicKeyAlgParameters.java
+END
+GOST3410ParamSetParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/GOST3410ParamSetParameters.java
+END
+GOST28147Parameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/GOST28147Parameters.java
+END
+ECGOST3410NamedCurves.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/ECGOST3410NamedCurves.java
+END
+GOST3410NamedParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/GOST3410NamedParameters.java
+END
+ECGOST3410ParamSetParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/ECGOST3410ParamSetParameters.java
+END
+CryptoProObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers.java
+END

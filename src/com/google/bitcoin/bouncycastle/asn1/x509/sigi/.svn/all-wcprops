@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/sigi
+END
+NameOrPseudonym.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/sigi/NameOrPseudonym.java
+END
+SigIObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/sigi/SigIObjectIdentifiers.java
+END
+PersonalData.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/sigi/PersonalData.java
+END

@@ -65,19 +65,19 @@ public class ProgressThread extends Thread {
 	                }
 	                
 	                if (retries_since_last_change > 10){
-	                	Log.d("Wallet", "removing bad peer and restarting");
+	                	retries_since_last_change = 0;
+	                	Log.d("Wallet", "removing bad peer and starting a new one");
 	                	appState.removeBadPeer();
-	                	//restart thread
-	                	Message restartMsg = mHandler.obtainMessage();
-	                	restartMsg.arg2 = 1;
-	            		mHandler.sendMessage(restartMsg);
-	            		break;
+	                	
+	                	peer.disconnect();
+	                	peer = new Peer(appState.params, appState.getNetworkConnection(), chain);
+	                	peer.start();
 	                }
 	            }
 	        }
 		} catch (IllegalArgumentException e) {
 			//zero blocks to download
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (InterruptedException e) {
