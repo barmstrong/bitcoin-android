@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess
+END
+ContentHints.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/ContentHints.java
+END
+SigningCertificate.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/SigningCertificate.java
+END
+OtherSigningCertificate.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/OtherSigningCertificate.java
+END
+ESSCertID.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/ESSCertID.java
+END
+SigningCertificateV2.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/SigningCertificateV2.java
+END
+OtherCertID.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/OtherCertID.java
+END
+ContentIdentifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/ContentIdentifier.java
+END
+ESSCertIDv2.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/ess/ESSCertIDv2.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/nist
+END
+NISTNamedCurves.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/nist/NISTNamedCurves.java
+END
+NISTObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/nist/NISTObjectIdentifiers.java
+END

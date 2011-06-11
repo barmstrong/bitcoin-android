@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/icao
+END
+LDSSecurityObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/icao/LDSSecurityObject.java
+END
+ICAOObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/icao/ICAOObjectIdentifiers.java
+END
+DataGroupHash.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/icao/DataGroupHash.java
+END

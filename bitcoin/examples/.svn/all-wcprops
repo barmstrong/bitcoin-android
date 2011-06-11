@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/89/trunk/src/com/google/bitcoin/examples
+END
+PrivateKeys.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/86/trunk/src/com/google/bitcoin/examples/PrivateKeys.java
+END
+PrintPeers.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/66/trunk/src/com/google/bitcoin/examples/PrintPeers.java
+END
+DumpWallet.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/28/trunk/src/com/google/bitcoin/examples/DumpWallet.java
+END
+PingService.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/89/trunk/src/com/google/bitcoin/examples/PingService.java
+END

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls
+END
+TlsNullCipherSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsNullCipherSuite.java
+END
+TlsCipherSuiteManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsCipherSuiteManager.java
+END
+TlsCipherSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsCipherSuite.java
+END
+ByteQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/ByteQueue.java
+END
+TlsOuputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsOuputStream.java
+END
+TlsBlockCipherCipherSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsBlockCipherCipherSuite.java
+END
+TlsRSASigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsRSASigner.java
+END
+Certificate.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/Certificate.java
+END
+TlsProtocolHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsProtocolHandler.java
+END
+TlsMac.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsMac.java
+END
+TlsUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsUtils.java
+END
+TlsDSSSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsDSSSigner.java
+END
+CombinedHash.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/CombinedHash.java
+END
+TlsRuntimeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsRuntimeException.java
+END
+RecordStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/RecordStream.java
+END
+AlwaysValidVerifyer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/AlwaysValidVerifyer.java
+END
+CertificateVerifyer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/CertificateVerifyer.java
+END
+TlsInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/tls/TlsInputStream.java
+END

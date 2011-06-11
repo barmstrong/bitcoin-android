@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf
+END
+ProofOfPossession.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/ProofOfPossession.java
+END
+Controls.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/Controls.java
+END
+SinglePubInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/SinglePubInfo.java
+END
+POPOSigningKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/POPOSigningKey.java
+END
+CertRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/CertRequest.java
+END
+CertId.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/CertId.java
+END
+CertReqMsg.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/CertReqMsg.java
+END
+AttributeTypeAndValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/AttributeTypeAndValue.java
+END
+POPOSigningKeyInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/POPOSigningKeyInput.java
+END
+POPOPrivKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/POPOPrivKey.java
+END
+CertTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/CertTemplate.java
+END
+PKIPublicationInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/PKIPublicationInfo.java
+END
+EncryptedValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/EncryptedValue.java
+END
+OptionalValidity.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/OptionalValidity.java
+END
+CertReqMessages.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/crmf/CertReqMessages.java
+END

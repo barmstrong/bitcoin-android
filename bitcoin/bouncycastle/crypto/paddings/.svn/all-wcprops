@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings
+END
+ISO7816d4Padding.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/ISO7816d4Padding.java
+END
+TBCPadding.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/TBCPadding.java
+END
+ISO10126d2Padding.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/ISO10126d2Padding.java
+END
+PaddedBufferedBlockCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/PaddedBufferedBlockCipher.java
+END
+ZeroBytePadding.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/ZeroBytePadding.java
+END
+X923Padding.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/X923Padding.java
+END
+BlockCipherPadding.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/BlockCipherPadding.java
+END
+PKCS7Padding.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/paddings/PKCS7Padding.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/util
+END
+PublicKeyFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/util/PublicKeyFactory.java
+END
+PrivateKeyFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/util/PrivateKeyFactory.java
+END
+Pack.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/util/Pack.java
+END

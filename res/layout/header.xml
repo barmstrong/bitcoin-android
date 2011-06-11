@@ -6,4 +6,9 @@
 	<ImageView android:id="@+id/imageView1" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:src="@drawable/logo"
 		android:paddingTop="5dip" />
+
+	<ProgressBar android:id="@+id/progressBar"
+		android:layout_alignParentRight="true" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" style="?android:attr/progressBarStyleSmall"
+		android:paddingTop="5dip" android:visibility="gone" />
 </RelativeLayout>

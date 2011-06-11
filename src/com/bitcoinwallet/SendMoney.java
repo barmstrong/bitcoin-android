@@ -1,7 +1,10 @@
 package com.bitcoinwallet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import java.net.URLDecoder;
 
@@ -41,6 +44,13 @@ public class SendMoney extends Activity {
 						+ URLDecoder.decode(b.getString("message")));
 			}
 		}
+		
+		Button sendButton = (Button)this.findViewById(R.id.send_money_button);
+		sendButton.setOnClickListener(new View.OnClickListener() {
+	        public void onClick(View v) {
+	        	
+	        }
+	    });
 
 	}
 

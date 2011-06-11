@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/util
+END
+DERDump.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/util/DERDump.java
+END
+Dump.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/util/Dump.java
+END
+ASN1Dump.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/util/ASN1Dump.java
+END

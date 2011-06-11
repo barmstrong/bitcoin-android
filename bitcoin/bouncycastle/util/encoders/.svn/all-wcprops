@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders
+END
+Encoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/Encoder.java
+END
+BufferedEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/BufferedEncoder.java
+END
+Base64.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/Base64.java
+END
+Base64Encoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/Base64Encoder.java
+END
+HexEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/HexEncoder.java
+END
+Hex.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/Hex.java
+END
+UrlBase64.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/UrlBase64.java
+END
+UrlBase64Encoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/UrlBase64Encoder.java
+END
+BufferedDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/BufferedDecoder.java
+END
+Translator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/Translator.java
+END
+HexTranslator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/util/encoders/HexTranslator.java
+END

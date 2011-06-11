@@ -1,0 +1,413 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509
+END
+NoticeReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/NoticeReference.java
+END
+X509Extension.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509Extension.java
+END
+TBSCertList.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/TBSCertList.java
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/Attribute.java
+END
+AttributeCertificate.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AttributeCertificate.java
+END
+RoleSyntax.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/RoleSyntax.java
+END
+DSAParameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/DSAParameter.java
+END
+CertificatePolicies.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CertificatePolicies.java
+END
+PrivateKeyUsagePeriod.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/PrivateKeyUsagePeriod.java
+END
+SubjectKeyIdentifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/SubjectKeyIdentifier.java
+END
+RSAPublicKeyStructure.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/RSAPublicKeyStructure.java
+END
+AuthorityInformationAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AuthorityInformationAccess.java
+END
+X509NameEntryConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509NameEntryConverter.java
+END
+UserNotice.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/UserNotice.java
+END
+X509ObjectIdentifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509ObjectIdentifiers.java
+END
+ObjectDigestInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/ObjectDigestInfo.java
+END
+CRLNumber.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CRLNumber.java
+END
+PolicyMappings.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/PolicyMappings.java
+END
+V2AttributeCertificateInfoGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/V2AttributeCertificateInfoGenerator.java
+END
+NameConstraints.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/NameConstraints.java
+END
+Targets.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/Targets.java
+END
+BasicConstraints.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/BasicConstraints.java
+END
+IssuerSerial.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/IssuerSerial.java
+END
+V2Form.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/V2Form.java
+END
+KeyUsage.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/KeyUsage.java
+END
+GeneralName.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/GeneralName.java
+END
+PolicyQualifierId.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/PolicyQualifierId.java
+END
+AttCertValidityPeriod.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AttCertValidityPeriod.java
+END
+AttributeCertificateInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AttributeCertificateInfo.java
+END
+SubjectPublicKeyInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/SubjectPublicKeyInfo.java
+END
+KeyPurposeId.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/KeyPurposeId.java
+END
+X509DefaultEntryConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509DefaultEntryConverter.java
+END
+X509Extensions.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509Extensions.java
+END
+DistributionPointName.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/DistributionPointName.java
+END
+X509ExtensionsGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509ExtensionsGenerator.java
+END
+TargetInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/TargetInformation.java
+END
+ExtendedKeyUsage.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/ExtendedKeyUsage.java
+END
+X509NameTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509NameTokenizer.java
+END
+AttCertIssuer.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AttCertIssuer.java
+END
+AccessDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AccessDescription.java
+END
+PolicyInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/PolicyInformation.java
+END
+X509Name.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509Name.java
+END
+GeneralSubtree.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/GeneralSubtree.java
+END
+V1TBSCertificateGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/V1TBSCertificateGenerator.java
+END
+V3TBSCertificateGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/V3TBSCertificateGenerator.java
+END
+TBSCertificateStructure.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/TBSCertificateStructure.java
+END
+X509Attributes.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509Attributes.java
+END
+Holder.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/Holder.java
+END
+CRLDistPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CRLDistPoint.java
+END
+CertificateList.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CertificateList.java
+END
+AlgorithmIdentifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AlgorithmIdentifier.java
+END
+DigestInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/DigestInfo.java
+END
+IssuingDistributionPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/IssuingDistributionPoint.java
+END
+Time.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/Time.java
+END
+GeneralNames.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/GeneralNames.java
+END
+AuthorityKeyIdentifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/AuthorityKeyIdentifier.java
+END
+ReasonFlags.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/ReasonFlags.java
+END
+DisplayText.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/DisplayText.java
+END
+PolicyQualifierInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/PolicyQualifierInfo.java
+END
+V2TBSCertListGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/V2TBSCertListGenerator.java
+END
+Target.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/Target.java
+END
+CRLReason.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CRLReason.java
+END
+IetfAttrSyntax.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/IetfAttrSyntax.java
+END
+X509CertificateStructure.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/X509CertificateStructure.java
+END
+DistributionPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/DistributionPoint.java
+END
+CertPolicyId.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CertPolicyId.java
+END
+SubjectDirectoryAttributes.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/SubjectDirectoryAttributes.java
+END
+CertificatePair.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/x509/CertificatePair.java
+END

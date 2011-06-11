@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig
+END
+PrimaryUserID.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/PrimaryUserID.java
+END
+IssuerKeyID.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/IssuerKeyID.java
+END
+Revocable.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/Revocable.java
+END
+SignatureExpirationTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/SignatureExpirationTime.java
+END
+SignerUserID.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/SignerUserID.java
+END
+TrustSignature.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/TrustSignature.java
+END
+NotationData.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/NotationData.java
+END
+Exportable.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/Exportable.java
+END
+KeyFlags.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/KeyFlags.java
+END
+SignatureCreationTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/SignatureCreationTime.java
+END
+PreferredAlgorithms.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/PreferredAlgorithms.java
+END
+KeyExpirationTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/KeyExpirationTime.java
+END
+EmbeddedSignature.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/bcpg/sig/EmbeddedSignature.java
+END

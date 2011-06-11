@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers
+END
+DSASigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/DSASigner.java
+END
+ECNRSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/ECNRSigner.java
+END
+DSADigestSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/DSADigestSigner.java
+END
+ECGOST3410Signer.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/ECGOST3410Signer.java
+END
+GenericSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/GenericSigner.java
+END
+ISO9796d2Signer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/ISO9796d2Signer.java
+END
+ECDSASigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/ECDSASigner.java
+END
+GOST3410Signer.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/GOST3410Signer.java
+END
+ISO9796d2PSSSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/ISO9796d2PSSSigner.java
+END
+PSSSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/PSSSigner.java
+END
+RSADigestSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/signers/RSADigestSigner.java
+END

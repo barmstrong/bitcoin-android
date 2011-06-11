@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec
+END
+FpNafMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/FpNafMultiplier.java
+END
+ECPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECPoint.java
+END
+WNafMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/WNafMultiplier.java
+END
+ReferenceMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ReferenceMultiplier.java
+END
+ECFieldElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECFieldElement.java
+END
+WTauNafPreCompInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/WTauNafPreCompInfo.java
+END
+WTauNafMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/WTauNafMultiplier.java
+END
+PreCompInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/PreCompInfo.java
+END
+ECAlgorithms.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECAlgorithms.java
+END
+ECConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECConstants.java
+END
+Tnaf.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/Tnaf.java
+END
+IntArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/IntArray.java
+END
+SimpleBigDecimal.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/SimpleBigDecimal.java
+END
+ECCurve.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECCurve.java
+END
+WNafPreCompInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/WNafPreCompInfo.java
+END
+ZTauElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ZTauElement.java
+END
+ECMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/math/ec/ECMultiplier.java
+END

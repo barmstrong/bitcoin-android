@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509
+END
+NamingAuthority.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/NamingAuthority.java
+END
+ProfessionInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/ProfessionInfo.java
+END
+AdditionalInformationSyntax.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/AdditionalInformationSyntax.java
+END
+Restriction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/Restriction.java
+END
+DeclarationOfMajority.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/DeclarationOfMajority.java
+END
+Admissions.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/Admissions.java
+END
+ProcurationSyntax.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/ProcurationSyntax.java
+END
+AdmissionSyntax.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/AdmissionSyntax.java
+END
+MonetaryLimit.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/isismtt/x509/MonetaryLimit.java
+END

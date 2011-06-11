@@ -18,7 +18,7 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 	<EditText android:id="@+id/memo" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></EditText>
-	<Button android:text="@string/send_money_button" android:id="@+id/button1"
+	<Button android:text="@string/send_money_button" android:id="@+id/send_money_button"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_marginTop="15dip"></Button>
 </TableLayout>

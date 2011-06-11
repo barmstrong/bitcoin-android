@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm
+END
+BasicGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm/BasicGCMMultiplier.java
+END
+GCMUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm/GCMUtil.java
+END
+Tables8kGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm/Tables8kGCMMultiplier.java
+END
+Tables64kGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm/Tables64kGCMMultiplier.java
+END
+GCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/crypto/modes/gcm/GCMMultiplier.java
+END

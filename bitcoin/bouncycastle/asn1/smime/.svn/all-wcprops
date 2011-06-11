@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime
+END
+SMIMECapabilityVector.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMECapabilityVector.java
+END
+SMIMEEncryptionKeyPreferenceAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMEEncryptionKeyPreferenceAttribute.java
+END
+SMIMEAttributes.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMEAttributes.java
+END
+SMIMECapabilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMECapabilities.java
+END
+SMIMECapabilitiesAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMECapabilitiesAttribute.java
+END
+SMIMECapability.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/src/com/google/bitcoin/bouncycastle/asn1/smime/SMIMECapability.java
+END
