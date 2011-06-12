@@ -12,7 +12,7 @@
 
 	<application android:name="ApplicationState" android:icon="@drawable/my_icon"
 		android:label="@string/app_name" android:theme="@style/CustomTheme">
-		<activity android:name=".BitcoinWallet" android:label="@string/app_name">
+		<activity android:name=".BitcoinWallet" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -22,8 +22,8 @@
 			android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"
 			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
 			android:windowSoftInputMode="stateAlwaysHidden" />
-		<activity android:name="SendMoney" />
-		<activity android:name="ReceiveMoney" />
+		<activity android:name="SendMoney" android:screenOrientation="portrait" />
+		<activity android:name="ReceiveMoney" android:screenOrientation="portrait" />
 
 	</application>
 </manifest>

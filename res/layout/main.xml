@@ -25,9 +25,8 @@
 			android:layout_width="wrap_content" android:baselineAligned="false">
 			<TextView android:id="@+id/textView2" android:layout_height="wrap_content"
 				android:layout_width="wrap_content" android:text="@string/balance_label"></TextView>
-			<TextView android:layout_height="wrap_content" android:id="@+id/textView3"
-				android:layout_width="wrap_content" android:layout_gravity="right"
-				android:text="@string/amount_placeholder"></TextView>
+			<TextView android:layout_height="wrap_content" android:id="@+id/balanceLabel"
+				android:layout_width="wrap_content" android:layout_gravity="right" />
 		</TableRow>
 	</TableLayout>
 

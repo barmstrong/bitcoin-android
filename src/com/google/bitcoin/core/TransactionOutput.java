@@ -19,6 +19,8 @@ package com.google.bitcoin.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -140,6 +142,7 @@ public class TransactionOutput extends Message implements Serializable {
     public boolean isMine(Wallet wallet) {
         try {
             byte[] pubkeyHash = getScriptPubKey().getPubKeyHash();
+
             return wallet.isPubKeyHashMine(pubkeyHash);
         } catch (ScriptException e) {
             log.error("Could not parse tx output script: {}", e.toString());

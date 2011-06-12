@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.bitcoin.core.Address;
+import com.google.bitcoin.core.ECKey;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Contents;
 import com.google.zxing.client.android.Intents;
@@ -26,22 +28,28 @@ public class ReceiveMoney extends Activity {
 
 	private QRCodeEncoder qrCodeEncoder;
 	int dimension;
-	String address;
+	Address receiveAddress;
 	String amount;
 	EditText amountField;
+	ApplicationState appState;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.receive_money);
+		
+		appState = ApplicationState.current;
+		
 		//prevent keyboard from opening
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
+		
 		dimension = getScreenWidth() * 7 / 8;
-		address = "1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L";
+		
+		ECKey key = appState.wallet.keychain.get(0);
+		receiveAddress = key.toAddress(appState.params);
 		TextView addressField = (TextView) findViewById(R.id.address);
-		addressField.setText(address);
+		addressField.setText(receiveAddress.toString());
 		
 		generateQRCode(generateBitCoinURI());
 		
@@ -66,9 +74,9 @@ public class ReceiveMoney extends Activity {
 	        public void onClick(View v) {
 	        	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
             	emailIntent.setType("text/plain");
-            	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Payment Request From: "+address);
+            	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Payment Request From: "+ receiveAddress);
             	String message = "Hello,\n\nYou've received a bitcoin payment request.  Please send funds to the following address.";
-            	message += "\n\nAddress: "+address;
+            	message += "\n\nAddress: "+ receiveAddress;
             	if(amount != null && amount != ""){
             		message += "\nAmount:  "+amount+" BTC";
             	}
@@ -87,11 +95,11 @@ public class ReceiveMoney extends Activity {
 	
 	private String generateBitCoinURI(){
 		String uri = "bitcoin:";
-		uri += address + "?";
+		uri += receiveAddress.toString() + "?";
 		if(amount != null && amount.length() > 0){
 			uri += "amount=" + amount;
 		}
-		return uri; 
+		return uri;
 	}
 	
 	private void generateQRCode(String data) {

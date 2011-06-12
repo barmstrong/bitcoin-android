@@ -7,12 +7,11 @@ import java.util.concurrent.TimeUnit;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-
-import com.google.bitcoin.core.BlockChain;
 import com.google.bitcoin.core.Peer;
 
 public class ProgressThread extends Thread {
 	Peer peer;
+	CountDownLatch progress;
 	Handler mHandler;
 	BitcoinWallet parent;
 	final static int STATE_DONE = 0;
@@ -29,62 +28,49 @@ public class ProgressThread extends Thread {
 	public void run() {
 		ApplicationState appState = ApplicationState.current;
 
-		BlockChain chain = new BlockChain(appState.params, appState.wallet,
-				appState.blockStore);
-		peer = new Peer(appState.params, appState.getNetworkConnection(), chain);
-		peer.start();
+		peer = appState.getPeer();
+		while(peer != null){
+			try {
+				peer.start();
+				progress = peer.startBlockChainDownload();
+				long max = progress.getCount();
+				long current = max;
+				int no_change_count = 0;
+				while (current > 0) {
+				    double pct = 100.0 - (100.0 * (current / (double)max));
+				    System.out.println(String.format("Chain download %d%% done", (int)pct));
+				    progress.await(1, TimeUnit.SECONDS);
+				    long tmp = progress.getCount();
+				    if (tmp == current){
+				    	no_change_count++;
+				    } else {
+				    	current = tmp;
+				    	no_change_count = 0;
+				    	Message msg = mHandler.obtainMessage();
+						msg.arg1 = (int) pct;
+						mHandler.sendMessage(msg);
+				    }
+				    if (no_change_count > 10){
+				    	break;
+				    }
+				    if (pct >= 100){
+				    	return;
+				    }
+				}
+			} catch (Exception e){
+				//try next peer
+			}			
+			peer.disconnect();
+        	appState.removeBadPeer();
+        	peer = appState.getPeer();
 
-		Log.d("Wallet", "Starting download.");
-		CountDownLatch progress;
-		try {
-			progress = peer.startBlockChainDownload();
-			long max = progress.getCount();  // Racy but no big deal.
-	        if (max > 0) {
-	        	System.out.println("Downloading " + max + " blocks. "
-						+ (max > 1000 ? "This may take a while." : ""));
-	        	
-	        	//hack since it's not disconnecting cleanly
-	        	int retries_since_last_change = 0;
-	        	long tmp;
-	        	
-	            long current = max;
-	            while (current > 0) {
-	                double pct = 100.0 - (100.0 * (current / (double)max));
-	                System.out.println(String.format("Chain download %d%% done", (int)pct));
-	                Message msg = mHandler.obtainMessage();
-					msg.arg1 = (int) pct;
-					mHandler.sendMessage(msg);
-	                progress.await(1, TimeUnit.SECONDS);
-	                
-	                tmp = progress.getCount();
-	                if(tmp == current){
-	                	retries_since_last_change += 1;
-	                } else {
-	                	retries_since_last_change = 0;
-	                	current = tmp;
-	                }
-	                
-	                if (retries_since_last_change > 10){
-	                	retries_since_last_change = 0;
-	                	Log.d("Wallet", "removing bad peer and starting a new one");
-	                	appState.removeBadPeer();
-	                	
-	                	peer.disconnect();
-	                	peer = new Peer(appState.params, appState.getNetworkConnection(), chain);
-	                	peer.start();
-	                }
-	            }
-	        }
-		} catch (IllegalArgumentException e) {
-			//zero blocks to download
-			//e.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (InterruptedException e) {
-			Log.e("ERROR", "Thread Interrupted");
 		}
 		
 		// ensure dialog closes if we catch an exception
+		hideDialog();
+	}
+	
+	public void hideDialog(){
 		Message msg = mHandler.obtainMessage();
 		msg.arg1 = 100;
 		mHandler.sendMessage(msg);

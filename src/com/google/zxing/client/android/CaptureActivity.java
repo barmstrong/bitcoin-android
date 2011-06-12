@@ -99,7 +99,6 @@ public final class CaptureActivity extends Activity implements
 
 	private ViewfinderView viewfinderView;
 	private TextView statusView;
-	private View resultView;
 	private MediaPlayer mediaPlayer;
 	private Result lastResult;
 	private boolean hasSurface;
@@ -464,7 +463,6 @@ public final class CaptureActivity extends Activity implements
 	}
 
 	private void resetStatusView() {
-		resultView.setVisibility(View.GONE);
 		statusView.setText(R.string.msg_default_status);
 		statusView.setVisibility(View.VISIBLE);
 		viewfinderView.setVisibility(View.VISIBLE);
