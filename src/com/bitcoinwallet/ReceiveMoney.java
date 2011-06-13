@@ -28,7 +28,7 @@ public class ReceiveMoney extends Activity {
 
 	private QRCodeEncoder qrCodeEncoder;
 	int dimension;
-	Address receiveAddress;
+	Address address;
 	String amount;
 	EditText amountField;
 	ApplicationState appState;
@@ -39,7 +39,7 @@ public class ReceiveMoney extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.receive_money);
 		
-		appState = ApplicationState.current;
+		appState = (ApplicationState) getApplication();
 		
 		//prevent keyboard from opening
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -47,9 +47,9 @@ public class ReceiveMoney extends Activity {
 		dimension = getScreenWidth() * 7 / 8;
 		
 		ECKey key = appState.wallet.keychain.get(0);
-		receiveAddress = key.toAddress(appState.params);
+		address = key.toAddress(appState.params);
 		TextView addressField = (TextView) findViewById(R.id.address);
-		addressField.setText(receiveAddress.toString());
+		addressField.setText(address.toString());
 		
 		generateQRCode(generateBitCoinURI());
 		
@@ -74,9 +74,9 @@ public class ReceiveMoney extends Activity {
 	        public void onClick(View v) {
 	        	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
             	emailIntent.setType("text/plain");
-            	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Payment Request From: "+ receiveAddress);
+            	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Payment Request From: "+ address);
             	String message = "Hello,\n\nYou've received a bitcoin payment request.  Please send funds to the following address.";
-            	message += "\n\nAddress: "+ receiveAddress;
+            	message += "\n\nAddress: "+ address;
             	if(amount != null && amount != ""){
             		message += "\nAmount:  "+amount+" BTC";
             	}
@@ -95,7 +95,7 @@ public class ReceiveMoney extends Activity {
 	
 	private String generateBitCoinURI(){
 		String uri = "bitcoin:";
-		uri += receiveAddress.toString() + "?";
+		uri += address.toString() + "?";
 		if(amount != null && amount.length() > 0){
 			uri += "amount=" + amount;
 		}

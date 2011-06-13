@@ -1,12 +1,11 @@
 package com.bitcoinwallet;
 
-import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+
 import com.google.bitcoin.core.Peer;
 
 public class ProgressThread extends Thread {
@@ -27,22 +26,24 @@ public class ProgressThread extends Thread {
 
 	public void run() {
 		ApplicationState appState = ApplicationState.current;
-
+		long max;
+		long current;
+		
 		peer = appState.getPeer();
 		while(peer != null){
 			try {
 				peer.start();
 				progress = peer.startBlockChainDownload();
-				long max = progress.getCount();
-				long current = max;
+				max = progress.getCount();
+				current = max;
 				int no_change_count = 0;
 				while (current > 0) {
 				    double pct = 100.0 - (100.0 * (current / (double)max));
 				    System.out.println(String.format("Chain download %d%% done", (int)pct));
 				    progress.await(1, TimeUnit.SECONDS);
 				    long tmp = progress.getCount();
-				    if (tmp == current){
-				    	no_change_count++;
+				    if (tmp == current && no_change_count++ > 10){
+				    	break;
 				    } else {
 				    	current = tmp;
 				    	no_change_count = 0;
@@ -50,12 +51,10 @@ public class ProgressThread extends Thread {
 						msg.arg1 = (int) pct;
 						mHandler.sendMessage(msg);
 				    }
-				    if (no_change_count > 10){
-				    	break;
-				    }
-				    if (pct >= 100){
-				    	return;
-				    }
+				}
+				if(current == 0){
+					hideDialog();
+					return;
 				}
 			} catch (Exception e){
 				//try next peer

@@ -74,12 +74,11 @@ public class SendMoney extends Activity {
 	        		address = new Address(appState.params, addressField.getText().toString());
 	        		amount = Utils.toNanoCoins(amountField.getText().toString());
 					sendTx = appState.wallet.sendCoins(appState.getPeer(), address, amount);
-					Log.d("Wallet", "Sending. Amount=" + amount + " Wallet="+appState.wallet.getBalance(BalanceType.ESTIMATED));
 					appState.saveWallet();
 					if (sendTx != null) {
 						AlertDialog.Builder builder = new AlertDialog.Builder(
 								SendMoney.this);
-						builder.setMessage("Bitcoins successfully sent.")
+						builder.setMessage("Payment successful!")
 								.setCancelable(false)
 								.setNegativeButton("Ok",
 										new DialogInterface.OnClickListener() {

@@ -31,8 +31,8 @@ public class ApplicationState extends Application {
 
 	boolean TEST_MODE = true;
 	Wallet wallet;
-	String filePrefix = TEST_MODE ? "android_testnet" : "android_prodnet";
-	String walletFilename = filePrefix + ".wallet";
+	String filePrefix = TEST_MODE ? "testnet" : "prodnet";
+	File walletFile;
 	NetworkParameters params = TEST_MODE ? NetworkParameters.testNet()
 			: NetworkParameters.prodNet();
 	PeerDiscovery peerDiscovery;
@@ -42,17 +42,21 @@ public class ApplicationState extends Application {
 	Peer currentPeer;
 
 	public static ApplicationState current;
-
-	// starting up
-	public void setup() {
+	
+	@Override
+	public void onCreate(){
 		Log.d("Wallet", "Starting app");
-		ApplicationState.current = (ApplicationState) getApplicationContext();
+		ApplicationState.current = (ApplicationState) this;
 		
-		// try reading file or create a new one
+		
+		// read or create wallet
+		walletFile = new File(getFilesDir(), filePrefix + ".wallet");
 		try {
-			wallet = Wallet.loadFromFile(new File(getExternalFilesDir(null), walletFilename));
-		} catch (IOException e) {
+			wallet = Wallet.loadFromFile(walletFile);
+			Log.d("Wallet", "Found wallet file to load");
+		} catch (IOException e){
 			wallet = new Wallet(params);
+			Log.d("Wallet", "Created new wallet");
 			wallet.keychain.add(new ECKey());
 			saveWallet();
 		}
@@ -80,23 +84,16 @@ public class ApplicationState extends Application {
 	}
 	
 	public void saveWallet() {
+		Log.d("Wallet", "Saving wallet");
 		try {
-			wallet.saveToFile(new File(getExternalFilesDir(null), walletFilename));
+			wallet.saveToFile(walletFile);
 		} catch (IOException e) {
 			throw new Error("Can't save wallet file.");
 		}
 	}
-
-	public BlockStore getBlockStore() {
-		return blockStore;
-	}
-
-	public void setBlockStore(BlockStore bs) {
-		blockStore = bs;
-	}
 	
 	public void removeBadPeer() {
-		Log.d("Wallet", "removing bad peer and starting a new one");
+		Log.d("Wallet", "removing bad peer");
 		if (peers.size() > 0)
 			peers.remove(0);
 		else {

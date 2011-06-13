@@ -45,6 +45,7 @@ public final class R {
         public static final int ic_menu_refresh=0x7f020001;
         public static final int logo=0x7f020002;
         public static final int my_icon=0x7f020003;
+        public static final int my_notification_icon=0x7f020004;
     }
     public static final class id {
         public static final int address=0x7f07001f;
