@@ -21,11 +21,11 @@ import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.Wallet.BalanceType;
 
 public class SendMoney extends Activity {
-	
+
 	EditText addressField;
 	EditText amountField;
 	EditText memoField;
-	
+
 	Address address;
 	BigInteger amount;
 
@@ -59,81 +59,72 @@ public class SendMoney extends Activity {
 			}
 			if (b.getString("message") != null) {
 				memoField = (EditText) findViewById(R.id.memo);
-				memoField.setText(memoField.getText()
-						+ URLDecoder.decode(b.getString("message")));
+				memoField.setText(memoField.getText() + URLDecoder.decode(b.getString("message")));
 			}
 		}
-		
-		Button sendButton = (Button)this.findViewById(R.id.send_money_button);
-		sendButton.setOnClickListener(new View.OnClickListener() {
-	        public void onClick(View v) {
-	        	Transaction sendTx = null;
-	        	ApplicationState appState = ApplicationState.current;
 
-	        	try {
-	        		address = new Address(appState.params, addressField.getText().toString());
-	        		amount = Utils.toNanoCoins(amountField.getText().toString());
+		Button sendButton = (Button) this.findViewById(R.id.send_money_button);
+		sendButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Transaction sendTx = null;
+				ApplicationState appState = ApplicationState.current;
+
+				try {
+					address = new Address(appState.params, addressField.getText().toString());
+					amount = Utils.toNanoCoins(amountField.getText().toString());
 					sendTx = appState.wallet.sendCoins(appState.getPeer(), address, amount);
 					appState.saveWallet();
 					if (sendTx != null) {
-						AlertDialog.Builder builder = new AlertDialog.Builder(
-								SendMoney.this);
-						builder.setMessage("Payment successful!")
-								.setCancelable(false)
-								.setNegativeButton("Ok",
-										new DialogInterface.OnClickListener() {
-											public void onClick(
-													DialogInterface dialog,
-													int id) {
-												dialog.cancel();
-												startActivity(new Intent(
-														SendMoney.this,
-														BitcoinWallet.class));
-											}
-										});
+						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
+						builder.setMessage("Payment successful!").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.cancel();
+								startActivity(new Intent(SendMoney.this, BitcoinWallet.class));
+							}
+						});
+						AlertDialog alert = builder.create();
+						alert.show();
+					} else {
+						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
+						String msg = "You're payment exceeds your current balance. \n\n";
+						if (appState.wallet.getPendingTransactions().size() > 0){
+							msg += " Please wait for your pending transactions to be confirmed, or add additional funds to your wallet using the 'Receive Money' button on the home screen.";
+						} else {
+							msg += " Try funding your bitcoin wallet by using the 'Receive Money' button on the home screen.";
+						}
+						builder.setMessage(msg)
+								.setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int id) {
+										dialog.cancel();
+										startActivity(new Intent(SendMoney.this, BitcoinWallet.class));
+									}
+								});
 						AlertDialog alert = builder.create();
 						alert.show();
 					}
-				} catch (IOException e) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-					builder.setMessage(e.getMessage())
-					       .setCancelable(false)
-					       .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-					           public void onClick(DialogInterface dialog, int id) {
-					                dialog.cancel();
-					           }
-					       });
-					AlertDialog alert = builder.create();
-					alert.show();
 				} catch (AddressFormatException e) {
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-					builder.setMessage("Inalid address, please try again.")
-					       .setCancelable(false)
-					       .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-					           public void onClick(DialogInterface dialog, int id) {
-					                dialog.cancel();
-					           }
-					       });
+					builder.setMessage("Inalid address, please try again.").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					});
 					AlertDialog alert = builder.create();
 					alert.show();
-				}
-				
-				
-				if (sendTx == null) {
+				} catch (Exception e) {
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-					builder.setMessage("You're payment exceeds your current balance.  Try funding your bitcoin wallet by using the 'Receive Money' button from the home screen.")
-					       .setCancelable(false)
-					       .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-					           public void onClick(DialogInterface dialog, int id) {
-					                dialog.cancel();
-					           }
-					       });
+					builder.setMessage("Sorry we couldn't send that.  Please check your values and try again.").setCancelable(false)
+							.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int id) {
+									dialog.cancel();
+								}
+							});
 					AlertDialog alert = builder.create();
 					alert.show();
 				}
-				
-	        }
-	    });
+
+			}
+		});
 
 	}
 

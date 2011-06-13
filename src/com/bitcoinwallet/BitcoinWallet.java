@@ -9,25 +9,30 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.ScriptException;
 import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.TransactionInput;
+import com.google.bitcoin.core.TransactionOutput;
 import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.core.Wallet.BalanceType;
 import com.google.bitcoin.core.WalletEventListener;
 import com.google.zxing.client.android.CaptureActivity;
 
@@ -58,7 +63,7 @@ public class BitcoinWallet extends Activity {
 
 		appState = ((ApplicationState) getApplication());
 
-		updateUIBalance();
+		updateUI();
 		updateBlockChain();
 
 		appState.wallet.addEventListener(new WalletEventListener() {
@@ -75,22 +80,11 @@ public class BitcoinWallet extends Activity {
 					}
 				});
 			}
-		});		
+		});
 	}
 
 	private void updateBlockChain() {
-		for(Transaction tran : appState.wallet.getPendingTransactions()){
-			final TransactionInput input = tran.getInputs().get(0);
-            Address from = null;
-			try {
-				from = input.getFromAddress();
-			} catch (ScriptException e) {
-				e.printStackTrace();
-			}
-            final BigInteger value = tran.getValueSentToMe(appState.wallet);
-            Log.d("Wallet", "====> Got "+value+" from "+from);
-		}
-		
+
 		progressDialog = new ProgressDialog(BitcoinWallet.this);
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressDialog.setMessage("Syncing with network...");
@@ -109,7 +103,7 @@ public class BitcoinWallet extends Activity {
 				} else if (total >= 100) {
 					progressDialog.hide();
 					progressBar.setVisibility(View.GONE);
-					updateUIBalance();
+					updateUI();
 					Log.d("Wallet", "Download complete");
 				}
 			}
@@ -118,12 +112,76 @@ public class BitcoinWallet extends Activity {
 
 		progressThread = new ProgressThread(handler, this);
 		progressThread.start();
-		updateUIBalance();
+		updateUI();
 	}
 
-	private void updateUIBalance() {
+	private void updateUI() {
 		TextView balance = (TextView) findViewById(R.id.balanceLabel);
-		balance.setText(Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance(BalanceType.ESTIMATED)) + " BTC");
+		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance()));
+
+		TableLayout tl = (TableLayout) findViewById(R.id.transactions);
+		tl.removeAllViews();
+
+		for (Transaction tx : appState.wallet.pending.values()) {
+			addRowForTransaction(tl, tx);
+		}
+		for (Transaction tx : appState.wallet.unspent.values()) {
+			addRowForTransaction(tl, tx);
+		}
+		for (Transaction tx : appState.wallet.spent.values()) {
+			addRowForTransaction(tl, tx);
+		}
+		Log.d("Wallet", "=========");
+	}
+
+	private void addRowForTransaction(TableLayout tl, Transaction tx) {
+		Log.d("Wallet", tx.toString());
+		/* Create a new row to be added. */
+		TableRow tr = new TableRow(this);
+		/* Create a Button to be the row-content.*/
+		TextView description = new TextView(this);
+		TextView amount = new TextView(this);
+		description.setTextSize(15);
+		amount.setTextSize(15);
+		String text = "";
+		
+		//check if pending
+		if (appState.wallet.pending.containsKey(tx.getHash())) {
+			text += "(Pending) ";
+			description.setTextColor(Color.GRAY);
+			amount.setTextColor(Color.GRAY);
+		} else {
+			description.setTextColor(Color.BLACK);
+			amount.setTextColor(Color.BLACK);
+		}
+		
+		//check if sent or received
+		try {
+			BigInteger sent = tx.getValueSentFromMe(appState.wallet);
+			BigInteger received = tx.getValueSentToMe(appState.wallet);
+			
+			if (received.compareTo(sent) == 1){
+				text += "Received from "+tx.getInputs().get(0).getFromAddress();
+				amount.setText("+"+Utils.bitcoinValueToFriendlyString(received));
+			} else {
+				text += "Sent to "+tx.outputs.get(0).getScriptPubKey().getToAddress();
+				amount.setText("-"+Utils.bitcoinValueToFriendlyString(sent));
+			}
+		} catch (ScriptException e) {
+			//don't display this transaction
+			return;
+		}
+		if (text.length() > 30){
+			text = text.substring(0,29)+"...";
+		}
+		description.setText(text);
+		//description.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		description.setPadding(0, 3, 0, 3);
+		amount.setPadding(0, 3, 0, 3);
+		amount.setGravity(Gravity.RIGHT);
+		tr.addView(description);
+		tr.addView(amount);
+		tl.addView(tr, new TableLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -145,13 +203,12 @@ public class BitcoinWallet extends Activity {
 	}
 
 	private void moneyReceivedAlert(Transaction tx) throws ScriptException {
-		updateUIBalance();
+		updateUI();
 		TransactionInput input = tx.getInputs().get(0);
 		Address from = input.getFromAddress();
 		BigInteger value = tx.getValueSentToMe(appState.wallet);
 		Log.d("Wallet", "Received " + Utils.bitcoinValueToFriendlyString(value) + " from " + from.toString());
-		
-		
+
 		String ticker = "You just received " + Utils.bitcoinValueToFriendlyString(value) + " BTC from " + from.toString();
 		String ns = Context.NOTIFICATION_SERVICE;
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
@@ -159,10 +216,10 @@ public class BitcoinWallet extends Activity {
 		notification.defaults |= Notification.DEFAULT_SOUND;
 		notification.defaults |= Notification.DEFAULT_VIBRATE;
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-		
+
 		Context context = getApplicationContext();
-		CharSequence contentTitle = Utils.bitcoinValueToFriendlyString(value)+" Bitcoins Received!";
-		CharSequence contentText = "From "+from.toString();
+		CharSequence contentTitle = Utils.bitcoinValueToFriendlyString(value) + " Bitcoins Received!";
+		CharSequence contentText = "From " + from.toString();
 		Intent notificationIntent = new Intent(this, BitcoinWallet.class);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);

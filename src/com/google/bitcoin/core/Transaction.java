@@ -44,7 +44,7 @@ public class Transaction extends Message implements Serializable {
     // These are serialized in both bitcoin and java serialization.
     long version;
     ArrayList<TransactionInput> inputs;
-    ArrayList<TransactionOutput> outputs;
+    public ArrayList<TransactionOutput> outputs;
     long lockTime;
 
     // This is only stored in Java serialization. It records which blocks (and their height + work) the transaction
@@ -112,7 +112,7 @@ public class Transaction extends Message implements Serializable {
      * Calculates the sum of the outputs that are sending coins to a key in the wallet. The flag controls whether to
      * include spent outputs or not.
      */
-    BigInteger getValueSentToMe(Wallet wallet, boolean includeSpent) {
+    public BigInteger getValueSentToMe(Wallet wallet, boolean includeSpent) {
         // This is tested in WalletTest.
         BigInteger v = BigInteger.ZERO;
         for (TransactionOutput o : outputs) {

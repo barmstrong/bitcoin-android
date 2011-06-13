@@ -79,7 +79,7 @@ public class Wallet implements Serializable {
      * spent for the purposes of calculating our balance but their outputs are not available for spending yet. This
      * means after a spend, our balance can actually go down temporarily before going up again!
      */
-    final Map<Sha256Hash, Transaction> pending;
+    public final Map<Sha256Hash, Transaction> pending;
 
     /**
      * Map of txhash->Transactions where the Transaction has unspent outputs. These are transactions we can use
@@ -93,7 +93,7 @@ public class Wallet implements Serializable {
      * theoretically you could spend zero-conf coins and all of them would be included together. To simplify we'll
      * make people wait but it would be a good improvement to resolve this in future.
      */
-    final Map<Sha256Hash, Transaction> unspent;
+    public final Map<Sha256Hash, Transaction> unspent;
 
     /**
      * Map of txhash->Transactions where the Transactions outputs are all fully spent. They are kept separately so
@@ -103,7 +103,7 @@ public class Wallet implements Serializable {
      *
      * Transactions only appear in this map if they are part of the best chain.
      */
-    final Map<Sha256Hash, Transaction> spent;
+    public final Map<Sha256Hash, Transaction> spent;
 
     /**
      * An inactive transaction is one that is seen only in a block that is not a part of the best chain. We keep it
