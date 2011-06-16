@@ -110,6 +110,17 @@ public class TransactionInput extends Message implements Serializable {
         }
         return scriptSig;
     }
+    
+    /** Copied from transaction output */
+    public boolean isMine(Wallet wallet) {
+        try {
+            byte[] pubkeyHash = getScriptSig().getPubKey();
+            return wallet.isPubKeyHashMine(pubkeyHash);
+        } catch (ScriptException e) {
+            System.out.println("Could not parse tx output script: {}" + e.toString());
+            return false;
+        }
+    }
 
     /**
      * Convenience method that returns the from address of this input by parsing the scriptSig.
@@ -190,4 +201,5 @@ public class TransactionInput extends Message implements Serializable {
         outpoint.fromTx = null;
         return true;
     }
+
 }

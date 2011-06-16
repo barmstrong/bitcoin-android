@@ -16,9 +16,9 @@ import android.widget.EditText;
 
 import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.AddressFormatException;
+import com.google.bitcoin.core.Peer;
 import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.Utils;
-import com.google.bitcoin.core.Wallet.BalanceType;
 
 public class SendMoney extends Activity {
 
@@ -72,9 +72,21 @@ public class SendMoney extends Activity {
 				try {
 					address = new Address(appState.params, addressField.getText().toString());
 					amount = Utils.toNanoCoins(amountField.getText().toString());
-					sendTx = appState.wallet.sendCoins(appState.getPeer(), address, amount);
-					appState.saveWallet();
+					sendTx = appState.wallet.createSend(address, amount);
+					
 					if (sendTx != null) {
+						for(Peer peer : appState.getPeers()){
+							try {
+							peer.broadcastTransaction(sendTx);
+							} catch (IOException e) {
+								Log.d("Wallet", "Broadcast failed");
+							}
+							Log.d("Wallet", "Broadcast succeeded");
+						}
+						appState.wallet.confirmSend(sendTx);
+						appState.saveWallet();
+						Log.d("Wallet", "Sent "+Utils.bitcoinValueToFriendlyString(amount)+" to "+address.toString());
+						
 						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
 						builder.setMessage("Payment successful!").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {

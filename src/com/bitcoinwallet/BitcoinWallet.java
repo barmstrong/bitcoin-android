@@ -1,6 +1,9 @@
 package com.bitcoinwallet;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -30,7 +33,6 @@ import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.ScriptException;
 import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.TransactionInput;
-import com.google.bitcoin.core.TransactionOutput;
 import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.Wallet;
 import com.google.bitcoin.core.WalletEventListener;
@@ -115,27 +117,29 @@ public class BitcoinWallet extends Activity {
 		updateUI();
 	}
 
-	private void updateUI() {
+	private void updateUI() {		
 		TextView balance = (TextView) findViewById(R.id.balanceLabel);
 		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance()));
 
 		TableLayout tl = (TableLayout) findViewById(R.id.transactions);
 		tl.removeAllViews();
+		
+		//generate list of transactions to show
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		transactions.addAll(appState.wallet.pending.values());
+		transactions.addAll(appState.wallet.unspent.values());
+		transactions.addAll(appState.wallet.spent.values());
+		//make sure list is unique
+		transactions = new ArrayList<Transaction>(new HashSet<Transaction>(transactions));
+		Collections.reverse(transactions);
 
-		for (Transaction tx : appState.wallet.pending.values()) {
+		for (Transaction tx : transactions) {
 			addRowForTransaction(tl, tx);
 		}
-		for (Transaction tx : appState.wallet.unspent.values()) {
-			addRowForTransaction(tl, tx);
-		}
-		for (Transaction tx : appState.wallet.spent.values()) {
-			addRowForTransaction(tl, tx);
-		}
-		Log.d("Wallet", "=========");
 	}
 
 	private void addRowForTransaction(TableLayout tl, Transaction tx) {
-		Log.d("Wallet", tx.toString());
+		//Log.d("Wallet", tx.toString());
 		/* Create a new row to be added. */
 		TableRow tr = new TableRow(this);
 		/* Create a Button to be the row-content.*/
@@ -157,15 +161,23 @@ public class BitcoinWallet extends Activity {
 		
 		//check if sent or received
 		try {
-			BigInteger sent = tx.getValueSentFromMe(appState.wallet);
-			BigInteger received = tx.getValueSentToMe(appState.wallet);
+			boolean sent = false;
+			for (TransactionInput in : tx.inputs) {
+				if (in.isMine(appState.wallet)) {
+					sent = true;
+					break;
+				}
+			}
 			
-			if (received.compareTo(sent) == 1){
-				text += "Received from "+tx.getInputs().get(0).getFromAddress();
-				amount.setText("+"+Utils.bitcoinValueToFriendlyString(received));
-			} else {
+			BigInteger sentFromMe = tx.getValueSentFromMe(appState.wallet);
+			BigInteger sentToMe = tx.getValueSentToMe(appState.wallet);
+			
+			if (sent){
 				text += "Sent to "+tx.outputs.get(0).getScriptPubKey().getToAddress();
-				amount.setText("-"+Utils.bitcoinValueToFriendlyString(sent));
+				amount.setText("-"+Utils.bitcoinValueToFriendlyString(sentFromMe.subtract(sentToMe)));
+			} else {
+				text += "Received from "+tx.getInputs().get(0).getFromAddress();
+				amount.setText("+"+Utils.bitcoinValueToFriendlyString(sentToMe.subtract(sentFromMe)));
 			}
 		} catch (ScriptException e) {
 			//don't display this transaction

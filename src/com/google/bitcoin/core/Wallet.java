@@ -385,8 +385,8 @@ public class Wallet implements Serializable {
     /**
      * Call this when we have successfully transmitted the send tx to the network, to update the wallet.
      */
-    synchronized void confirmSend(Transaction tx) {
-        assert !pending.containsKey(tx) : "confirmSend called on the same transaction twice";
+    public synchronized void confirmSend(Transaction tx) {
+        assert !pending.containsKey(tx.getHash()) : "confirmSend called on the same transaction twice";
         log.info("confirmSend of {}", tx.getHashAsString());
         // Mark the outputs of the used transcations as spent, so we don't try and spend it again.
         for (TransactionInput input : tx.inputs) {
@@ -413,7 +413,7 @@ public class Wallet implements Serializable {
      * Transaction objects which are equal. The wallet is not updated to track its pending status or to mark the
      * coins as spent until confirmSend is called on the result.
      */
-    synchronized Transaction createSend(Address address,  BigInteger nanocoins) {
+    public synchronized Transaction createSend(Address address,  BigInteger nanocoins) {
         // For now let's just pick the first key in our keychain. In future we might want to do something else to
         // give the user better privacy here, eg in incognito mode.
         assert keychain.size() > 0 : "Can't send value without an address to use for receiving change";
@@ -607,13 +607,12 @@ public class Wallet implements Serializable {
     @Override
     public synchronized String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Wallet containing ");
-        builder.append(bitcoinValueToFriendlyString(getBalance()));
-        builder.append("BTC in ");
-        builder.append(unspent.size());
-        builder.append(" unspent transactions/");
-        builder.append(spent.size());
-        builder.append(" spent transactions");
+        builder.append(String.format("Wallet containing %s BTC in:\n", bitcoinValueToFriendlyString(getBalance())));
+        builder.append(String.format("  %d unspent transactions\n", unspent.size()));
+        builder.append(String.format("  %d spent transactions\n", spent.size()));
+        builder.append(String.format("  %d pending transactions\n", pending.size()));
+        builder.append(String.format("  %d inactive transactions\n", inactive.size()));
+        builder.append(String.format("  %d dead transactions\n", dead.size()));
         // Do the keys.
         builder.append("\nKeys:\n");
         for (ECKey key : keychain) {
@@ -622,6 +621,27 @@ public class Wallet implements Serializable {
             builder.append(" ");
             builder.append(key.toString());
             builder.append("\n");
+        }
+        // Print the transactions themselves
+        if (unspent.size() > 0) {
+            builder.append("\nUNSPENT:\n");
+            for (Transaction tx : unspent.values()) builder.append(tx);
+        }
+        if (spent.size() > 0) {
+            builder.append("\nSPENT:\n");
+            for (Transaction tx : spent.values()) builder.append(tx);
+        }
+        if (pending.size() > 0) {
+            builder.append("\nPENDING:\n");
+            for (Transaction tx : pending.values()) builder.append(tx);
+        }
+        if (inactive.size() > 0) {
+            builder.append("\nINACTIVE:\n");
+            for (Transaction tx : inactive.values()) builder.append(tx);
+        }
+        if (dead.size() > 0) {
+            builder.append("\nDEAD:\n");
+            for (Transaction tx : dead.values()) builder.append(tx);
         }
         return builder.toString();
     }

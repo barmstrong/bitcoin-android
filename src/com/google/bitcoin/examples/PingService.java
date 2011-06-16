@@ -24,16 +24,36 @@ import java.math.BigInteger;
 import java.net.InetAddress;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.net.InetSocketAddress;
 
 /**
+ * <p>
  * PingService demonstrates basic usage of the library. It sits on the network and when it receives coins, simply
  * sends them right back to the previous owner, determined rather arbitrarily by the address of the first input.
+ * </p>
+ *
+ * <p>
+ * If running on TestNet (slow but better than using real coins on prodnet) do the following:
+ * <ol>
+ * <li>Backup your current wallet.dat in case of unforeseen problems</li>
+ * <li>Start your bitcoin client in test mode <code>bitcoin -testnet</code>. This will create a new sub-directory called testnet and should not interfere with normal wallets or operations.</li>
+ * <li>(Optional) Choose a fresh address</li>
+ * <li>(Optional) Visit the Testnet faucet (https://testnet.freebitcoins.appspot.com/) to load your client with test coins</li>
+ * <li>Run <code>PingService -testnet</code></li>
+ * <li>Wait for the block chain to download</li>
+ * <li>Send some coins from your bitcoin client to the address provided in the PingService console</li>
+ * <li>Leave it running until you get the coins back again</li>
+ * </ol>
+ * </p>
+ *
+ * <p>The testnet can be slow or flaky as it's a shared resource. You can use the <a href="http://sourceforge
+ * .net/projects/bitcoin/files/Bitcoin/testnet-in-a-box/">testnet in a box</a> to do everything purely locally.</p>
  */
 public class PingService {
     public static void main(String[] args) throws Exception {
-        boolean testNet = args.length > 0 && args[0].equalsIgnoreCase("testnet");
-        final NetworkParameters params = testNet ? NetworkParameters.testNet() : NetworkParameters.prodNet();
-        String filePrefix = testNet ? "pingservice-testnet" : "pingservice-prodnet";
+        boolean prodnet = args.length > 0 && args[0].equalsIgnoreCase("prodnet");
+        final NetworkParameters params = prodnet ? NetworkParameters.prodNet() : NetworkParameters.testNet();
+        String filePrefix = prodnet ? "pingservice-prodnet" : "pingservice-testnet";
 
         // Try to read the wallet from storage, create a new one if not possible.
         Wallet wallet;
@@ -54,11 +74,35 @@ public class PingService {
 
         // Connect to the localhost node. One minute timeout since we won't try any other peers
         System.out.println("Connecting ...");
-        NetworkConnection conn = new NetworkConnection(InetAddress.getLocalHost(), params,
-                                                       blockStore.getChainHead().getHeight(), 60000);
-        BlockChain chain = new BlockChain(params, wallet, blockStore);
-        final Peer peer = new Peer(params, conn, chain);
-        peer.start();
+				PeerDiscovery peerDiscovery = new IrcDiscovery("#bitcoinTEST");
+				
+				BlockChain chain = new BlockChain(params, wallet, blockStore);
+				
+				NetworkConnection conn = null;
+				try {
+					for (InetSocketAddress isa : peerDiscovery.getPeers()) {
+						
+						try {
+							conn = new NetworkConnection(isa.getAddress(), params, blockStore.getChainHead().getHeight(), 5000);
+						} catch (IOException e) {
+							System.out.println("Trying next peer");
+						} catch (ProtocolException e) {
+							System.out.println("ProtocolException in discoverPeers()");
+							e.printStackTrace();
+						} catch (BlockStoreException e) {
+							System.out.println("BlockStoreException in discoverPeers()");
+							e.printStackTrace();
+						}
+						if (conn != null) {
+							break;
+						}
+					}
+				} catch (PeerDiscoveryException e) {
+					System.out.println("Couldn't discover peers.");
+				}
+				
+				final Peer peer = new Peer(params, conn, chain);
+				peer.start();
 
         // We want to know when the balance changes.
         wallet.addEventListener(new WalletEventListener() {
@@ -95,8 +139,8 @@ public class PingService {
             System.out.println("Downloading block chain. " + (max > 1000 ? "This may take a while." : ""));
             long current = max;
             while (current > 0) {
-                double pct = 100.0 - (100.0 * (current / (double)max));
-                System.out.println(String.format("Chain download %d%% done", (int)pct));
+                double pct = 100.0 - (100.0 * (current / (double) max));
+                System.out.println(String.format("Chain download %d%% done", (int) pct));
                 progress.await(1, TimeUnit.SECONDS);
                 current = progress.getCount();
             }

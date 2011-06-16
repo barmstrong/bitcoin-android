@@ -23,16 +23,15 @@ public class ProgressThread extends Thread {
 		parent = p;
 		mState = STATE_RUNNING;
 	}
-
+	
 	public void run() {
 		ApplicationState appState = ApplicationState.current;
 		long max;
 		long current;
 		
-		peer = appState.getPeer();
-		while(peer != null){
+
+		for(Peer peer : appState.getPeers()){
 			try {
-				peer.start();
 				progress = peer.startBlockChainDownload();
 				max = progress.getCount();
 				current = max;
@@ -42,7 +41,7 @@ public class ProgressThread extends Thread {
 				    System.out.println(String.format("Chain download %d%% done", (int)pct));
 				    progress.await(1, TimeUnit.SECONDS);
 				    long tmp = progress.getCount();
-				    if (tmp == current && no_change_count++ > 10){
+				    if (tmp == current && no_change_count++ > 2){
 				    	break;
 				    } else {
 				    	current = tmp;
@@ -58,11 +57,8 @@ public class ProgressThread extends Thread {
 				}
 			} catch (Exception e){
 				//try next peer
-			}			
-			peer.disconnect();
-        	appState.removeBadPeer();
-        	peer = appState.getPeer();
-
+			}
+        	appState.removeBadPeer(peer);
 		}
 		
 		// ensure dialog closes if we catch an exception
