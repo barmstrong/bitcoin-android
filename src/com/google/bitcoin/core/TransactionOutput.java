@@ -16,13 +16,13 @@
 
 package com.google.bitcoin.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.BigInteger;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * A TransactionOutput message contains a scriptPubKey that controls who is able to spend its value. It is a sub-part

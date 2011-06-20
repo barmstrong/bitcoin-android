@@ -24,7 +24,6 @@ import java.math.BigInteger;
 import java.net.InetAddress;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.net.InetSocketAddress;
 
 /**
  * <p>
@@ -51,9 +50,9 @@ import java.net.InetSocketAddress;
  */
 public class PingService {
     public static void main(String[] args) throws Exception {
-        boolean prodnet = args.length > 0 && args[0].equalsIgnoreCase("prodnet");
-        final NetworkParameters params = prodnet ? NetworkParameters.prodNet() : NetworkParameters.testNet();
-        String filePrefix = prodnet ? "pingservice-prodnet" : "pingservice-testnet";
+        boolean testNet = args.length > 0 && args[0].equalsIgnoreCase("testnet");
+        final NetworkParameters params = testNet ? NetworkParameters.testNet() : NetworkParameters.prodNet();
+        String filePrefix = testNet ? "pingservice-testnet" : "pingservice-prodnet";
 
         // Try to read the wallet from storage, create a new one if not possible.
         Wallet wallet;
@@ -74,35 +73,11 @@ public class PingService {
 
         // Connect to the localhost node. One minute timeout since we won't try any other peers
         System.out.println("Connecting ...");
-				PeerDiscovery peerDiscovery = new IrcDiscovery("#bitcoinTEST");
-				
-				BlockChain chain = new BlockChain(params, wallet, blockStore);
-				
-				NetworkConnection conn = null;
-				try {
-					for (InetSocketAddress isa : peerDiscovery.getPeers()) {
-						
-						try {
-							conn = new NetworkConnection(isa.getAddress(), params, blockStore.getChainHead().getHeight(), 5000);
-						} catch (IOException e) {
-							System.out.println("Trying next peer");
-						} catch (ProtocolException e) {
-							System.out.println("ProtocolException in discoverPeers()");
-							e.printStackTrace();
-						} catch (BlockStoreException e) {
-							System.out.println("BlockStoreException in discoverPeers()");
-							e.printStackTrace();
-						}
-						if (conn != null) {
-							break;
-						}
-					}
-				} catch (PeerDiscoveryException e) {
-					System.out.println("Couldn't discover peers.");
-				}
-				
-				final Peer peer = new Peer(params, conn, chain);
-				peer.start();
+        NetworkConnection conn = new NetworkConnection(InetAddress.getLocalHost(), params,
+                                                       blockStore.getChainHead().getHeight(), 60000);
+        BlockChain chain = new BlockChain(params, wallet, blockStore);
+        final Peer peer = new Peer(params, conn, chain, wallet);
+        peer.start();
 
         // We want to know when the balance changes.
         wallet.addEventListener(new WalletEventListener() {

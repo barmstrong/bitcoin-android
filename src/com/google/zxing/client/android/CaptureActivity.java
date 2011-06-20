@@ -321,7 +321,7 @@ public final class CaptureActivity extends Activity implements
 
 			try {
 				Bundle b = new Bundle();
-				String link = rawResult.toString();
+				String link = rawResult.getText();
 				if (!link.startsWith("bitcoin:")) {
 					throw new RuntimeException("Trigger reset");
 				}

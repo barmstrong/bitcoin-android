@@ -3,6 +3,8 @@ package com.bitcoinwallet;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
 
 import android.app.Activity;
@@ -73,7 +75,26 @@ public class BitcoinWallet extends Activity {
 				runOnUiThread(new Runnable() {
 					public void run() {
 						appState.saveWallet();
-						Log.d("Wallet", "COINS RECEIVED!");
+						updateUI();
+						Log.d("Wallet", "CONFIRMED COINS RECEIVED");
+						if (!appState.wallet.pending.containsKey(tx.getHash())) {
+							// first time we've seen it
+							try {
+								moneyReceivedAlert(tx);
+							} catch (ScriptException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				});
+			}
+
+			public void onPendingCoinsReceived(Wallet w, final Transaction tx) {
+				runOnUiThread(new Runnable() {
+					public void run() {
+						appState.saveWallet();
+						updateUI();
+						Log.d("Wallet", "PENDING COINS RECEIVED");
 						try {
 							moneyReceivedAlert(tx);
 						} catch (ScriptException e) {
@@ -86,7 +107,6 @@ public class BitcoinWallet extends Activity {
 	}
 
 	private void updateBlockChain() {
-
 		progressDialog = new ProgressDialog(BitcoinWallet.this);
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressDialog.setMessage("Syncing with network...");
@@ -114,24 +134,33 @@ public class BitcoinWallet extends Activity {
 
 		progressThread = new ProgressThread(handler, this);
 		progressThread.start();
-		updateUI();
 	}
 
-	private void updateUI() {		
+	private void updateUI() {
 		TextView balance = (TextView) findViewById(R.id.balanceLabel);
 		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance()));
 
 		TableLayout tl = (TableLayout) findViewById(R.id.transactions);
 		tl.removeAllViews();
-		
-		//generate list of transactions to show
+
+		// generate list of transactions to show
 		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 		transactions.addAll(appState.wallet.pending.values());
 		transactions.addAll(appState.wallet.unspent.values());
 		transactions.addAll(appState.wallet.spent.values());
-		//make sure list is unique
+
+		// make sure list is unique 
 		transactions = new ArrayList<Transaction>(new HashSet<Transaction>(transactions));
-		Collections.reverse(transactions);
+		// Collections.reverse(transactions);
+		Collections.sort(transactions, new Comparator<Transaction>() {
+			public int compare(Transaction t1, Transaction t2) {
+				if (t1.updatedAt == null)
+					t1.updatedAt = new Date(0);
+				if (t2.updatedAt == null)
+					t2.updatedAt = new Date(0);
+				return t2.updatedAt.compareTo(t1.updatedAt);
+			}
+		});
 
 		for (Transaction tx : transactions) {
 			addRowForTransaction(tl, tx);
@@ -139,17 +168,16 @@ public class BitcoinWallet extends Activity {
 	}
 
 	private void addRowForTransaction(TableLayout tl, Transaction tx) {
-		//Log.d("Wallet", tx.toString());
 		/* Create a new row to be added. */
 		TableRow tr = new TableRow(this);
-		/* Create a Button to be the row-content.*/
+		/* Create a Button to be the row-content. */
 		TextView description = new TextView(this);
 		TextView amount = new TextView(this);
 		description.setTextSize(15);
 		amount.setTextSize(15);
 		String text = "";
-		
-		//check if pending
+
+		// check if pending
 		if (appState.wallet.pending.containsKey(tx.getHash())) {
 			text += "(Pending) ";
 			description.setTextColor(Color.GRAY);
@@ -158,36 +186,24 @@ public class BitcoinWallet extends Activity {
 			description.setTextColor(Color.BLACK);
 			amount.setTextColor(Color.BLACK);
 		}
-		
-		//check if sent or received
+
+		// check if sent or received
 		try {
-			boolean sent = false;
-			for (TransactionInput in : tx.inputs) {
-				if (in.isMine(appState.wallet)) {
-					sent = true;
-					break;
-				}
-			}
-			
-			BigInteger sentFromMe = tx.getValueSentFromMe(appState.wallet);
-			BigInteger sentToMe = tx.getValueSentToMe(appState.wallet);
-			
-			if (sent){
-				text += "Sent to "+tx.outputs.get(0).getScriptPubKey().getToAddress();
-				amount.setText("-"+Utils.bitcoinValueToFriendlyString(sentFromMe.subtract(sentToMe)));
+			if (tx.sent(appState.wallet)) {
+				text += "Sent to " + tx.outputs.get(0).getScriptPubKey().getToAddress();
+				amount.setText("-" + Utils.bitcoinValueToFriendlyString(tx.amount(appState.wallet)));
 			} else {
-				text += "Received from "+tx.getInputs().get(0).getFromAddress();
-				amount.setText("+"+Utils.bitcoinValueToFriendlyString(sentToMe.subtract(sentFromMe)));
+				text += "Received from " + tx.getInputs().get(0).getFromAddress();
+				amount.setText("+" + Utils.bitcoinValueToFriendlyString(tx.amount(appState.wallet)));
 			}
 		} catch (ScriptException e) {
-			//don't display this transaction
+			// don't display this transaction
 			return;
 		}
-		if (text.length() > 30){
-			text = text.substring(0,29)+"...";
+		if (text.length() > 30) {
+			text = text.substring(0, 29) + "...";
 		}
 		description.setText(text);
-		//description.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		description.setPadding(0, 3, 0, 3);
 		amount.setPadding(0, 3, 0, 3);
 		amount.setGravity(Gravity.RIGHT);
@@ -208,6 +224,7 @@ public class BitcoinWallet extends Activity {
 		switch (item.getItemId()) {
 		case R.id.refresh_menu_item:
 			updateBlockChain();
+			updateUI();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -215,7 +232,6 @@ public class BitcoinWallet extends Activity {
 	}
 
 	private void moneyReceivedAlert(Transaction tx) throws ScriptException {
-		updateUI();
 		TransactionInput input = tx.getInputs().get(0);
 		Address from = input.getFromAddress();
 		BigInteger value = tx.getValueSentToMe(appState.wallet);

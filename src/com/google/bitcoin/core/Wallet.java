@@ -297,6 +297,15 @@ public class Wallet implements Serializable {
         }
     }
 
+    public synchronized void receivePendingTransaction(Transaction tx) {
+			pending.put(tx.getHash(), tx);
+			for (WalletEventListener l : eventListeners) {
+          synchronized (l) {
+              l.onPendingCoinsReceived(this, tx);
+          }
+      }
+		}
+
     /**
      * Handle when a transaction becomes newly active on the best chain, either due to receiving a new block or a
      * re-org making inactive transactions active.

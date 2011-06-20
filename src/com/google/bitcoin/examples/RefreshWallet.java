@@ -39,7 +39,7 @@ public class RefreshWallet {
         NetworkConnection conn = new NetworkConnection(InetAddress.getLocalHost(), params,
                                                        blockStore.getChainHead().getHeight(), 60000);
         BlockChain chain = new BlockChain(params, wallet, blockStore);
-        Peer peer = new Peer(params, conn, chain);
+        Peer peer = new Peer(params, conn, chain, wallet);
         peer.start();
 
         wallet.addEventListener(new WalletEventListener() {

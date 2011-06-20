@@ -41,6 +41,7 @@ public class Peer {
     // knows to quit when the socket goes away.
     private boolean running;
     private final BlockChain blockChain;
+		private final Wallet wallet;
 
     // Used to notify clients when the initial block chain download is finished.
     private CountDownLatch chainCompletionLatch;
@@ -52,10 +53,11 @@ public class Peer {
      * Construct a peer that handles the given network connection and reads/writes from the given block chain. Note that
      * communication won't occur until you call start().
      */
-    public Peer(NetworkParameters params, NetworkConnection conn, BlockChain blockChain) {
+    public Peer(NetworkParameters params, NetworkConnection conn, BlockChain blockChain, Wallet wallet) {
         this.conn = conn;
         this.params = params;
         this.blockChain = blockChain;
+				this.wallet = wallet;
         this.pendingGetBlockFutures = new ArrayList<GetDataFuture<Block>>();
     }
 
@@ -85,6 +87,8 @@ public class Peer {
                     processInv((InventoryMessage) m);
                 } else if (m instanceof Block) {
                     processBlock((Block) m);
+								} else if (m instanceof Transaction) {
+                    processPendingTransaction((Transaction) m);
                 } else if (m  instanceof AddressMessage) {
                     // We don't care about addresses of the network right now. But in future,
                     // we should save them in the wallet so we don't put too much load on the seed nodes and can
@@ -107,6 +111,14 @@ public class Peer {
             running = false;
         }
     }
+
+		// process an unverified pending transaction, add it to pending in our wallet and call onPendingCoinsReceived
+		private void processPendingTransaction(Transaction tx) {
+			assert Thread.currentThread() == thread;
+			if (tx.isMine(wallet)) {
+				wallet.receivePendingTransaction(tx);
+			}
+		}
 
     private void processBlock(Block m) throws IOException {
         assert Thread.currentThread() == thread;
@@ -172,8 +184,6 @@ public class Peer {
             blockChainDownload(topHash);
             return;
         }
-
-
         GetDataMessage getdata = new GetDataMessage(params);
         boolean dirty = false;
         for (InventoryItem item : items) {

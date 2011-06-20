@@ -382,29 +382,12 @@ public class BlockChain {
 
     private void scanTransaction(StoredBlock block, Transaction tx, NewBlockType blockType)
             throws ScriptException, VerificationException {
-        boolean shouldReceive = false;
-        for (TransactionOutput output : tx.outputs) {
-            // TODO: Handle more types of outputs, not just regular to address outputs.
-            if (output.getScriptPubKey().isSentToIP()) return;
-            // This is not thread safe as a key could be removed between the call to isMine and receive.
-            if (output.isMine(wallet)) {
-                shouldReceive = true;
-            }
-        }
-
-        // Coinbase transactions don't have anything useful in their inputs (as they create coins out of thin air).
-        if (!tx.isCoinBase()) {
-            for (TransactionInput i : tx.inputs) {
-                byte[] pubkey = i.getScriptSig().getPubKey();
-                // This is not thread safe as a key could be removed between the call to isPubKeyMine and receive.
-                if (wallet.isPubKeyMine(pubkey)) {
-                    shouldReceive = true;
-                }
-            }
-        }
-
-        if (shouldReceive)
+				// Coinbase transactions don't have anything useful in their inputs (as they create coins out of thin air).
+				System.out.println("======> SCANNING ");
+	      if (tx.isMine(wallet) && !tx.isCoinBase()) {
+						System.out.println("======> RECEIVING"+tx.toString());
             wallet.receive(tx, block, blockType);
+				}
     }
 
     /**

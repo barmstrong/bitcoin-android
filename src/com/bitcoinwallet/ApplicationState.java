@@ -18,6 +18,7 @@ import com.google.bitcoin.core.BlockChain;
 import com.google.bitcoin.core.BlockStore;
 import com.google.bitcoin.core.BlockStoreException;
 import com.google.bitcoin.core.BoundedOverheadBlockStore;
+import com.google.bitcoin.core.DnsDiscovery;
 import com.google.bitcoin.core.ECKey;
 import com.google.bitcoin.core.IrcDiscovery;
 import com.google.bitcoin.core.NetworkConnection;
@@ -60,20 +61,23 @@ public class ApplicationState extends Application {
 			saveWallet();
 		}
 
-//		peerDiscovery = new DnsDiscovery(params);
-		peerDiscovery = new IrcDiscovery("#bitcoinTEST");
+		if (TEST_MODE) {
+			peerDiscovery = new IrcDiscovery("#bitcoinTEST");
+		} else {
+			peerDiscovery = new DnsDiscovery(params);
+		}
+		
 
 		Log.d("Wallet", "Reading block store from disk");
 		try {
 			File file = new File(getExternalFilesDir(null), filePrefix + ".blockchain");
-			if (!file.exists() && !TEST_MODE) {
+			if (!file.exists()) {
 				Log.d("Wallet", "Copying initial blockchain from assets folder");
 				try {
 					InputStream is = getAssets().open(filePrefix + ".blockchain");
 					IOUtils.copy(is, new FileOutputStream(file));
 				} catch (IOException e) {
-					e.printStackTrace();
-					throw new Error("Couldn't find initial blockchain in assets folder");
+					Log.d("Wallet", "Couldn't find initial blockchain in assets folder...starting from scratch");
 				}
 			}
 			blockStore = new BoundedOverheadBlockStore(params, file);
@@ -126,7 +130,7 @@ public class ApplicationState extends Application {
 					e.printStackTrace();
 				}
 				if (conn != null) {
-					Peer peer = new Peer(params, conn, blockChain);
+					Peer peer = new Peer(params, conn, blockChain, wallet);
 					peer.start();
 					peers.add(peer);
 					if (peers.size() >= 8){
