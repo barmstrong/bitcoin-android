@@ -68,7 +68,6 @@ public class ProgressThread extends Thread {
 		}
 		
 		//take a second look at any pending transactions, we may need to rebroadcast them
-		//or if something went wrong we may need to look at the chain again
 		for(Transaction tx : appState.wallet.pending.values()){
 			if (tx.sent(appState.wallet)) {
 				Log.d("Wallet", "resending");
