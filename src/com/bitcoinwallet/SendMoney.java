@@ -1,6 +1,5 @@
 package com.bitcoinwallet;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URLDecoder;
 
@@ -16,7 +15,6 @@ import android.widget.EditText;
 
 import com.google.bitcoin.core.Address;
 import com.google.bitcoin.core.AddressFormatException;
-import com.google.bitcoin.core.Peer;
 import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.Utils;
 
@@ -37,6 +35,8 @@ public class SendMoney extends Activity {
 
 		Bundle b = getIntent().getExtras();
 		addressField = (EditText) findViewById(R.id.address);
+		amountField = (EditText) findViewById(R.id.amount);
+		memoField = (EditText) findViewById(R.id.memo);
 
 		if (b == null) {
 			addressField.requestFocus();
@@ -49,16 +49,13 @@ public class SendMoney extends Activity {
 				if (amount.toLowerCase().endsWith("x8")) {
 					amount = amount.toLowerCase().replace("x8", "");
 				}
-				amountField = (EditText) findViewById(R.id.amount);
 				amountField.setText(amount);
 				amountField.requestFocus();
 			}
 			if (b.getString("label") != null) {
-				memoField = (EditText) findViewById(R.id.memo);
 				memoField.setText(URLDecoder.decode(b.getString("label")) + " ");
 			}
 			if (b.getString("message") != null) {
-				memoField = (EditText) findViewById(R.id.memo);
 				memoField.setText(memoField.getText() + URLDecoder.decode(b.getString("message")));
 			}
 		}
@@ -75,17 +72,8 @@ public class SendMoney extends Activity {
 					sendTx = appState.wallet.createSend(address, amount);
 					
 					if (sendTx != null) {
-						for(Peer peer : appState.getPeers()){
-							try {
-							peer.broadcastTransaction(sendTx);
-							} catch (IOException e) {
-								Log.d("Wallet", "Broadcast failed");
-							}
-							Log.d("Wallet", "Broadcast succeeded");
-						}
-						appState.wallet.confirmSend(sendTx);
-						appState.saveWallet();
-						Log.d("Wallet", "Sent "+Utils.bitcoinValueToFriendlyString(amount)+" to "+address.toString());
+						appState.sendTransaction(sendTx);
+						Log.d("Wallet", "Sent " + Utils.bitcoinValueToFriendlyString(amount) + " to " + address.toString());
 						
 						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
 						builder.setMessage("Payment successful!").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
@@ -115,6 +103,7 @@ public class SendMoney extends Activity {
 						alert.show();
 					}
 				} catch (AddressFormatException e) {
+					e.printStackTrace();
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
 					builder.setMessage("Inalid address, please try again.").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
@@ -124,6 +113,7 @@ public class SendMoney extends Activity {
 					AlertDialog alert = builder.create();
 					alert.show();
 				} catch (Exception e) {
+					e.printStackTrace();
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
 					builder.setMessage("Sorry we couldn't send that.  Please check your values and try again.").setCancelable(false)
 							.setNegativeButton("Ok", new DialogInterface.OnClickListener() {

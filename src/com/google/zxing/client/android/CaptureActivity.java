@@ -23,7 +23,6 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -37,7 +36,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -329,11 +327,13 @@ public final class CaptureActivity extends Activity implements
 				String[] parts = link.split(":");
 				parts = parts[1].split("\\?");
 				b.putString("address", parts[0]);
-				parts = parts[1].split("&");
-				String[] pair;
-				for (int i = 0; i < parts.length; i++) {
-					pair = parts[i].split("=");
-					b.putString(pair[0], pair[1]);
+				if (parts.length > 1) {
+					parts = parts[1].split("&");
+					String[] pair;
+					for (int i = 0; i < parts.length; i++) {
+						pair = parts[i].split("=");
+						b.putString(pair[0], pair[1]);
+					}
 				}
 
 				Intent intent = new Intent(CaptureActivity.this,

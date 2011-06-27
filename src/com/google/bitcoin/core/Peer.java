@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.Date;
 
 /**
  * A Peer handles the high level communication with a BitCoin node. It requires a NetworkConnection to be set up for
@@ -32,8 +33,8 @@ import java.util.concurrent.*;
  * with the network. All these threads synchronize on the block chain.
  */
 public class Peer {
-	private static final Logger log = LoggerFactory.getLogger(Peer.class);
-	
+    private static final Logger log = LoggerFactory.getLogger(Peer.class);
+    
     private final NetworkConnection conn;
     private final NetworkParameters params;
     private Thread thread;
@@ -41,7 +42,7 @@ public class Peer {
     // knows to quit when the socket goes away.
     private boolean running;
     private final BlockChain blockChain;
-		private final Wallet wallet;
+        private final Wallet wallet;
 
     // Used to notify clients when the initial block chain download is finished.
     private CountDownLatch chainCompletionLatch;
@@ -57,7 +58,7 @@ public class Peer {
         this.conn = conn;
         this.params = params;
         this.blockChain = blockChain;
-				this.wallet = wallet;
+                this.wallet = wallet;
         this.pendingGetBlockFutures = new ArrayList<GetDataFuture<Block>>();
     }
 
@@ -87,7 +88,7 @@ public class Peer {
                     processInv((InventoryMessage) m);
                 } else if (m instanceof Block) {
                     processBlock((Block) m);
-								} else if (m instanceof Transaction) {
+                                } else if (m instanceof Transaction) {
                     processPendingTransaction((Transaction) m);
                 } else if (m  instanceof AddressMessage) {
                     // We don't care about addresses of the network right now. But in future,
@@ -112,13 +113,14 @@ public class Peer {
         }
     }
 
-		// process an unverified pending transaction, add it to pending in our wallet and call onPendingCoinsReceived
-		private void processPendingTransaction(Transaction tx) {
-			assert Thread.currentThread() == thread;
-			if (tx.isMine(wallet)) {
-				wallet.receivePendingTransaction(tx);
-			}
-		}
+    // process an unverified pending transaction, add it to pending in our wallet and call onPendingCoinsReceived
+    private void processPendingTransaction(Transaction tx) {
+        assert Thread.currentThread() == thread;
+        if (tx.isMine(wallet)) {
+            wallet.receivePendingTransaction(tx);
+        }
+    }
+
 
     private void processBlock(Block m) throws IOException {
         assert Thread.currentThread() == thread;
@@ -159,10 +161,10 @@ public class Peer {
             }
         } catch (VerificationException e) {
             // We don't want verification failures to kill the thread.
-        	log.warn("block verification failed", e);
+            log.warn("block verification failed", e);
         } catch (ScriptException e) {
             // We don't want script failures to kill the thread.
-        	log.warn("script exception", e);
+            log.warn("script exception", e);
         }
     }
 

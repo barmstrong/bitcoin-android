@@ -224,6 +224,8 @@ public class Wallet implements Serializable {
         BigInteger valueSentFromMe = tx.getValueSentFromMe(this);
         BigInteger valueSentToMe = tx.getValueSentToMe(this);
         BigInteger valueDifference = valueSentToMe.subtract(valueSentFromMe);
+        
+        tx.updatedAt = new Date();
 
         if (!reorg) {
             log.info("Received tx{} for {} BTC: {}", new Object[] { sideChain ? " on a side chain" : "",
@@ -288,23 +290,28 @@ public class Wallet implements Serializable {
         // Inform anyone interested that we have new coins. Note: we may be re-entered by the event listener,
         // so we must not make assumptions about our state after this loop returns! For example,
         // the balance we just received might already be spent!
-        if (!reorg && bestChain && valueDifference.compareTo(BigInteger.ZERO) > 0) {
+        if (!reorg && bestChain) {
             for (WalletEventListener l : eventListeners) {
                 synchronized (l) {
-                    l.onCoinsReceived(this, tx, prevBalance, getBalance());
+                    if (valueDifference.compareTo(BigInteger.ZERO) > 0) {
+                        l.onCoinsReceived(this, tx, prevBalance, getBalance());
+                    } else {
+                        l.onCoinsSent(this, tx, prevBalance, getBalance());
+                    }
                 }
             }
         }
     }
 
     public synchronized void receivePendingTransaction(Transaction tx) {
-			pending.put(tx.getHash(), tx);
-			for (WalletEventListener l : eventListeners) {
-          synchronized (l) {
-              l.onPendingCoinsReceived(this, tx);
-          }
-      }
-		}
+        tx.updatedAt = new Date();
+        pending.put(tx.getHash(), tx);
+        for (WalletEventListener l : eventListeners) {
+            synchronized (l) {
+                l.onPendingCoinsReceived(this, tx);
+            }
+        }
+    }
 
     /**
      * Handle when a transaction becomes newly active on the best chain, either due to receiving a new block or a
@@ -877,5 +884,27 @@ public class Wallet implements Serializable {
      */
     public Collection<Transaction> getPendingTransactions() {
         return Collections.unmodifiableCollection(pending.values());
+    }
+
+    public ArrayList<Transaction> getAllTransactions(){
+        // generate list of transactions to show
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        transactions.addAll(pending.values());
+        transactions.addAll(unspent.values());
+        transactions.addAll(spent.values());
+
+        // make sure list is unique 
+        transactions = new ArrayList<Transaction>(new HashSet<Transaction>(transactions));
+        // Sort by time
+        Collections.sort(transactions, new Comparator<Transaction>() {
+            public int compare(Transaction t1, Transaction t2) {
+                if (t1.updatedAt == null)
+                    t1.updatedAt = new Date(0);
+                if (t2.updatedAt == null)
+                    t2.updatedAt = new Date(0);
+                return t2.updatedAt.compareTo(t1.updatedAt);
+            }
+        });
+        return transactions;
     }
 }

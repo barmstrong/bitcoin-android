@@ -90,6 +90,18 @@ public class BlockChain {
         this.wallet = wallet;
     }
 
+
+    /*
+     * Reprocess transactions starting from this stored block
+     */
+    public synchronized void recheckTransactionsFrom(StoredBlock sb){
+        try {
+            blockStore.setChainHead(sb);
+        } catch (BlockStoreException e) {
+            // do nothing
+        }
+    }
+
     /**
      * Processes a received block and tries to add it to the chain. If there's something wrong with the block an
      * exception is thrown. If the block is OK but cannot be connected to the chain at this time, returns false.
@@ -380,14 +392,12 @@ public class BlockChain {
                     receivedDifficulty.toString(16) + " vs " + newDifficulty.toString(16));
     }
 
-    private void scanTransaction(StoredBlock block, Transaction tx, NewBlockType blockType)
-            throws ScriptException, VerificationException {
-				// Coinbase transactions don't have anything useful in their inputs (as they create coins out of thin air).
-				System.out.println("======> SCANNING ");
-	      if (tx.isMine(wallet) && !tx.isCoinBase()) {
-						System.out.println("======> RECEIVING"+tx.toString());
+    private void scanTransaction(StoredBlock block, Transaction tx, NewBlockType blockType) throws ScriptException, VerificationException {
+        // Coinbase transactions don't have anything useful in their inputs (as they create coins out of thin air).
+        if (tx.isMine(wallet) && !tx.isCoinBase()) {
+            System.out.println("======> RECEIVING"+tx.toString());
             wallet.receive(tx, block, blockType);
-				}
+        }
     }
 
     /**

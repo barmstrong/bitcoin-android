@@ -2,10 +2,6 @@ package com.bitcoinwallet;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -37,6 +33,7 @@ import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.TransactionInput;
 import com.google.bitcoin.core.Utils;
 import com.google.bitcoin.core.Wallet;
+import com.google.bitcoin.core.Wallet.BalanceType;
 import com.google.bitcoin.core.WalletEventListener;
 import com.google.zxing.client.android.CaptureActivity;
 
@@ -74,17 +71,18 @@ public class BitcoinWallet extends Activity {
 			public void onCoinsReceived(Wallet w, final Transaction tx, BigInteger prevBalance, BigInteger newBalance) {
 				runOnUiThread(new Runnable() {
 					public void run() {
-						appState.saveWallet();
+						moneyReceived(tx);
+						Log.d("Wallet", "COINS WE RECEIVED HAVE BEEN CONFIRMED");
+					}
+				});
+			}
+			
+			public void onCoinsSent(Wallet w, final Transaction tx, BigInteger prevBalance, BigInteger newBalance) {
+				runOnUiThread(new Runnable() {
+					public void run() {
 						updateUI();
-						Log.d("Wallet", "CONFIRMED COINS RECEIVED");
-						if (!appState.wallet.pending.containsKey(tx.getHash())) {
-							// first time we've seen it
-							try {
-								moneyReceivedAlert(tx);
-							} catch (ScriptException e) {
-								e.printStackTrace();
-							}
-						}
+						appState.saveWallet();
+						Log.d("Wallet", "COINS WE SENT HAVE BEEN CONFIRMED");
 					}
 				});
 			}
@@ -92,14 +90,8 @@ public class BitcoinWallet extends Activity {
 			public void onPendingCoinsReceived(Wallet w, final Transaction tx) {
 				runOnUiThread(new Runnable() {
 					public void run() {
-						appState.saveWallet();
-						updateUI();
-						Log.d("Wallet", "PENDING COINS RECEIVED");
-						try {
-							moneyReceivedAlert(tx);
-						} catch (ScriptException e) {
-							e.printStackTrace();
-						}
+						moneyReceived(tx);
+						Log.d("Wallet", "PENDING COINS RECEIVED ");
 					}
 				});
 			}
@@ -138,39 +130,26 @@ public class BitcoinWallet extends Activity {
 
 	private void updateUI() {
 		TextView balance = (TextView) findViewById(R.id.balanceLabel);
-		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance()));
+		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance(BalanceType.ESTIMATED)));
 
 		TableLayout tl = (TableLayout) findViewById(R.id.transactions);
 		tl.removeAllViews();
 
-		// generate list of transactions to show
-		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
-		transactions.addAll(appState.wallet.pending.values());
-		transactions.addAll(appState.wallet.unspent.values());
-		transactions.addAll(appState.wallet.spent.values());
-
-		// make sure list is unique 
-		transactions = new ArrayList<Transaction>(new HashSet<Transaction>(transactions));
-		// Collections.reverse(transactions);
-		Collections.sort(transactions, new Comparator<Transaction>() {
-			public int compare(Transaction t1, Transaction t2) {
-				if (t1.updatedAt == null)
-					t1.updatedAt = new Date(0);
-				if (t2.updatedAt == null)
-					t2.updatedAt = new Date(0);
-				return t2.updatedAt.compareTo(t1.updatedAt);
-			}
-		});
-
+		ArrayList<Transaction> transactions = appState.wallet.getAllTransactions();
+		
+		// Show only the first 100 transaction
+		if (transactions.size() > 100)
+			transactions = (ArrayList<Transaction>)transactions.subList(0, 99);
+		
 		for (Transaction tx : transactions) {
 			addRowForTransaction(tl, tx);
 		}
 	}
 
 	private void addRowForTransaction(TableLayout tl, Transaction tx) {
-		/* Create a new row to be added. */
+		// Create a new row to be added.
 		TableRow tr = new TableRow(this);
-		/* Create a Button to be the row-content. */
+		// Create a Button to be the row-content.
 		TextView description = new TextView(this);
 		TextView amount = new TextView(this);
 		description.setTextSize(15);
@@ -231,13 +210,29 @@ public class BitcoinWallet extends Activity {
 		}
 	}
 
-	private void moneyReceivedAlert(Transaction tx) throws ScriptException {
+	private void moneyReceived(Transaction tx) {
+		appState.saveWallet();
+		updateUI();
+		
+		if (appState.notifiedUserOfTheseTransactions.contains(tx.getHash())) {
+			//only call once per transaction
+			//this could be called multiple times by separate peers
+			return;
+		} else {
+			appState.notifiedUserOfTheseTransactions.add(tx.getHash());
+		}
+		
 		TransactionInput input = tx.getInputs().get(0);
-		Address from = input.getFromAddress();
+		Address from;
+		try {
+			from = input.getFromAddress();
+		} catch (ScriptException e) {
+			return;
+		}
 		BigInteger value = tx.getValueSentToMe(appState.wallet);
 		Log.d("Wallet", "Received " + Utils.bitcoinValueToFriendlyString(value) + " from " + from.toString());
 
-		String ticker = "You just received " + Utils.bitcoinValueToFriendlyString(value) + " BTC from " + from.toString();
+		String ticker = Utils.bitcoinValueToFriendlyString(value) + " Bitcoins Received!";
 		String ns = Context.NOTIFICATION_SERVICE;
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
 		Notification notification = new Notification(R.drawable.my_notification_icon, ticker, System.currentTimeMillis());
@@ -246,9 +241,11 @@ public class BitcoinWallet extends Activity {
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
 		Context context = getApplicationContext();
-		CharSequence contentTitle = Utils.bitcoinValueToFriendlyString(value) + " Bitcoins Received!";
+		CharSequence contentTitle = ticker;
 		CharSequence contentText = "From " + from.toString();
 		Intent notificationIntent = new Intent(this, BitcoinWallet.class);
+		//don't open a new one if it's already on top
+		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 		mNotificationManager.notify(1, notification);

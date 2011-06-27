@@ -27,6 +27,8 @@ import com.google.bitcoin.core.Peer;
 import com.google.bitcoin.core.PeerDiscovery;
 import com.google.bitcoin.core.PeerDiscoveryException;
 import com.google.bitcoin.core.ProtocolException;
+import com.google.bitcoin.core.Sha256Hash;
+import com.google.bitcoin.core.Transaction;
 import com.google.bitcoin.core.Wallet;
 
 public class ApplicationState extends Application {
@@ -41,6 +43,10 @@ public class ApplicationState extends Application {
 	ArrayList<Peer> peers = new ArrayList<Peer>();
 	BlockStore blockStore = null;
 	BlockChain blockChain;
+	
+	//tracks which transactions we've shown a notification for so we couldn't duplicate them
+	//could probably persist this between start/top of the app, but fine for now
+	ArrayList<Sha256Hash> notifiedUserOfTheseTransactions = new ArrayList<Sha256Hash>();
 
 	public static ApplicationState current;
 
@@ -66,7 +72,6 @@ public class ApplicationState extends Application {
 		} else {
 			peerDiscovery = new DnsDiscovery(params);
 		}
-		
 
 		Log.d("Wallet", "Reading block store from disk");
 		try {
@@ -96,26 +101,27 @@ public class ApplicationState extends Application {
 		}
 	}
 
+	//blocking, don't call from main activity thread
 	@SuppressWarnings("unchecked")
-	public ArrayList<Peer> getPeers() {
-		if (peers.size() == 0) {
+	public synchronized ArrayList<Peer> getPeers() {
+		if (peers.size() < 3) {
 			discoverPeers();
 		}
-		//shallow clone to try and prevent concurrent modification exceptions of the arraylist
+		// shallow clone to try and prevent concurrent modification exceptions
+		// of the arraylist
 		return (ArrayList<Peer>) peers.clone();
 	}
 
-	public void removeBadPeer(Peer peer) {
+	public synchronized void removeBadPeer(Peer peer) {
 		Log.d("Wallet", "removing bad peer");
 		peer.disconnect();
 		peers.remove(0);
 	}
 
-	public void discoverPeers() {
+	private void discoverPeers() {
 		try {
-			InetSocketAddress[] isas = peerDiscovery.getPeers();
-			ArrayList<InetSocketAddress> isas2 = new ArrayList<InetSocketAddress>(Arrays.asList(isas));
-			Collections.shuffle(isas2); //try different order each time
+			ArrayList<InetSocketAddress> isas = new ArrayList<InetSocketAddress>(Arrays.asList(peerDiscovery.getPeers()));
+			Collections.shuffle(isas); // try different order each time
 			for (InetSocketAddress isa : isas) {
 				NetworkConnection conn = null;
 				try {
@@ -132,8 +138,10 @@ public class ApplicationState extends Application {
 				if (conn != null) {
 					Peer peer = new Peer(params, conn, blockChain, wallet);
 					peer.start();
-					peers.add(peer);
-					if (peers.size() >= 8){
+					if (!peers.contains(peer)) {
+						peers.add(peer);
+					}
+					if (peers.size() >= 8) {
 						return;
 					}
 				}
@@ -141,6 +149,25 @@ public class ApplicationState extends Application {
 			Log.d("Wallet", "Discovered " + peers.size() + " peers...");
 		} catch (PeerDiscoveryException e) {
 			Log.d("Wallet", "Couldn't discover peers.");
+		}
+	}
+
+	public synchronized void sendTransaction(Transaction tx) {
+		boolean success = false;
+		for (Peer peer : getPeers()) {
+			try {
+				peer.broadcastTransaction(tx);
+				success = true;
+				Log.d("Wallet", "Broadcast succeeded");
+			} catch (IOException e) {
+				// should we remove bad peer here? or maybe internet just went
+				// away. not sure
+				Log.d("Wallet", "Broadcast failed");
+			}
+		}
+		if (success) {
+			wallet.confirmSend(tx);
+			saveWallet();
 		}
 	}
 }

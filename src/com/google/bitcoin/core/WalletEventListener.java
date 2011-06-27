@@ -39,11 +39,21 @@ public abstract class WalletEventListener {
      */
     public void onCoinsReceived(Wallet wallet, Transaction tx, BigInteger prevBalance, BigInteger newBalance) {
     }
+    
+    /**
+     * This is called when a transaction you sent is confirmed in the blockchain.  Useful if you want to 
+     * update the "pending" status to "confirmed" in your view.
+     *
+     * @param wallet The wallet object that received the coins/
+     * @param tx The sent transaction
+     */
+    public void onCoinsSent(Wallet wallet, Transaction tx, BigInteger prevBalance, BigInteger newBalance) {
+    }
 
     /**
-     * This is called on a Peer thread when an unverified transaction is received that sends some coins to you.
-		 * This is mainly useful to update your view within a few seconds and give some feedback to ther user that
-		 * that something has happened, even if we haven't verified the transaction with a block yet.
+     * This is called when an unverified transaction is received that sends some coins to you.
+     * This is mainly useful to update your view within a few seconds and give some feedback to ther user that
+     * that something has happened, even if we haven't verified the transaction with a block yet.
      *
      * @param wallet The wallet object that received the coins/
      * @param tx The pending transaction

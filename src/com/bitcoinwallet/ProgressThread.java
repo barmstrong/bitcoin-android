@@ -1,12 +1,15 @@
 package com.bitcoinwallet;
 
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.google.bitcoin.core.Peer;
+import com.google.bitcoin.core.Transaction;
 
 public class ProgressThread extends Thread {
 	Peer peer;
@@ -26,9 +29,9 @@ public class ProgressThread extends Thread {
 	
 	public void run() {
 		ApplicationState appState = ApplicationState.current;
+		
 		long max;
 		long current;
-		
 
 		for(Peer peer : appState.getPeers()){
 			try {
@@ -42,6 +45,7 @@ public class ProgressThread extends Thread {
 				    progress.await(1, TimeUnit.SECONDS);
 				    long tmp = progress.getCount();
 				    if (tmp == current && no_change_count++ > 2){
+				    	appState.removeBadPeer(peer);
 				    	break;
 				    } else {
 				    	current = tmp;
@@ -52,13 +56,24 @@ public class ProgressThread extends Thread {
 				    }
 				}
 				if(current == 0){
-					hideDialog();
-					return;
+					break;
 				}
-			} catch (Exception e){
+			} catch (IOException e){
+				//try next peer
+			} catch (InterruptedException e){
+				//try next peer
+			} catch (IllegalArgumentException e){
 				//try next peer
 			}
-        	appState.removeBadPeer(peer);
+		}
+		
+		//take a second look at any pending transactions, we may need to rebroadcast them
+		//or if something went wrong we may need to look at the chain again
+		for(Transaction tx : appState.wallet.pending.values()){
+			if (tx.sent(appState.wallet)) {
+				Log.d("Wallet", "resending");
+				appState.sendTransaction(tx);
+			}
 		}
 		
 		// ensure dialog closes if we catch an exception
