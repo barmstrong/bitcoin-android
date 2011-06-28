@@ -3,9 +3,9 @@ Bitcoin Wallet
 
 An Android app to send and receive Bitcoins.  Still under development.
 
-Note that this is a beta software and you may lose coins!  Test it with small amounts.
+Note that this is a beta software and you may lose coins!  You should test it with small amounts.
 
-[Click Here To Download BitCoin Wallet from the App Store](http://example.com/ "Download Bitcoin Wallet")
+[Download From The Android Market Here](http://example.com/ "Download Bitcoin Wallet")  (Or search for "bitcoin" from your mobile device)
 
 <table>
   <tr>
