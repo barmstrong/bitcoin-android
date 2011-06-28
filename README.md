@@ -1,16 +1,16 @@
 Bitcoin Wallet
 ==============
 
-An Android app to send and receive Bitcoins.  Still under development.
+Send and receive bitcoins from your Android phone!
 
-Note that this is a beta software and you may lose coins!  You should test it with small amounts.
+Note that this app is still under development and may lose your coins!  Test it with small amounts.
 
-[Download From The Android Market Here](http://example.com/)  (Or search for "bitcoin" from your mobile device)
+You can [download from the Android Market here](http://example.com/) or search for "bitcoin" from your mobile device.
 
 <table>
   <tr>
+    <td><img src="http://i.imgur.com/aqF3p.png" width="200" /></td>    
     <td><img src="http://i.imgur.com/ilvNp.png" width="200" /></td>
-    <td><img src="http://i.imgur.com/aqF3p.png" width="200" /></td>
     <td><img src="http://i.imgur.com/ObBth.png" width="200" /></td>
     <td><img src="http://i.imgur.com/TsZc7.png" width="200" /></td>
   </tr>
@@ -19,10 +19,12 @@ Note that this is a beta software and you may lose coins!  You should test it wi
 Features
 --------
 
-* Send/Recieve bitcoins from your phone
-* Scan and generate QR codes to share address, amount, etc.
-* Email bitcoin invoices to those who don't have the app
-* Wallet file is backed up in the cloud (synced to your Google account) so your coins are not lost if your lose your phone.
+* Send/Receive bitcoins entirely from your phone (no server component required)
+* Scan and generate QR codes to share address, amount, etc between devices
+* Recognizes the Bitcoin [URI format](https://en.bitcoin.it/wiki/URI_Scheme)
+* Creates transactions in the absence of internet (will retry when you reconnect)
+* Email bitcoin invoices from your phone to request money
+* Wallet file is backed up in the cloud (synced to your Google account) so your coins are not lost if your phone is lost of damaged.
 
 Installation
 -------------
