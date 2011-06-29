@@ -112,27 +112,27 @@ public class Transaction extends Message implements Serializable {
         this.hash = hash;
     }
 
-        public boolean sent(Wallet wallet) {
-            boolean sent = false;
-            for (TransactionInput in : inputs) {
-                if (in.isMine(wallet)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        
-        public boolean received(Wallet wallet) {
-            return !sent(wallet);
-        }
-        
-        public BigInteger amount(Wallet wallet) throws ScriptException {
-            if (sent(wallet)) {
-                return getValueSentFromMe(wallet).subtract(getValueSentToMe(wallet));
-            } else {
-                return getValueSentToMe(wallet);
+    public boolean sent(Wallet wallet) {
+        boolean sent = false;
+        for (TransactionInput in : inputs) {
+            if (in.isMine(wallet)) {
+                return true;
             }
         }
+        return false;
+    }
+    
+    public boolean received(Wallet wallet) {
+        return !sent(wallet);
+    }
+    
+    public BigInteger amount(Wallet wallet) throws ScriptException {
+        if (sent(wallet)) {
+            return getValueSentFromMe(wallet).subtract(getValueSentToMe(wallet));
+        } else {
+            return getValueSentToMe(wallet);
+        }
+    }
         
 
     /**
@@ -264,30 +264,30 @@ public class Transaction extends Message implements Serializable {
         hash = new Sha256Hash(reverseBytes(doubleDigest(bytes, offset, cursor - offset)));
     }
 
-        public boolean isMine(Wallet wallet) {
-            try {
-          for (TransactionOutput output : this.outputs) {
-              // TODO: Handle more types of outputs, not just regular to address outputs.
-              if (output.getScriptPubKey().isSentToIP()) continue;
-              // This is not thread safe as a key could be removed between the call to isMine and receive.
-              if (output.isMine(wallet)) {
-                                return true;
-              }
-          }
-
-      
-                for (TransactionInput input : this.inputs) {
-                        if (input.getScriptSig().isSentToIP()) continue;
-                    // This is not thread safe as a key could be removed between the call to isPubKeyMine and receive.
-                    if (input.isMine(wallet)) {
-                                return true;
-                    }
+    public boolean isMine(Wallet wallet) {
+        try {
+            for (TransactionOutput output : this.outputs) {
+                // TODO: Handle more types of outputs, not just regular to address outputs.
+                if (output.getScriptPubKey().isSentToIP()) continue;
+                // This is not thread safe as a key could be removed between the call to isMine and receive.
+                if (output.isMine(wallet)) {
+                    return true;
                 }
-                return false;
-            } catch (ScriptException e) {
-                return false;
             }
+
+
+            for (TransactionInput input : this.inputs) {
+                if (input.getScriptSig().isSentToIP()) continue;
+                // This is not thread safe as a key could be removed between the call to isPubKeyMine and receive.
+                if (input.isMine(wallet)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (ScriptException e) {
+            return false;
         }
+    }
 
 
     /**

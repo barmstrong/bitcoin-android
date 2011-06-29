@@ -66,6 +66,7 @@ public class ApplicationState extends Application {
 		ApplicationState.current = (ApplicationState) this;
 		backupManager = new BackupManager(this);
 
+		
 		// read or create wallet
 		synchronized (ApplicationState.walletFileLock) {
 			walletFile = new File(getFilesDir(), filePrefix + ".wallet");
@@ -77,14 +78,18 @@ public class ApplicationState extends Application {
 				Log.d("Wallet", "Created new wallet");
 				wallet.keychain.add(new ECKey());
 				saveWallet();
+			} catch (StackOverflowError e) {
+				//couldn't unserialize the wallet - maybe it was saved in a previous version of bitcoinj?
+				e.printStackTrace();
 			}
 		}
+		
 		if (TEST_MODE) {
 			peerDiscovery = new IrcDiscovery("#bitcoinTEST");
 		} else {
 			peerDiscovery = new DnsDiscovery(params);
 		}
-
+		
 		Log.d("Wallet", "Reading block store from disk");
 		try {
 			File file = new File(getExternalFilesDir(null), filePrefix
@@ -134,7 +139,7 @@ public class ApplicationState extends Application {
 	public synchronized void removeBadPeer(Peer peer) {
 		Log.d("Wallet", "removing bad peer");
 		peer.disconnect();
-		peers.remove(0);
+		peers.remove(peer);
 	}
 
 	private void discoverPeers() {

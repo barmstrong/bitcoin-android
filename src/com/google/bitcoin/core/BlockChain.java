@@ -90,18 +90,6 @@ public class BlockChain {
         this.wallet = wallet;
     }
 
-
-    /*
-     * Reprocess transactions starting from this stored block
-     */
-    public synchronized void recheckTransactionsFrom(StoredBlock sb){
-        try {
-            blockStore.setChainHead(sb);
-        } catch (BlockStoreException e) {
-            // do nothing
-        }
-    }
-
     /**
      * Processes a received block and tries to add it to the chain. If there's something wrong with the block an
      * exception is thrown. If the block is OK but cannot be connected to the chain at this time, returns false.
@@ -178,7 +166,7 @@ public class BlockChain {
         if (storedPrev.equals(chainHead)) {
             // This block connects to the best known block, it is a normal continuation of the system.
             setChainHead(newStoredBlock);
-            log.info("Chain is now {} blocks high", chainHead.getHeight());
+            log.trace("Chain is now {} blocks high", chainHead.getHeight());
             if (newTransactions != null)
                 sendTransactionsToWallet(newStoredBlock, NewBlockType.BEST_CHAIN, newTransactions);
         } else {

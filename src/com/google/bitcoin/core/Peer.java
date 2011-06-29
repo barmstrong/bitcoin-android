@@ -42,7 +42,7 @@ public class Peer {
     // knows to quit when the socket goes away.
     private boolean running;
     private final BlockChain blockChain;
-        private final Wallet wallet;
+    private final Wallet wallet;
 
     // Used to notify clients when the initial block chain download is finished.
     private CountDownLatch chainCompletionLatch;
@@ -58,7 +58,7 @@ public class Peer {
         this.conn = conn;
         this.params = params;
         this.blockChain = blockChain;
-                this.wallet = wallet;
+        this.wallet = wallet;
         this.pendingGetBlockFutures = new ArrayList<GetDataFuture<Block>>();
     }
 
@@ -88,7 +88,7 @@ public class Peer {
                     processInv((InventoryMessage) m);
                 } else if (m instanceof Block) {
                     processBlock((Block) m);
-                                } else if (m instanceof Transaction) {
+                } else if (m instanceof Transaction) {
                     processPendingTransaction((Transaction) m);
                 } else if (m  instanceof AddressMessage) {
                     // We don't care about addresses of the network right now. But in future,

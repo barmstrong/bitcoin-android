@@ -858,6 +858,7 @@ public class Wallet implements Serializable {
                 TransactionOutput doubleSpent = input.getConnectedOutput(pool);
                 Transaction replacement = doubleSpent.getSpentBy().parentTransaction;
                 dead.put(tx.getHash(), tx);
+                pending.remove(tx.getHash());
                 // Inform the event listeners of the newly dead tx.
                 for (WalletEventListener listener : eventListeners) {
                     synchronized (listener) {
@@ -876,6 +877,7 @@ public class Wallet implements Serializable {
             // All inputs are either valid for spending or don't come from us. Miners are trying to reinclude it.
             log.info("   ->pending", tx.getHashAsString());
             pending.put(tx.getHash(), tx);
+            dead.remove(tx.getHash());
         }
     }
 
@@ -904,7 +906,7 @@ public class Wallet implements Serializable {
                     t2.updatedAt = new Date(0);
                 return t2.updatedAt.compareTo(t1.updatedAt);
             }
-        });
-        return transactions;
-    }
+            });
+            return transactions;
+        }
 }
