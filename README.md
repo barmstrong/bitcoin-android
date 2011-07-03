@@ -25,6 +25,7 @@ Features
 * Creates transactions in the absence of internet (will retry when you reconnect)
 * Email invoices from your phone to request money
 * Wallet file backed up in the cloud (synced to your Google account) in case you lose your phone.
+* A free app, 100% open sourced
 
 Installation
 -------------
