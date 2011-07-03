@@ -124,7 +124,7 @@ public class BitcoinWallet extends Activity {
 		};
 		((ProgressBar) findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
 
-		progressThread = new ProgressThread(handler, this);
+		progressThread = new ProgressThread(handler);
 		progressThread.start();
 	}
 

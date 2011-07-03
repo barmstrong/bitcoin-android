@@ -38,7 +38,6 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -70,14 +69,12 @@ public final class CaptureActivity extends Activity implements
 
 	private static final String TAG = CaptureActivity.class.getSimpleName();
 
-	private static final int SHARE_ID = Menu.FIRST;
 	private static final float BEEP_VOLUME = 0.10f;
 	private static final long VIBRATE_DURATION = 200L;
 
 	private static final String PRODUCT_SEARCH_URL_PREFIX = "http://www.google";
 	private static final String PRODUCT_SEARCH_URL_SUFFIX = "/m/products/scan";
 	private static final String ZXING_URL = "http://zxing.appspot.com/scan";
-	private static final String RETURN_URL_PARAM = "ret";
 
 	private static final Set<ResultMetadataType> DISPLAYABLE_METADATA_TYPES;
 	static {
@@ -267,13 +264,6 @@ public final class CaptureActivity extends Activity implements
 		return super.onKeyDown(keyCode, event);
 	}	
 
-	// Don't display the share menu item if the result overlay is showing.
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		super.onPrepareOptionsMenu(menu);
-		menu.findItem(SHARE_ID).setVisible(lastResult == null);
-		return true;
-	}
 
 	@Override
 	public void onConfigurationChanged(Configuration config) {

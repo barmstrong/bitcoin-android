@@ -75,6 +75,10 @@ public class Peer {
         this.thread.setName("Bitcoin peer thread: " + conn.toString());
         this.thread.start();
     }
+    
+    public boolean isRunning(){
+        return running;
+    }
 
     /**
      * Runs in the peers network thread and manages communication with the peer.
@@ -105,6 +109,7 @@ public class Peer {
                 log.info("Shutting down peer thread");
             } else {
                 // We caught an unexpected exception.
+                log.info("PEER EXCEPTION!!!!!!!");
                 e.printStackTrace();
             }
         }

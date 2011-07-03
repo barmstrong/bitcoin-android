@@ -44,12 +44,18 @@ Usage
 Contributing
 ------------
 
+Planned Features
+----------------
+
+* connect to Bitcoin Faucet for people to get a few coins on the device when they first try it
+* clicking a [Bitcoin link](https://en.bitcoin.it/wiki/URI_Scheme) in the mobile browser should open the send money screen (with fields filled in)
+
 Credits
 -------
 
 Bitcoin Wallet is based on the excellent [bitcoinj](http://code.google.com/p/bitcoinj/) library by Mike Hearn at Google.  He deserves some very special thanks!
 
-It also makes use of the [zxing](http://code.google.com/p/zxing/) library for processing QR codes.
+It also makes use of the [zxing](http://code.google.com/p/zxing/) library for processing QR codes, and the icon was created by the folks at [visualpharm.com](http://www.visualpharm.com/).
 
 License
 -------

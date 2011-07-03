@@ -1,6 +1,7 @@
 package com.bitcoinwallet;
 
-import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -8,78 +9,155 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.bitcoin.core.NetworkConnection;
 import com.google.bitcoin.core.Peer;
 import com.google.bitcoin.core.Transaction;
 
+/* Thread to download the block chain.
+ * It downloads from one peer at a time, but will cycle through if one dies or stops talking to us.
+ * Once it finishes downloading the blockchain it will make sure we're connected to 8 nearby peers to
+ * get new blocks and messages. 
+ */
+
 public class ProgressThread extends Thread {
+	ApplicationState appState = ApplicationState.current;
+	
 	Peer peer;
 	CountDownLatch progress;
 	Handler mHandler;
-	BitcoinWallet parent;
 	final static int STATE_DONE = 0;
 	final static int STATE_RUNNING = 1;
 	int mState;
 	int total;
 
-	public ProgressThread(Handler h, BitcoinWallet p) {
+	public ProgressThread(Handler h) {
 		mHandler = h;
-		parent = p;
 		mState = STATE_RUNNING;
 	}
-	
+
 	public void run() {
-		ApplicationState appState = ApplicationState.current;
+		downloadBlockChain();
+		hideDialog();
+		connectToLocalPeers();
+		resendPendingTransactions();
+	}
+	
+	private void downloadBlockChain() {
+		Log.d("Wallet", "Downloading block chain");
+		boolean done = false;
+		while (!done) {
+			ArrayList<InetSocketAddress> isas = appState.discoverPeers();
+			if (isas.size() == 0) {
+				// not connected to internet, could show a dialog to the user here?
+				done = true;
+			} else {
+				for (InetSocketAddress isa : isas) {
+					if (blockChainDownloadSuccessful(isa)) {
+						done = true;
+						break;
+					} else {
+						// remove and try next one
+						appState.removeBadPeer(isa);
+					}
+				}
+			}
+		}
+		hideDialog();
+	}
+	
+	private boolean blockChainDownloadSuccessful(InetSocketAddress isa){
+		NetworkConnection conn = createNetworkConnection(isa);
+		if (conn == null)
+			return false;
 		
 		long max;
 		long current;
-
-		for(Peer peer : appState.getPeers()){
-			try {
-				progress = peer.startBlockChainDownload();
-				max = progress.getCount();
-				current = max;
-				int no_change_count = 0;
-				while (current > 0) {
-				    double pct = 100.0 - (100.0 * (current / (double)max));
-				    System.out.println(String.format("Chain download %d%% done", (int)pct));
-				    progress.await(1, TimeUnit.SECONDS);
-				    long tmp = progress.getCount();
-				    if (tmp == current && no_change_count++ > 2){
-				    	appState.removeBadPeer(peer);
-				    	break;
-				    } else {
-				    	current = tmp;
-				    	no_change_count = 0;
-				    	Message msg = mHandler.obtainMessage();
-						msg.arg1 = (int) pct;
-						mHandler.sendMessage(msg);
-				    }
+		
+		Peer peer = new Peer(appState.params, conn, appState.blockChain, appState.wallet);
+		peer.start();
+		try {
+			Log.d("Wallet", "Starting download from new peer");
+			progress = peer.startBlockChainDownload();
+			max = progress.getCount();
+			current = max;
+			int no_change_count = 0;
+			while (true) {
+				double pct = 100.0 - (100.0 * (current / (double) max));
+				System.out.println(String.format("Chain download %d%% done", (int) pct));
+				progress.await(1, TimeUnit.SECONDS);
+				long tmp = progress.getCount();
+				if (tmp == 0) {
+					// we're done!
+					return true;
+				} else if (tmp == current && no_change_count++ > 7) {
+					// peer stopped talking to us for 8 seconds, lets break out and try next one :(
+					return false;
+				} else {
+					// we're making progress, keep going!
+					current = tmp;
+					no_change_count = 0;
+					Message msg = mHandler.obtainMessage();
+					msg.arg1 = (int) pct;
+					mHandler.sendMessage(msg);
 				}
-				if(current == 0){
-					break;
-				}
-			} catch (IOException e){
-				//try next peer
-			} catch (InterruptedException e){
-				//try next peer
-			} catch (IllegalArgumentException e){
-				//try next peer
 			}
+		} catch (Exception e) {
+			// disconnect and try next peer
+			Log.d("Wallet", "exception in ProgressThread downloadBlockChainSuccessful");
+			e.printStackTrace();
+		} finally {
+			// always calls this even if we return above
+			peer.disconnect();
 		}
 		
-		//take a second look at any pending transactions, we may need to rebroadcast them
-		for(Transaction tx : appState.wallet.pending.values()){
+		return false;
+	}
+	
+	private NetworkConnection createNetworkConnection(InetSocketAddress isa) {
+		try {
+			return new NetworkConnection(isa.getAddress(), appState.params, appState.blockStore.getChainHead().getHeight(), 5000);
+		} catch (Exception e) {
+			//e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/* connect to local peers (minimum of 3, maximum of 8) */
+	private void connectToLocalPeers(){
+		Log.d("Wallet", "Connecting to local peers");
+		//clear out any which have disconnected
+		for (Peer peer : appState.connectedPeers) {
+			if (!peer.isRunning())
+				appState.connectedPeers.remove(peer);
+		}
+		
+		if (appState.connectedPeers.size() < 3) {
+			for (InetSocketAddress isa : appState.discoverPeers()) {
+				NetworkConnection conn = createNetworkConnection(isa);
+				if (conn == null) {
+					appState.removeBadPeer(isa);
+				} else {
+					Peer peer = new Peer(appState.params, conn, appState.blockChain, appState.wallet);
+					peer.start();
+					appState.connectedPeers.add(peer);
+					if (appState.connectedPeers.size() >= 8)
+						break;
+				}
+			}
+		}
+	}
+	
+	private void resendPendingTransactions(){
+		Log.d("Wallet", "Resending pendings transactions");
+		for (Transaction tx : appState.wallet.pending.values()) {
 			if (tx.sent(appState.wallet)) {
 				Log.d("Wallet", "resending");
 				appState.sendTransaction(tx);
 			}
 		}
-		
-		// ensure dialog closes if we catch an exception
-		hideDialog();
 	}
-	
-	public void hideDialog(){
+
+	private void hideDialog() {
 		Message msg = mHandler.obtainMessage();
 		msg.arg1 = 100;
 		mHandler.sendMessage(msg);
