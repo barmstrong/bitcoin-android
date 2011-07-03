@@ -33,25 +33,12 @@ You can [download and install the app](http://example.com/) from the Android Mar
 
 Or search for "bitcoin" from your mobile device.
 
-For best results, install the app while connected to WiFi (it will down some data the first time you connect).
+For best results, install the app while connected to WiFi (it will download some data the first time you launch it).
 
 Usage
 -----
 
-Your wallet has two basic functions: Sending Money and Requesting Money.
-
-This is primarily done by scanning and generating [QR codes](http://en.wikipedia.org/wiki/QR_code) to quickly transfer addresses between devices, although there are a few other options discussed below.
-
-<img src="http://i.imgur.com/tTdtZ.png" width="200" align="right" />
-When you open the app for the first time you'll see your balance, a list of recent transactions, and two buttons relating to the primary functions described above. A little spinner in the upper right means your wallet is checking for new transactions.  You can use the app normally while this is updating, and initiate a refresh at any time by selecting the menu key and then "Refresh".
-
-To start off, you may want to get a few coins in your brand new wallet.  To do this, click the 'Request Money' button on the home screen.  You'll notice that a QR code has been generated and there is an optional field for an amount.  If you have a friend nearby who also has the app, they can scan your QR code to get your bitcoin receive address and send you money.  This is the fastest way to send money and will save them some typing since the address is 34 characters long!
-
-If nobody else is around who has the app, there are a few other options.  Click "Send A Request..." at the bottom to bring up a menu.  This will allow you to send a bitcoin "invoice" of sorts to people who don't have the mobile app.  Try emailing one to yourself.  When it shows up in your inbox you can take a look at it, and copy/paste the address into your desktop client or the bitcoin faucet to send a few cents to your phone.  After a few seconds you should see a notification on your phone alerting you that you've received funds!  It will initially be pending (grayed out in the UI), and later verified just like all bitcoin transactions.
-
-Once you have money in your wallet, you can send money.  Clicking "Send Money" will pull up a camera view that is designed to scan QR codes.  The scanner will recognize any QR codes that use the [bitcoin URI scheme](https://en.bitcoin.it/wiki/URI_Scheme), which could be on a wall sticker, another mobile device, or a point of sale device in a store (there are a [few](http://starburst.hackerfriendly.com/?p=1530) of these starting to pop up).  If your intended recipient doesn't have a QR code you can also click the "Enter Manually" button and type an address in by hand or paste it from the clipboard.
-
-That's it!  One final note.  Sometimes people get confused about depositing and withdrawing funds from their wallet.  In this case depositing is simply using the "Request Money" feature to receive money from yourself (from your desktop client another account you own).  And withdrawing is simply "Sending Money" to yourself (again, to your desktop client or another account you own).  The terminology around this is still a bit confusing and will hopefully improve over time.
+Check out the wiki page on [using your bitcoin wallet](https://github.com/barmstrong/bitcoin-wallet/wiki/Using-Your-Bitcoin-Wallet).
 
 Technical Details
 -----------------
