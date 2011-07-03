@@ -66,7 +66,7 @@ Credits
 
 Bitcoin Wallet is based on the [bitcoinj](http://code.google.com/p/bitcoinj/) library by Mike Hearn at Google.  He deserves some very special thanks!
 
-It also makes use of the [zxing](http://code.google.com/p/zxing/) library for processing QR codes.  The icon was created by the folks at [visualpharm.com](http://www.visualpharm.com/).
+It also makes use of the [zxing](http://code.google.com/p/zxing/) library for processing QR codes.  The icon was created by [visualpharm.com](http://www.visualpharm.com/).
 
 License
 -------
