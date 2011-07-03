@@ -49,7 +49,7 @@ Check out the wiki page on [technical details](https://github.com/barmstrong/bit
 Contributing
 ------------
 
-Feel free to fork and send pull requests.  Contributions welcome.  This is free, open source software!
+Feel free to fork and send pull requests.  Contributions welcome.
 
 TODO
 ----
