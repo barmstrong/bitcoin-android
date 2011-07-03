@@ -44,15 +44,7 @@ Check out the wiki page on [using your bitcoin wallet](https://github.com/barmst
 Technical Details
 -----------------
 
-Bitcoin Wallet is based on the excellent [bitcoinj](http://code.google.com/p/bitcoinj/) library created by Mike Hearn at Google.
-
-It's a full bitcoin client running on your phone.  This means it keeps it's own copy of the blockchain (currently about 12MB) which we store on your phone's SD card, and it doesn't need to communicate with a centralized server.  Most phones have large SD cards (8GB or more is not uncommon) so storing 12MB isn't too bad.  The wallet file is stored on the phone's internal memory instead since it quite small compared to the blockchain.  We include a recent copy of the blockchain in the actual app package that you download from the Android Market so you don't need to download and build the whole thing from scratch.  The first time you run it, it will contact nearby peers and update the included blockchain to the most recent version.  This usually takes a minute or less over WiFi.  After that, updates to the blockchain and transaction notifications should be near instantaneous (a few seconds) over 3G or WiFi.
-
-If your phone isn't connected to the internet, you can still create transactions (send money).  Your wallet will retry sending them once you regain internet access (tapping "Refresh" from the home screen will do this right away).  Of course, recipients will not receive the transaction until your phone reconnects to the internet, so if they are expecting to receive confirmation right away then you'll need internet access from your phone.
-
-Because Bitcoin Wallet is a full bitcoin client, this also means that your "money" is stored on the device itself.  If you lose your phone you could potentially lose your money (just like if you lost your real wallet you'd lose the cash inside).  So you should probably never carry more money on your phone than you'd feel comfortable carrying in your real wallet.  In practice, the coins may be recoverable because we sync your wallet file to your Google Account in the cloud after each transaction.  If you did lose your phone you could login to your Google Account on another Android device, install the app, and once again have access to your coins.  (At that point you'd probably want to send them somewhere safe and get them off the phone since the thief could be doing the same thing.)
-
-Note that since this is beta software you probably shouldn't store ANY amount of bitcoins you are unwilling to lose at this point.  Or if you do, do so at your own risk.
+Check out the wiki page on [technical details](https://github.com/barmstrong/bitcoin-wallet/wiki/Technical-Details).
 
 Contributing
 ------------
