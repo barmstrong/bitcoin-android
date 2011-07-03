@@ -42,33 +42,39 @@ Your wallet has two basic functions: Sending Money and Requesting Money.
 
 This is primarily done by scanning and generating [QR codes](http://en.wikipedia.org/wiki/QR_code) to quickly transfer addresses between devices, although there are a few other options discussed below.
 
-<img src="http://i.imgur.com/tTdtZ.png" width="200" align="right" padding="10" />
+<img src="http://i.imgur.com/tTdtZ.png" width="200" align="right" />
 When you open the app for the first time you'll see your balance, a list of recent transactions, and two buttons relating to the primary functions described above. A little spinner in the upper right means your wallet is checking for new transactions.  You can use the app normally while this is updating, and initiate a refresh at any time by selecting the menu key and then "Refresh".
 
 To start off, you may want to get a few coins in your brand new wallet.  To do this, click the 'Request Money' button on the home screen.  You'll notice that a QR code has been generated and there is an optional field for an amount.  If you have a friend nearby who also has the app, they can scan your QR code to get your bitcoin receive address and send you money.  This is the fastest way to send money and will save them some typing since the address is 34 characters long!
 
-However, in the more likely case that you don't have a friend nearby, there are a few other options.  Clicking "Send A Request..." at the bottom will bring up a menu with various options to sent a bitcoin "invoice" of sorts.  For now try emailing one to yourself.  When it shows up in your inbox you can take a look at it, and copy/paste the address into your desktop client or the bitcoin faucet to send a few pennies to your phone.  After a few seconds you should see a notification on your phone alerting you that you've received funds!  It will initially be pending (grayed out in the UI), and later verified just like all bitcoin transactions.
+If nobody else is around who has the app, there are a few other options.  Click "Send A Request..." at the bottom to bring up a menu.  This will allow you to send a bitcoin "invoice" of sorts to people who don't have the mobile app.  Try emailing one to yourself.  When it shows up in your inbox you can take a look at it, and copy/paste the address into your desktop client or the bitcoin faucet to send a few cents to your phone.  After a few seconds you should see a notification on your phone alerting you that you've received funds!  It will initially be pending (grayed out in the UI), and later verified just like all bitcoin transactions.
 
-Once you have money in your wallet, you can send money.  Clicking "Send Money" will pull up a camera view that is designed to scan QR codes.  The scanner will recognize any QR codes that use the [bitcoin URI scheme](https://en.bitcoin.it/wiki/URI_Scheme), which could be on a wall sticker, another mobile device, or a point of sale device in a store (although there aren't [too](http://starburst.hackerfriendly.com/?p=1530) many of these yet).  If your intended recipient doesn't have a QR code you can also click the "Enter Manually" button and type an address in by hand or paste it from the clipboard.
+Once you have money in your wallet, you can send money.  Clicking "Send Money" will pull up a camera view that is designed to scan QR codes.  The scanner will recognize any QR codes that use the [bitcoin URI scheme](https://en.bitcoin.it/wiki/URI_Scheme), which could be on a wall sticker, another mobile device, or a point of sale device in a store (there are a [few](http://starburst.hackerfriendly.com/?p=1530) of these starting to pop up).  If your intended recipient doesn't have a QR code you can also click the "Enter Manually" button and type an address in by hand or paste it from the clipboard.
 
-That's it!  One final note.  Sometimes people get confused about depositing and withdrawing funds from their wallet.  In this case depositing is simply using the "Request Money" feature to send money to yourself (from your desktop client or elsewhere).  And withdrawing is simply "Sending Money" to yourself (again, your desktop client or elsewhere).  The terminology around this is still a bit confusing and will hopefully improve over time.
+That's it!  One final note.  Sometimes people get confused about depositing and withdrawing funds from their wallet.  In this case depositing is simply using the "Request Money" feature to receive money from yourself (from your desktop client another account you own).  And withdrawing is simply "Sending Money" to yourself (again, to your desktop client or another account you own).  The terminology around this is still a bit confusing and will hopefully improve over time.
 
 Technical Details
 -----------------
 
 Bitcoin Wallet is based on the excellent [bitcoinj](http://code.google.com/p/bitcoinj/) library created by Mike Hearn at Google.
 
-It's a full bitcoin client running on your phone.  This means it keeps it's own copy of the blockchain (currently about 12MB) which we store on your phone's SD card.  Most phones have large SD cards (8GB or more is not uncommon) so storing 12MB isn't too bad.  The wallet file is stored on the phone's internal memory and is quite small compared to the blockchain.  We include a recent copy of the blockchain in the actual app package so you won't need to download and build the whole thing from scratch.  The first time you run it, it will contact nearby peers and update the included blockchain to the most recent version.  This usually takes a minute or less.  After that, updates to the blockchain and transaction notifications should be near instantaneous (a few seconds).
+It's a full bitcoin client running on your phone.  This means it keeps it's own copy of the blockchain (currently about 12MB) which we store on your phone's SD card, and it doesn't need to communicate with a centralized server.  Most phones have large SD cards (8GB or more is not uncommon) so storing 12MB isn't too bad.  The wallet file is stored on the phone's internal memory instead since it quite small compared to the blockchain.  We include a recent copy of the blockchain in the actual app package that you download from the Android Market so you don't need to download and build the whole thing from scratch.  The first time you run it, it will contact nearby peers and update the included blockchain to the most recent version.  This usually takes a minute or less over WiFi.  After that, updates to the blockchain and transaction notifications should be near instantaneous (a few seconds) over 3G or WiFi.
+
+If your phone isn't connected to the internet, you can still create transactions (send money).  Your wallet will retry sending them once you regain internet access (tapping "Refresh" home screen will do this right away).  Of course, recipients will not receive the transaction until your phone reconnects to the internet, so if they are expecting to receive confirmation right away then this wouldn't work without internet access on your phone.
 
 Because Bitcoin Wallet is a full bitcoin client, this also means that your "money" is stored on the device itself.  If you lose your phone you could potentially lose your money (just like if you lost your real wallet you'd lose the cash inside).  So you should probably never carry more money on your phone than you'd feel comfortable carrying in your real wallet.  In practice, the coins may be recoverable because we sync your wallet file to your Google Account in the cloud after each transaction.  If you did lose your phone you could login to your Google Account on another Android device, install the app, and once again have access to your coins.  (At that point you'd probably want to send them somewhere safe and get them off the phone since the thief could be doing the same thing.)
+
+Note that since this is beta software you probably shouldn't store ANY amount of bitcoins you are unwilling to lose at this point.  Or if you do, do so at your own risk.
 
 Contributing
 ------------
 
+Feel free to fork and send pull requests.  Contributions welcome.  This is free, open source software!
+
 TODO
 ----
 
-* require a pin code required to send money?
+* optionally require a pin code to send money?
 * ability to generate more than one receive address
 * make backup to the cloud optional for those who want the privacy
 * move to a "thin client" implementation instead of storing the entire blockchain (this will become necessary as the blockchain grows over time)
