@@ -42,7 +42,7 @@ Your wallet has two basic functions: Sending Money and Requesting Money.
 
 This is primarily done by scanning and generating [QR codes](http://en.wikipedia.org/wiki/QR_code) to quickly transfer addresses between devices, although there are a few other options discussed below.
 
-<img src="http://i.imgur.com/tTdtZ.png" width="200" align="right" style="padding-left: 10px;" />
+<img src="http://i.imgur.com/tTdtZ.png" width="200" align="right" padding="10" />
 When you open the app for the first time you'll see your balance, a list of recent transactions, and two buttons relating to the primary functions described above. A little spinner in the upper right means your wallet is checking for new transactions.  You can use the app normally while this is updating, and initiate a refresh at any time by selecting the menu key and then "Refresh".
 
 To start off, you may want to get a few coins in your brand new wallet.  To do this, click the 'Request Money' button on the home screen.  You'll notice that a QR code has been generated and there is an optional field for an amount.  If you have a friend nearby who also has the app, they can scan your QR code to get your bitcoin receive address and send you money.  This is the fastest way to send money and will save them some typing since the address is 34 characters long!
