@@ -2,7 +2,11 @@ package com.bitcoinwallet;
 
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import android.os.Handler;
@@ -72,6 +76,7 @@ public class ProgressThread extends Thread {
 		
 		long max;
 		long current;
+		long last_current = -1;
 		
 		Peer peer = new Peer(appState.params, conn, appState.blockChain, appState.wallet);
 		peer.start();
@@ -85,16 +90,21 @@ public class ProgressThread extends Thread {
 				double pct = 100.0 - (100.0 * (current / (double) max));
 				System.out.println(String.format("Chain download %d%% done", (int) pct));
 				progress.await(1, TimeUnit.SECONDS);
-				long tmp = progress.getCount();
-				if (tmp == 0) {
+				current = progress.getCount();
+				if (last_current == -1)
+					last_current = current;
+				Log.d("Wallet", "no change count is "+no_change_count+" and current is "+current);
+				if (current == 0) {
 					// we're done!
 					return true;
-				} else if (tmp == current && no_change_count++ > 7) {
-					// peer stopped talking to us for 8 seconds, lets break out and try next one :(
-					return false;
+				} else if (current == last_current) {
+					no_change_count++;
+					// if peer stopped talking to us for 8 seconds, lets break out and try next one :(
+					if (no_change_count >= 8)
+						return false;
 				} else {
 					// we're making progress, keep going!
-					current = tmp;
+					last_current = current;
 					no_change_count = 0;
 					Message msg = mHandler.obtainMessage();
 					msg.arg1 = (int) pct;
@@ -113,13 +123,32 @@ public class ProgressThread extends Thread {
 		return false;
 	}
 	
-	private NetworkConnection createNetworkConnection(InetSocketAddress isa) {
+	/**
+	 * Wrapped "new NetworkConnection" in a giant executor service since it would sometimes never return, even with the connectTimeout param
+	 * Copied from http://stackoverflow.com/questions/1164301/how-do-i-call-some-blocking-method-with-a-timeout-in-java
+	 */
+	private NetworkConnection createNetworkConnection(final InetSocketAddress isa) {
+		ExecutorService executor = Executors.newCachedThreadPool();
+		Callable<NetworkConnection> task = new Callable<NetworkConnection>() {
+		   public NetworkConnection call() {
+			   NetworkConnection conn = null;
+			   try {
+				   conn = new NetworkConnection(isa.getAddress(), appState.params, appState.blockStore.getChainHead().getHeight(), 5000);
+			   } catch (Exception e) {
+			   }
+			   return conn;
+		   }
+		};
+		Future<NetworkConnection> future = executor.submit(task);
+		NetworkConnection result = null;
 		try {
-			return new NetworkConnection(isa.getAddress(), appState.params, appState.blockStore.getChainHead().getHeight(), 5000);
+			result = future.get(10, TimeUnit.SECONDS); 
 		} catch (Exception e) {
-			//e.printStackTrace();
+			e.printStackTrace();
+		} finally {
+		   future.cancel(true);
 		}
-		return null;
+		return result;
 	}
 	
 	/* connect to local peers (minimum of 3, maximum of 8) */

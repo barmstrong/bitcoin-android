@@ -139,6 +139,7 @@ public class ApplicationState extends Application {
 				Log.d("Wallet", "Couldn't discover peers.");
 			}
 		}
+		Log.d("Wallet", "discoverPeers returning "+isas.size()+" peers");
 		// shallow clone to prevent concurrent modification exceptions
 		return (ArrayList<InetSocketAddress>) isas.clone();
 	}
