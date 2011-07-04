@@ -34,7 +34,7 @@ You can [download and install the app](http://example.com/) from the Android Mar
 
 For best results, install the app while connected to WiFi (it will download some data the first time you launch it).
 
-Next, get a few coins in your wallet by starting the app and tapping "Request Money".  From here you can send a request to yourself by email.  The request will contain your wallet's receive address which you can paste into your desktop client or the [bitcoin faucet](https://freebitcoins.appspot.com/).
+Next, get a few coins in your wallet by starting the app and tapping "Request Money".  From here you can send a request to yourself by email.  The request will contain your wallet's receive address which you can paste into your desktop client or the [bitcoin faucet](https://freebitcoins.appspot.com/) to add funds to your wallet.
 
 Usage
 -----
