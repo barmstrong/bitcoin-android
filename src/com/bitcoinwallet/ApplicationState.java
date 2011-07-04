@@ -33,7 +33,7 @@ import com.google.bitcoin.core.Wallet;
 public class ApplicationState extends Application {
 	// convenient place to keep global app variables
 
-	boolean TEST_MODE = true;
+	boolean TEST_MODE = false;
 	Wallet wallet;
 	String filePrefix = TEST_MODE ? "testnet" : "prodnet";
 

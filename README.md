@@ -25,16 +25,16 @@ Features
 * Creates transactions in the absence of internet (will retry when you reconnect)
 * Email invoices from your phone to request money
 * Wallet file backed up in the cloud (synced to your Google account) in case you lose your phone.
-* A free app, 100% open sourced
+* A free app, 100% open source
 
 Installation
 -------------
 
-You can [download and install the app](http://example.com/) from the Android Market.
-
-Or search for "bitcoin" from your mobile device.
+You can [download and install the app](http://example.com/) from the Android Market.  Or search for "bitcoin" from your mobile device.
 
 For best results, install the app while connected to WiFi (it will download some data the first time you launch it).
+
+Next, get a few coins in your wallet by starting the app and tapping "Request Money".  From here you can send a request to yourself by email.  The request will contain your wallet's receive address which you can paste into your desktop client or the [bitcoin faucet](https://freebitcoins.appspot.com/).
 
 Usage
 -----
@@ -49,17 +49,17 @@ Check out the wiki page on [technical details](https://github.com/barmstrong/bit
 Contributing
 ------------
 
-Feel free to fork and send pull requests.  Contributions welcome.
+Feel free to fork and send [pull requests](http://help.github.com/fork-a-repo/).  Contributions welcome.
 
 TODO
 ----
 
-* optionally require a pin code to send money?
+* optionally require a pin code to send money for additional security?
 * ability to generate more than one receive address
 * make backup to the cloud optional for those who want the privacy
 * move to a "thin client" implementation instead of storing the entire blockchain (this will become necessary as the blockchain grows over time)
 * make an easy link to the Bitcoin Faucet for people to get a few coins on the device when they first try it
-* clicking a [bitcoin link](https://en.bitcoin.it/wiki/URI_Scheme) in the mobile browser should open the send money screen (with fields filled in)
+* clicking a [bitcoin link](https://en.bitcoin.it/wiki/URI_Scheme) in the mobile browser should open the send money screen (with fields filled in) using Android intents
 
 Credits
 -------
