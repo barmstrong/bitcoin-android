@@ -54,7 +54,7 @@ Feel free to fork and send [pull requests](http://help.github.com/fork-a-repo/).
 Donations
 ---------
 
-To support ongoing development of bitcoin wallet try [scanning this QR code](http://qrcode.kaywa.com/img.php?s=6&d=bitcoin%3A1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4%3Fmessage%3DThank%2520you%2520for%2520supporting%2520bitcoin%2520wallet%21) from your phone or sending donatinos to 1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4
+To support ongoing development of bitcoin wallet try [scanning this QR code](http://qrcode.kaywa.com/img.php?s=6&d=bitcoin%3A1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4%3Fmessage%3DThank%2520you%2520for%2520supporting%2520bitcoin%2520wallet%21) from your phone or sending donations to 1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4
 
 TODO
 ----

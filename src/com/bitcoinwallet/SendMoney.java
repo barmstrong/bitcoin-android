@@ -50,7 +50,6 @@ public class SendMoney extends Activity {
 					amount = amount.toLowerCase().replace("x8", "");
 				}
 				amountField.setText(amount);
-				amountField.requestFocus();
 			}
 			if (b.getString("label") != null) {
 				memoField.setText(URLDecoder.decode(b.getString("label")) + " ");
@@ -62,6 +61,12 @@ public class SendMoney extends Activity {
 				memoField.setText(memoField.getText() + URLDecoder.decode(b.getString("memo")));
 			}
 			memoField.setText(memoField.getText().toString().trim());
+		}
+		
+		if (addressField.getText().toString() == "") {
+			addressField.requestFocus();
+		} else {
+			amountField.requestFocus();
 		}
 
 		Button sendButton = (Button) this.findViewById(R.id.send_money_button);
