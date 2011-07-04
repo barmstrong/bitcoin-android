@@ -58,6 +58,10 @@ public class SendMoney extends Activity {
 			if (b.getString("message") != null) {
 				memoField.setText(memoField.getText() + URLDecoder.decode(b.getString("message")));
 			}
+			if (b.getString("memo") != null) {
+				memoField.setText(memoField.getText() + URLDecoder.decode(b.getString("memo")));
+			}
+			memoField.setText(memoField.getText().toString().trim());
 		}
 
 		Button sendButton = (Button) this.findViewById(R.id.send_money_button);
