@@ -41,12 +41,12 @@ Next, get a few coins in your wallet by starting the app and tapping "Request Mo
 Usage
 -----
 
-Check out the wiki page on [using bitcoin android](https://github.com/barmstrong/bitcoin-wallet/wiki/Using-Your-Bitcoin-Wallet).
+Check out the wiki page on [using bitcoin android](https://github.com/barmstrong/bitcoin-android/wiki/Using-Your-Bitcoin-Wallet).
 
 Technical Details
 -----------------
 
-Check out the wiki page on [technical details](https://github.com/barmstrong/bitcoin-wallet/wiki/Technical-Details).
+Check out the wiki page on [technical details](https://github.com/barmstrong/bitcoin-android/wiki/Technical-Details).
 
 Contributing
 ------------
