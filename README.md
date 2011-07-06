@@ -1,11 +1,11 @@
-Bitcoin Wallet
+Bitcoin Android
 ==============
 
 Send and receive bitcoins from your Android phone!
 
 Note that this app is still under development and may lose your coins!  Test it with small amounts.
 
-You can [download it from the Android Market here](http://example.com/) or search for "bitcoin" from your mobile device.
+You can [download it from the Android Market here](https://market.android.com/details?id=com.bitcoinandroid) or search for "bitcoin" from your mobile device.
 
 <table>
   <tr>
@@ -16,7 +16,7 @@ You can [download it from the Android Market here](http://example.com/) or searc
   </tr>
 </table>
 
-**Checkout a [YOUTUBE DEMO VIDEO HERE](http://www.youtube.com/watch?v=W6EucS5RS24)**
+**Checkout a [YouTube Demo Video Here](http://www.youtube.com/watch?v=W6EucS5RS24)**
 
 Features
 --------
@@ -32,7 +32,7 @@ Features
 Installation
 -------------
 
-You can [download and install the app](http://example.com/) from the Android Market.  Or search for "bitcoin" from your mobile device.
+You can [download and install the app](https://market.android.com/details?id=com.bitcoinandroid) from the Android Market.  Or search for "bitcoin" from your mobile device.
 
 For best results, install the app while connected to WiFi (it will download some data the first time you launch it).
 
@@ -41,7 +41,7 @@ Next, get a few coins in your wallet by starting the app and tapping "Request Mo
 Usage
 -----
 
-Check out the wiki page on [using your bitcoin wallet](https://github.com/barmstrong/bitcoin-wallet/wiki/Using-Your-Bitcoin-Wallet).
+Check out the wiki page on [using bitcoin android](https://github.com/barmstrong/bitcoin-wallet/wiki/Using-Your-Bitcoin-Wallet).
 
 Technical Details
 -----------------
@@ -56,7 +56,7 @@ Feel free to fork and send [pull requests](http://help.github.com/fork-a-repo/).
 Donations
 ---------
 
-To support ongoing development of bitcoin wallet try [scanning this QR code](http://qrcode.kaywa.com/img.php?s=6&d=bitcoin%3A1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4%3Fmessage%3DThank%2520you%2520for%2520supporting%2520bitcoin%2520wallet%21) from your phone or sending donations to 1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4
+To support ongoing development of bitcoin android try [scanning this QR code](http://qrcode.kaywa.com/img.php?s=6&d=bitcoin%3A1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4%3Fmessage%3DThank%2520you%2520for%2520supporting%2520bitcoin%2520android%21) from your phone or sending donations to 1Gp1himAQ4jmmQJ5zZwQxKmv7yg4Drm5M4
 
 TODO
 ----
@@ -71,11 +71,11 @@ TODO
 Credits
 -------
 
-Bitcoin Wallet is based on the [bitcoinj](http://code.google.com/p/bitcoinj/) library by Mike Hearn at Google.  He deserves some very special thanks!
+Bitcoin Android is based on the [bitcoinj](http://code.google.com/p/bitcoinj/) library by Mike Hearn at Google.  He deserves some very special thanks!
 
 It also makes use of the [zxing](http://code.google.com/p/zxing/) library for processing QR codes.  The icon was created by [visualpharm.com](http://www.visualpharm.com/).
 
 License
 -------
 
-Bitcoin Wallet is open source software released under the Apache V2 license.
+Bitcoin Android is open source software released under the Apache V2 license.
