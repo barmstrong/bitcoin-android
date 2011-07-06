@@ -5,7 +5,7 @@ Send and receive bitcoins from your Android phone!
 
 Note that this app is still under development and may lose your coins!  Test it with small amounts.
 
-You can [get it from the Android Market here](https://market.android.com/details?id=com.bitcoinandroid) and send it to your phone.
+You can [get it from the Android Market here](https://market.android.com/details?id=com.bitcoinandroid) and click "Install" to send it to your phone.
 
 <table>
   <tr>
