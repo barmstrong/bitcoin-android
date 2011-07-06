@@ -32,7 +32,7 @@ Features
 Installation
 -------------
 
-You can [download and install the app](https://market.android.com/details?id=com.bitcoinandroid) from the Android Market.  Or search for "bitcoin" from your mobile device.
+You can [download and install the app](https://market.android.com/details?id=com.bitcoinandroid) from the Android Market.
 
 For best results, install the app while connected to WiFi (it will download some data the first time you launch it).
 
