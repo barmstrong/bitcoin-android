@@ -27,7 +27,7 @@ Features
 * Wallet file backed up in the cloud (synced to your Google account) in case you lose your phone.
 * A free app, 100% open source
 
-<iframe width="425" height="349" src="http://www.youtube.com/embed/W6EucS5RS24" frameborder="0" allowfullscreen></iframe>
+<object width="425" height="349"><param name="movie" value="http://www.youtube.com/v/W6EucS5RS24?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/W6EucS5RS24?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="425" height="349" allowscriptaccess="always" allowfullscreen="true"></embed></object>
 
 Installation
 -------------
