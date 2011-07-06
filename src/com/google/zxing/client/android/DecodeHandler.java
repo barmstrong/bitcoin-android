@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.android;
 
-import com.bitcoinwallet.R;
+import com.bitcoinandroid.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

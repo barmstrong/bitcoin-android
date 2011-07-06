@@ -30,7 +30,7 @@ import android.provider.Contacts;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 
-import com.bitcoinwallet.R;
+import com.bitcoinandroid.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;

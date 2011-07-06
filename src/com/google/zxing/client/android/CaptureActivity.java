@@ -49,8 +49,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitcoinwallet.R;
-import com.bitcoinwallet.SendMoney;
+import com.bitcoinandroid.R;
+import com.bitcoinandroid.SendMoney;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;

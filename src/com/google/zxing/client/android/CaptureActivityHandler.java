@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.android;
 
-import com.bitcoinwallet.R;
+import com.bitcoinandroid.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.camera.CameraManager;

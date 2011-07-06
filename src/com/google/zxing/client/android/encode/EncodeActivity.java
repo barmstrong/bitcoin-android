@@ -28,7 +28,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bitcoinwallet.R;
+import com.bitcoinandroid.R;
 import com.google.zxing.client.android.FinishListener;
 import com.google.zxing.client.android.Intents;
 
