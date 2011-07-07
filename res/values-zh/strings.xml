@@ -9,8 +9,7 @@
 	<string name="msg_default_status">扫描二维码</string>
 	<string name="manual_button_label">或手动输入</string>
 	<string name="blank_label"></string>
-	
-	
+		
 	<string name="contents_text">纯文本</string>
 	<string name="contents_contact">联系信息</string>
 	<string name="contents_email">Email 地址</string>
@@ -18,9 +17,20 @@
 	<string name="contents_phone">电话号码</string>
 	<string name="contents_sms">SMS 地址</string>
 		
+	<string name="pay_request_address_label">地址： </string>	
+	<string name="pay_request_amount_label">金额： </string>
+	<string name="pay_request_received_from">付款要求从： </string>
+	<string name="pay_request">Hello,\n\n您收到付款请求。请发送到以下地址的资金。</string>
+	<string name="pay_request_thank_you">谢谢！</string>
+
+	<string name="send_money_payment_successful">付款成功！</string>
+	<string name="send_money_ok">OK</string>
+	<string name="send_money_insufficient_funds">你支付超过您当前的余额。 \n\n</string>
+	<string name="send_money_xfer_pending">请稍候您未完成的交易予以确认，或使用“收到钱”的主屏幕上的按钮，添加额外的资金，你的钱包。</string>
+	<string name="send_money_try_funding">尝试通过使用“收到钱”的主屏幕上的按钮您的资金bitcoin钱包。</string>
+	<string name="send_money_invalid_address">地址无效，请再试一次。</string>
+	<string name="send_money_fail">很抱歉我们无法\'T发送。请检查你的价值观，然后再试一次。</string>
 		
-	
-	
 	<string name="amount_label">数额</string>
 	<string name="address_label">收款地址</string>
 	<string name="memo_label">备注 (可选)</string>
