@@ -65,7 +65,6 @@ public class ApplicationState extends Application {
 		ApplicationState.current = (ApplicationState) this;
 		backupManager = new BackupManager(this);
 
-		
 		// read or create wallet
 		synchronized (ApplicationState.walletFileLock) {
 			walletFile = new File(getFilesDir(), filePrefix + ".wallet");
@@ -95,13 +94,23 @@ public class ApplicationState extends Application {
 					+ ".blockchain");
 			if (!file.exists()) {
 				Log.d("Wallet", "Copying initial blockchain from assets folder");
+				InputStream is = null;
 				try {
-					InputStream is = getAssets().open(
+					is = getAssets().open(
 							filePrefix + ".blockchain");
 					IOUtils.copy(is, new FileOutputStream(file));
 				} catch (IOException e) {
 					Log.d("Wallet",
 							"Couldn't find initial blockchain in assets folder...starting from scratch");
+				}
+				finally {
+					if (is != null) {
+						try {
+							is.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 			blockStore = new BoundedOverheadBlockStore(params, file);
