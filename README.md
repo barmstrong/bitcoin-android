@@ -9,10 +9,10 @@ You can [get it from the Android Market here](https://market.android.com/details
 
 <table>
   <tr>
-    <td><img src="https://github.com/barmstrong/bitcoin-android/blob/master/screenshots/btc1.png" width="200" /></td>    
-    <td><img src="https://github.com/barmstrong/bitcoin-android/blob/master/screenshots/btc2.png" width="200" /></td>
-    <td><img src="https://github.com/barmstrong/bitcoin-android/blob/master/screenshots/btc3.png" width="200" /></td>
-    <td><img src="https://github.com/barmstrong/bitcoin-android/blob/master/screenshots/btc4.png" width="200" /></td>
+    <td><img src="https://github.com/barmstrong/bitcoin-android/raw/master/screenshots/btc1.png" width="200" /></td>    
+    <td><img src="https://github.com/barmstrong/bitcoin-android/raw/master/screenshots/btc2.png" width="200" /></td>
+    <td><img src="https://github.com/barmstrong/bitcoin-android/raw/master/screenshots/btc3.png" width="200" /></td>
+    <td><img src="https://github.com/barmstrong/bitcoin-android/raw/master/screenshots/btc4.png" width="200" /></td>
   </tr>
 </table>
 
