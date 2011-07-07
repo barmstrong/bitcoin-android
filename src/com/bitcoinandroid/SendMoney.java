@@ -85,7 +85,7 @@ public class SendMoney extends Activity {
 						Log.d("Wallet", "Sent " + Utils.bitcoinValueToFriendlyString(amount) + " to " + address.toString());
 						
 						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-						builder.setMessage("Payment successful!").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+						builder.setMessage(R.string.send_money_payment_successful).setCancelable(false).setNegativeButton(R.string.send_money_ok, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								dialog.cancel();
 								startActivity(new Intent(SendMoney.this, BitcoinWallet.class));
@@ -95,14 +95,14 @@ public class SendMoney extends Activity {
 						alert.show();
 					} else {
 						AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-						String msg = "You're payment exceeds your current balance. \n\n";
-						if (appState.wallet.getPendingTransactions().size() > 0){
-							msg += " Please wait for your pending transactions to be confirmed, or add additional funds to your wallet using the 'Receive Money' button on the home screen.";
+						StringBuilder msg = new StringBuilder(getString(R.string.send_money_insufficient_funds));
+						if (appState.wallet.getPendingTransactions().size() > 0) {
+							msg.append(getString(R.string.send_money_xfer_pending));
 						} else {
-							msg += " Try funding your bitcoin wallet by using the 'Receive Money' button on the home screen.";
+							msg.append(getString(R.string.send_money_try_funding));
 						}
 						builder.setMessage(msg)
-								.setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+								.setCancelable(false).setNegativeButton(R.string.send_money_ok, new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
 										dialog.cancel();
 										startActivity(new Intent(SendMoney.this, BitcoinWallet.class));
@@ -114,7 +114,7 @@ public class SendMoney extends Activity {
 				} catch (AddressFormatException e) {
 					e.printStackTrace();
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-					builder.setMessage("Inalid address, please try again.").setCancelable(false).setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+					builder.setMessage(R.string.send_money_invalid_address).setCancelable(false).setNegativeButton(R.string.send_money_ok, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							dialog.cancel();
 						}
@@ -124,8 +124,8 @@ public class SendMoney extends Activity {
 				} catch (Exception e) {
 					e.printStackTrace();
 					AlertDialog.Builder builder = new AlertDialog.Builder(SendMoney.this);
-					builder.setMessage("Sorry we couldn't send that.  Please check your values and try again.").setCancelable(false)
-							.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+					builder.setMessage(R.string.send_money_fail).setCancelable(false)
+							.setNegativeButton(R.string.send_money_ok, new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									dialog.cancel();
 								}

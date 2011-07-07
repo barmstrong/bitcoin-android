@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.ClipboardManager;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Display;
 import android.view.View;
@@ -81,15 +82,18 @@ public class ReceiveMoney extends Activity {
 			public void onClick(View v) {
 				Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 				emailIntent.setType("text/plain");
-				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Payment Request From: " + address);
-				String message = "Hello,\n\nYou've received a bitcoin payment request.  Please send funds to the following address.";
-				message += "\n\nAddress: " + address;
-				if (amount != null && amount != "") {
-					message += "\nAmount:  " + amount + " BTC";
+				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, 
+						getString(R.string.pay_request_received_from) + address);
+				
+				StringBuilder message = new StringBuilder(getString(R.string.pay_request));
+				message.append("\n\n").append(getString(R.string.pay_reqeust_address_label)).append(address);
+				if (!TextUtils.isEmpty(amount)) {
+					message.append("\n").append(R.string.pay_request_amount_label)
+						.append(amount).append(" BTC");
 				}
-				message += "\n\nThank you!";
+				message.append("\n\n").append(getString(R.string.pay_request_thank_you));
 
-				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message.toString());
 				ReceiveMoney.this.startActivity(Intent.createChooser(emailIntent, "Send Request Via..."));
 			}
 		});
@@ -112,7 +116,7 @@ public class ReceiveMoney extends Activity {
 	private String generateBitCoinURI() {
 		String uri = "bitcoin:";
 		uri += address.toString() + "?";
-		if (amount != null && amount.length() > 0) {
+		if (!TextUtils.isEmpty(amount)) {
 			uri += "amount=" + amount;
 		}
 		return uri;
