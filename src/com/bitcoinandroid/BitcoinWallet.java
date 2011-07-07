@@ -234,7 +234,7 @@ public class BitcoinWallet extends Activity {
 
 		String ticker = Utils.bitcoinValueToFriendlyString(value) + " Bitcoins Received!";
 		String ns = Context.NOTIFICATION_SERVICE;
-		NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
+		NotificationManager notificationManager = (NotificationManager) getSystemService(ns);
 		Notification notification = new Notification(R.drawable.my_notification_icon, ticker, System.currentTimeMillis());
 		notification.defaults |= Notification.DEFAULT_SOUND;
 		notification.defaults |= Notification.DEFAULT_VIBRATE;
@@ -248,6 +248,6 @@ public class BitcoinWallet extends Activity {
 		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
-		mNotificationManager.notify(1, notification);
+		notificationManager.notify(1, notification);
 	}
 }
