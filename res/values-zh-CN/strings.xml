@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Bitcoin</string>
+	<string name="send_button">汇款</string>
+	<string name="receive_button">收款</string>
+	<string name="balance_label">余额</string>
+	<string name="amount_placeholder">5 BTC</string>
+	<string name="scan_label">扫描二维码</string>
+	<string name="msg_default_status">扫描二维码</string>
+	<string name="manual_button_label">或手动输入</string>
+	<string name="blank_label"></string>
+	
+	
+	<string name="contents_text">纯文本</string>
+	<string name="contents_contact">联系信息</string>
+	<string name="contents_email">Email 地址</string>
+	<string name="contents_location">地理坐标</string>
+	<string name="contents_phone">电话号码</string>
+	<string name="contents_sms">SMS 地址</string>
+		
+		
+	
+	
+	<string name="amount_label">数额</string>
+	<string name="address_label">收款地址</string>
+	<string name="memo_label">备注 (可选)</string>
+	<string name="send_money_button">发送</string>
+</resources>
