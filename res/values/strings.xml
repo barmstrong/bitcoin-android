@@ -18,7 +18,7 @@
 	<string name="contents_phone">Phone number</string>
 	<string name="contents_sms">SMS address</string>
 		
-	<string name="pay_reqeust_address_label">Address: </string>	
+	<string name="pay_request_address_label">Address: </string>	
 	<string name="pay_request_amount_label">Amount: </string>
 	<string name="pay_request_received_from">Payment Request From: </string>
 	<string name="pay_request">Hello,\n\nYou\'ve received a bitcoin payment request.  Please send funds to the following address.</string>

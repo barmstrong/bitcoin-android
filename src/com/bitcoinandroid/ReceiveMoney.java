@@ -86,7 +86,7 @@ public class ReceiveMoney extends Activity {
 						getString(R.string.pay_request_received_from) + address);
 				
 				StringBuilder message = new StringBuilder(getString(R.string.pay_request));
-				message.append("\n\n").append(getString(R.string.pay_reqeust_address_label)).append(address);
+				message.append("\n\n").append(getString(R.string.pay_request_address_label)).append(address);
 				if (!TextUtils.isEmpty(amount)) {
 					message.append("\n").append(R.string.pay_request_amount_label)
 						.append(amount).append(" BTC");
