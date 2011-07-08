@@ -17,19 +17,19 @@
 	<string name="contents_phone">电话号码</string>
 	<string name="contents_sms">SMS 地址</string>
 		
-	<string name="pay_request_address_label">地址： </string>	
-	<string name="pay_request_amount_label">金额： </string>
-	<string name="pay_request_received_from">付款要求从： </string>
-	<string name="pay_request">Hello,\n\n您收到付款请求。请发送到以下地址的资金。</string>
-	<string name="pay_request_thank_you">谢谢！</string>
-
-	<string name="send_money_payment_successful">付款成功！</string>
-	<string name="send_money_ok">OK</string>
-	<string name="send_money_insufficient_funds">你支付超过您当前的余额。 \n\n</string>
-	<string name="send_money_xfer_pending">请稍候您未完成的交易予以确认，或使用“收到钱”的主屏幕上的按钮，添加额外的资金，你的钱包。</string>
-	<string name="send_money_try_funding">尝试通过使用“收到钱”的主屏幕上的按钮您的资金bitcoin钱包。</string>
-	<string name="send_money_invalid_address">地址无效，请再试一次。</string>
-	<string name="send_money_fail">很抱歉我们无法\'T发送。请检查你的价值观，然后再试一次。</string>
+	<string name="pay_request_address_label">地址: </string>	
+	<string name="pay_request_amount_label">金额: </string>
+	<string name="pay_request_received_from">付款请求来自: </string>
+	<string name="pay_request">您好，\n\n您收到一条付款请求。 请将资金发往下述地址。</string>
+	<string name="pay_request_thank_you">非常感谢!</string>
+	
+	<string name="send_money_payment_successful">付款成功!</string>
+	<string name="send_money_ok">确定</string>
+	<string name="send_money_insufficient_funds">您的付款超出了当前余额。\n\n</string>
+	<string name="send_money_xfer_pending">请等待未到账交易确认，或通过主屏幕上的“收款”按钮添加其他资金。</string>
+	<string name="send_money_try_funding">请尝试通过主屏幕上的“收款”按钮为 bitcoin 钱包拨款。</string>
+	<string name="send_money_invalid_address">地址无效，请重试。</string>
+	<string name="send_money_fail">抱歉，汇款失败。 请检查金额后重试。</string>
 		
 	<string name="amount_label">数额</string>
 	<string name="address_label">收款地址</string>
