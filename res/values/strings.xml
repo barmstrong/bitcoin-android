@@ -36,4 +36,7 @@
 	<string name="address_label">Pay To Address</string>
 	<string name="memo_label">Memo (optional)</string>
 	<string name="send_money_button">Send</string>
+	<string name="exchange_close_button">Exit</string>
+	<string name="exchange_calculate_button">Convert</string>
+	<string name="exchange_description_textview">Exchange rates provided by bitcoincharts.com</string>
 </resources>

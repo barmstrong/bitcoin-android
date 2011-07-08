@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/refresh_menu_item" android:icon="@drawable/ic_menu_refresh"
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/refresh_menu_item"
+		android:icon="@drawable/ic_menu_refresh"
 		android:title="Refresh" />
+		
+	<item
+		android:id="@+id/exchange_menu_item"
+		android:icon="@drawable/ic_menu_exchange"
+		android:title="Convert Currency" />
 </menu>
