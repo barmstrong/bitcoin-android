@@ -26,7 +26,7 @@
 	
 	<string name="send_money_payment_successful">Payment successful!</string>
 	<string name="send_money_ok">Ok</string>
-	<string name="send_money_insufficient_funds">You\'re payment exceeds your current balance. \n\n</string>
+	<string name="send_money_insufficient_funds">The payment exceeds your current balance. \n\n</string>
 	<string name="send_money_xfer_pending">Please wait for your pending transactions to be confirmed, or add additional funds to your wallet using the \'Receive Money\' button on the home screen.</string>
 	<string name="send_money_try_funding">Try funding your bitcoin wallet by using the \'Receive Money\' button on the home screen.</string>
 	<string name="send_money_invalid_address">Invalid address, please try again.</string>
