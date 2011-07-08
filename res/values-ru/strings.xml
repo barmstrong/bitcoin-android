@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Биткоин</string>
+    <string name="send_button">Послать Деньги</string>
+    <string name="receive_button">Получить Деньги</string>
+    <string name="balance_label">Счет</string>
+    <string name="amount_placeholder">5 BTC</string>
+    <string name="scan_label">Сканировать QR-код</string>
+    <string name="msg_default_status">Сканировать QR-код</string>
+    <string name="manual_button_label">Или ввести вручную</string>
+    <string name="blank_label"></string>
+
+    <string name="contents_text">Простой текст</string>
+    <string name="contents_contact">Контактная информация</string>
+    <string name="contents_email">Имейл</string>
+    <string name="contents_location">Географические координаты</string>
+    <string name="contents_phone">Телефон</string>
+    <string name="contents_sms">СМС-адрес</string>
+
+    <string name="pay_request_address_label">Адрес: </string>  
+    <string name="pay_request_amount_label">Сумма: </string>
+    <string name="pay_request_received_from">Запрос на Платеж От: </string>
+    <string name="pay_request">Добрый день,\n\nВы получили запрос биткоин оплаты. Пожалуйста, пришлите средства на следующий адрес.</string>
+    <string name="pay_request_thank_you">Спасибо!</string>
+
+    <string name="send_money_payment_successful">Оплата успешная!</string>
+    <string name="send_money_ok">Ok</string>
+    <string name="send_money_insufficient_funds">Ваш платеж превышает ваш счет. \n\n</string>
+    <string name="send_money_xfer_pending">Пожалуйста, подождите пока ожидающие транзакции будут подтверждены, или добавьте дополнительные фонды к своему бумажнику используя кнопку \'Получить Деньги\' на главном экране.</string>
+    <string name="send_money_try_funding">Попробуйте финансировать ваш биткоин бумажник с помощью кнопки \'Получить Деньги\' на главном экране.</string>
+    <string name="send_money_invalid_address">Неправильный адрес, пожалуйста, попробуйте еще раз.</string>
+    <string name="send_money_fail">К сожалению, мы не могли это отправить. Пожалуйста, проверьте вашу сумму и повторите попытку.</string>
+
+    <string name="amount_label">Сумма</string>
+    <string name="address_label">Адрес Оплаты</string>
+    <string name="memo_label">Заметка (необязательно)</string>
+    <string name="send_money_button">Послать</string>
+</resources>
