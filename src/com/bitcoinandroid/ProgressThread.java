@@ -28,13 +28,13 @@ import com.google.bitcoin.core.Transaction;
 public class ProgressThread extends Thread {
 	ApplicationState appState = ApplicationState.current;
 	
-	Peer peer;
-	CountDownLatch progress;
-	Handler mHandler;
-	final static int STATE_DONE = 0;
-	final static int STATE_RUNNING = 1;
-	int mState;
-	int total;
+	private Peer peer;
+	private CountDownLatch progress;
+	private Handler mHandler;
+	private final static int STATE_DONE = 0;
+	private final static int STATE_RUNNING = 1;
+	private int mState;
+	private int total;
 
 	public ProgressThread(Handler h) {
 		mHandler = h;
@@ -172,23 +172,25 @@ public class ProgressThread extends Thread {
 	/* connect to local peers (minimum of 3, maximum of 8) */
 	private synchronized void connectToLocalPeers(){
 		Log.d("Wallet", "Connecting to local peers");
-		//clear out any which have disconnected
-		for (Peer peer : appState.connectedPeers) {
-			if (!peer.isRunning())
-				appState.connectedPeers.remove(peer);
-		}
-		
-		if (appState.connectedPeers.size() < 3) {
-			for (InetSocketAddress isa : appState.discoverPeers()) {
-				NetworkConnection conn = createNetworkConnection(isa);
-				if (conn == null) {
-					appState.removeBadPeer(isa);
-				} else {
-					Peer peer = new Peer(appState.params, conn, appState.blockChain, appState.wallet);
-					peer.start();
-					appState.connectedPeers.add(peer);
-					if (appState.connectedPeers.size() >= 8)
-						break;
+		synchronized(appState.connectedPeersLock) {
+			//clear out any which have disconnected
+			for (Peer peer : appState.connectedPeers) {
+				if (!peer.isRunning())
+					appState.connectedPeers.remove(peer);
+			}
+
+			if (appState.connectedPeers.size() < 3) {
+				for (InetSocketAddress isa : appState.discoverPeers()) {
+					NetworkConnection conn = createNetworkConnection(isa);
+					if (conn == null) {
+						appState.removeBadPeer(isa);
+					} else {
+						Peer peer = new Peer(appState.params, conn, appState.blockChain, appState.wallet);
+						peer.start();
+						appState.connectedPeers.add(peer);
+						if (appState.connectedPeers.size() >= 8)
+							break;
+					}
 				}
 			}
 		}

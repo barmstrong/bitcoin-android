@@ -36,9 +36,9 @@ import com.google.bitcoin.core.Wallet;
 public class ApplicationState extends Application {
 	// convenient place to keep global app variables
 
-	boolean TEST_MODE = true;
+	private boolean TEST_MODE = true;
 	Wallet wallet;
-	String filePrefix = TEST_MODE ? "testnet" : "prodnet";
+	private String filePrefix = TEST_MODE ? "testnet" : "prodnet";
 
 	/**
 	 * Every access to walletFile must be synch'ed with this lock. Backup agent
@@ -48,13 +48,16 @@ public class ApplicationState extends Application {
 	File walletFile;
 	File keychainFile;
 	boolean walletShouldBeRebuilt = false;
-	BackupManager backupManager;
+	private BackupManager backupManager;
 
-	NetworkParameters params = TEST_MODE ? NetworkParameters.testNet()
-			: NetworkParameters.prodNet();
-	PeerDiscovery peerDiscovery;
+	NetworkParameters params =
+		TEST_MODE ? NetworkParameters.testNet() : NetworkParameters.prodNet();
+	private PeerDiscovery peerDiscovery;
 	private ArrayList<InetSocketAddress> isas = new ArrayList<InetSocketAddress>();
-	ArrayList<Peer> connectedPeers = new ArrayList<Peer>();
+
+	static final Object[] connectedPeersLock = new Object[0];
+	ArrayList<Peer> connectedPeers = new ArrayList<Peer>(); // protected by above lock
+
 	BlockStore blockStore = null;
 	BlockChain blockChain;
 	
@@ -70,7 +73,6 @@ public class ApplicationState extends Application {
 		ApplicationState.current = (ApplicationState) this;
 		backupManager = new BackupManager(this);
 
-		
 		// read or create wallet
 		synchronized (ApplicationState.walletFileLock) {
 			keychainFile = new File(getFilesDir(), filePrefix+".keychain");
@@ -98,6 +100,9 @@ public class ApplicationState extends Application {
 					wallet.keychain.add(new ECKey());
 				}
 				saveWallet();
+			} catch (StackOverflowError e) {
+				//couldn't deserialize the wallet - maybe it was saved in a previous version of bitcoinj?
+				e.printStackTrace();
 			}
 		}
 		
@@ -113,13 +118,23 @@ public class ApplicationState extends Application {
 					+ ".blockchain");
 			if (!file.exists()) {
 				Log.d("Wallet", "Copying initial blockchain from assets folder");
+				InputStream is = null;
 				try {
-					InputStream is = getAssets().open(
+					is = getAssets().open(
 							filePrefix + ".blockchain");
 					IOUtils.copy(is, new FileOutputStream(file));
 				} catch (IOException e) {
 					Log.d("Wallet",
 							"Couldn't find initial blockchain in assets folder...starting from scratch");
+				}
+				finally {
+					if (is != null) {
+						try {
+							is.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 			blockStore = new BoundedOverheadBlockStore(params, file);
@@ -175,17 +190,19 @@ public class ApplicationState extends Application {
 	}
 
 	/* rebroadcast pending transactions to all connected peers */
-	public synchronized void sendTransaction(Transaction tx) {
+	public void sendTransaction(Transaction tx) {
 		boolean success = false;
-		for (Peer peer : connectedPeers) {
-			try {
-				peer.broadcastTransaction(tx);
-				success = true;
-				Log.d("Wallet", "Broadcast succeeded");
-			} catch (IOException e) {
-				peer.disconnect();
-				connectedPeers.remove(peer);
-				Log.d("Wallet", "Broadcast failed");
+		synchronized (connectedPeersLock) {
+			for (Peer peer : connectedPeers) {
+				try {
+					peer.broadcastTransaction(tx);
+					success = true;
+					Log.d("Wallet", "Broadcast succeeded");
+				} catch (IOException e) {
+					peer.disconnect();
+					connectedPeers.remove(peer);
+					Log.d("Wallet", "Broadcast failed");
+				}
 			}
 		}
 		if (success) {

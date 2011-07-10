@@ -18,8 +18,19 @@
 	<string name="contents_phone">Phone number</string>
 	<string name="contents_sms">SMS address</string>
 		
-		
+	<string name="pay_request_address_label">Address: </string>	
+	<string name="pay_request_amount_label">Amount: </string>
+	<string name="pay_request_received_from">Payment Request From: </string>
+	<string name="pay_request">Hello,\n\nYou\'ve received a bitcoin payment request.  Please send funds to the following address.</string>
+	<string name="pay_request_thank_you">Thank You!</string>
 	
+	<string name="send_money_payment_successful">Payment successful!</string>
+	<string name="send_money_ok">Ok</string>
+	<string name="send_money_insufficient_funds">The payment exceeds your current balance. \n\n</string>
+	<string name="send_money_xfer_pending">Please wait for your pending transactions to be confirmed, or add additional funds to your wallet using the \'Receive Money\' button on the home screen.</string>
+	<string name="send_money_try_funding">Try funding your bitcoin wallet by using the \'Receive Money\' button on the home screen.</string>
+	<string name="send_money_invalid_address">Invalid address, please try again.</string>
+	<string name="send_money_fail">Sorry we couldn\'t send that.  Please check your values and try again.</string>
 	
 	<string name="amount_label">Amount</string>
 	<string name="address_label">Pay To Address</string>
