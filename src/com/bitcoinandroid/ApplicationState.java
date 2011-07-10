@@ -1,9 +1,12 @@
 package com.bitcoinandroid;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +46,8 @@ public class ApplicationState extends Application {
 	 */
 	static final Object[] walletFileLock = new Object[0];
 	File walletFile;
+	File keychainFile;
+	boolean walletShouldBeRebuilt = false;
 	BackupManager backupManager;
 
 	NetworkParameters params = TEST_MODE ? NetworkParameters.testNet()
@@ -68,18 +73,31 @@ public class ApplicationState extends Application {
 		
 		// read or create wallet
 		synchronized (ApplicationState.walletFileLock) {
+			keychainFile = new File(getFilesDir(), filePrefix+".keychain");
 			walletFile = new File(getFilesDir(), filePrefix + ".wallet");
 			try {
+				//throw new RuntimeException("asd");
 				wallet = Wallet.loadFromFile(walletFile);
 				Log.d("Wallet", "Found wallet file to load");
-			} catch (IOException e) {
-				wallet = new Wallet(params);
-				Log.d("Wallet", "Created new wallet");
-				wallet.keychain.add(new ECKey());
-				saveWallet();
-			} catch (StackOverflowError e) {
-				//couldn't unserialize the wallet - maybe it was saved in a previous version of bitcoinj?
+			} catch (Exception e) {
 				e.printStackTrace();
+				wallet = new Wallet(params);
+				Log.d("Wallet", "Created new wallet...now attempting to reset prior keys");
+				
+				//load any previous keys in case this IOException was due to a serialization change of a previous wallet
+				try {
+					ObjectInputStream ois = new ObjectInputStream(new FileInputStream(keychainFile));
+					@SuppressWarnings("unchecked")
+					ArrayList<ECKey> keys = (ArrayList<ECKey>) ois.readObject();
+					for (ECKey key : keys) {
+						wallet.keychain.add(key);
+					}
+					walletShouldBeRebuilt = true;
+				} catch (Exception e2) {
+					Log.d("Wallet", "No prior keys found, a brand new wallet!");
+					wallet.keychain.add(new ECKey());
+				}
+				saveWallet();
 			}
 		}
 		
@@ -118,6 +136,18 @@ public class ApplicationState extends Application {
 				wallet.saveToFile(walletFile);
 			} catch (IOException e) {
 				throw new Error("Can't save wallet file.");
+			}
+			
+			// save keys also in case we need to rebuild wallet later (serialization changes)
+			ObjectOutputStream keychain;
+			try {
+				keychain = new ObjectOutputStream(new FileOutputStream(keychainFile));
+				keychain.writeObject(wallet.keychain);
+				keychain.flush();
+				keychain.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new Error("Can't save keychain file.");
 			}
 		}
 		Log.d("Wallet", "Notifying BackupManager that data has changed. Should backup soon.");

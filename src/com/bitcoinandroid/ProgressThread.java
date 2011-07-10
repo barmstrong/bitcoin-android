@@ -13,8 +13,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.bitcoin.core.Block;
 import com.google.bitcoin.core.NetworkConnection;
 import com.google.bitcoin.core.Peer;
+import com.google.bitcoin.core.StoredBlock;
 import com.google.bitcoin.core.Transaction;
 
 /* Thread to download the block chain.
@@ -40,10 +42,26 @@ public class ProgressThread extends Thread {
 	}
 
 	public void run() {
+		rebuildWallet();
 		downloadBlockChain();
 		hideDialog();
 		connectToLocalPeers();
 		resendPendingTransactions();
+	}
+	
+	// this runs through the entire blockchain again to check for missed transactions
+	private void rebuildWallet(){
+		if (appState.walletShouldBeRebuilt) {
+			Log.d("Wallet", "Rebuilding wallet");
+			appState.walletShouldBeRebuilt = false;
+			try {
+				//appState.wallet.checkForNewTransactions(appState.blockChain);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new Error("couldn't rebuild wallet");
+			}
+			appState.saveWallet();
+		}
 	}
 	
 	private void downloadBlockChain() {
@@ -97,9 +115,9 @@ public class ProgressThread extends Thread {
 				if (current == 0) {
 					// we're done!
 					return true;
-				} else if (current == last_current) {
+				} else if (current > (last_current - 10)) {
 					no_change_count++;
-					// if peer stopped talking to us for 8 seconds, lets break out and try next one :(
+					// if peer stopped talking to us for 8 seconds, or wasn't fast enough, lets break out and try next one
 					if (no_change_count >= 8)
 						return false;
 				} else {
@@ -152,7 +170,7 @@ public class ProgressThread extends Thread {
 	}
 	
 	/* connect to local peers (minimum of 3, maximum of 8) */
-	private void connectToLocalPeers(){
+	private synchronized void connectToLocalPeers(){
 		Log.d("Wallet", "Connecting to local peers");
 		//clear out any which have disconnected
 		for (Peer peer : appState.connectedPeers) {

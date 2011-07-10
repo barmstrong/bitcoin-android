@@ -212,7 +212,12 @@ public class Utils {
             value = value.negate();
         BigInteger coins = value.divide(COIN);
         BigInteger cents = value.remainder(COIN);
-        return String.format("%s%d.%02d", negative ? "-" : "", coins.intValue(), cents.intValue() / 1000000);
+        String centString = String.format("%08d", cents.intValue());
+        centString = centString.replaceFirst("0+$", "");
+        while(centString.length() < 2)
+            centString += "0";
+            
+        return String.format("%s%d.%s", negative ? "-" : "", coins.intValue(), centString);
     }
     
     /**

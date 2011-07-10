@@ -109,7 +109,7 @@ public class Peer {
                 log.info("Shutting down peer thread");
             } else {
                 // We caught an unexpected exception.
-                log.info("PEER EXCEPTION!!!!!!!");
+                log.info("Peer Exception");
                 e.printStackTrace();
             }
         }
