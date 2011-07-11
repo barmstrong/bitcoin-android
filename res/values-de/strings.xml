@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Bitcoin</string>
+	<string name="send_button">Geld Senden</string>
+	<string name="receive_button">Geld Empfangen</string>
+	<string name="balance_label">Guthaben</string>
+	<string name="amount_placeholder">5 BTC</string>
+	<string name="scan_label">QR Code Scannen</string>
+	<string name="msg_default_status">QR Code Scannen</string>
+	<string name="manual_button_label">Oder Manuell Eingeben</string>
+	<string name="blank_label"></string>
+	
+	
+	<string name="contents_text">Klartext</string>
+	<string name="contents_contact">Kontakt Info</string>
+	<string name="contents_email">Email Adresse</string>
+	<string name="contents_location">Geografische Koordinaten</string>
+	<string name="contents_phone">Telefon Nummer</string>
+	<string name="contents_sms">SMS Nummer</string>
+		
+	<string name="pay_request_address_label">Adresse: </string>	
+	<string name="pay_request_amount_label">Betrag: </string>
+	<string name="pay_request_received_from">Zahlungsaufforderung von: </string>
+	<string name="pay_request">Hallo,\n\nDu hast eine Bitcon-Zahlungsaufforderung erhalten. Bitte sende den Betrag an die folgende Adresse.</string>
+	<string name="pay_request_thank_you">Danke!</string>
+	
+	<string name="send_money_payment_successful">Überweisung erfolgreich!</string>
+	<string name="send_money_ok">Ok</string>
+	<string name="send_money_insufficient_funds">Der Betrag übersteigt das aktuelle Guthaben.\n\n</string>
+	<string name="send_money_xfer_pending">Bitte warte bis Deine ausstehenden Transaktionen bestätigt sind oder füge deiner Geldbörse weiters Guthaben durch betätigen der \'Geld Empfangen\' Schaltfläche auf der Startseite hinzu.</string>
+	<string name="send_money_try_funding">Versuche Deiner Geldbörse Guthaben hinzuzufügen durch betätign der \'Geld Empfangen\' Schaltfläche auf der Startseite.</string>
+	<string name="send_money_invalid_address">Ungültige Adresse, bitte versuche es nocheinmal.</string>
+	<string name="send_money_fail">Bitte entschuldige, wir konnten das nicht senden. Bitte überprüfe die Werte und versuche es nocheinmal.</string>
+	
+	<string name="amount_label">Betrag</string>
+	<string name="address_label">Bezahlen an Adresse</string>
+	<string name="memo_label">Info (optional)</string>
+	<string name="send_money_button">Senden</string>
+</resources>
