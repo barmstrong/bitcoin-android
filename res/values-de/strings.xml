@@ -28,9 +28,9 @@
 	<string name="send_money_ok">Ok</string>
 	<string name="send_money_insufficient_funds">Der Betrag übersteigt das aktuelle Guthaben.\n\n</string>
 	<string name="send_money_xfer_pending">Bitte warte bis Deine ausstehenden Transaktionen bestätigt sind oder füge deiner Geldbörse weiters Guthaben durch betätigen der \'Geld Empfangen\' Schaltfläche auf der Startseite hinzu.</string>
-	<string name="send_money_try_funding">Versuche Deiner Geldbörse Guthaben hinzuzufügen durch betätign der \'Geld Empfangen\' Schaltfläche auf der Startseite.</string>
+	<string name="send_money_try_funding">Versuche Deiner Geldbörse Guthaben hinzuzufügen durch betätigen der \'Geld Empfangen\' Schaltfläche auf der Startseite.</string>
 	<string name="send_money_invalid_address">Ungültige Adresse, bitte versuche es nocheinmal.</string>
-	<string name="send_money_fail">Bitte entschuldige, wir konnten das nicht senden. Bitte überprüfe die Werte und versuche es nocheinmal.</string>
+	<string name="send_money_fail">Bitte entschuldige, wir konnten das nicht senden. Bitte überprüfe die Werte und versuche es nochmals.</string>
 	
 	<string name="amount_label">Betrag</string>
 	<string name="address_label">Bezahlen an Adresse</string>
