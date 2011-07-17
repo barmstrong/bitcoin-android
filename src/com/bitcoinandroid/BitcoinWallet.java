@@ -205,6 +205,10 @@ public class BitcoinWallet extends Activity {
 			updateBlockChain();
 			updateUI();
 			return true;
+		case R.id.exchange_menu_item:
+			CalculateExchangeDialog dialog = new CalculateExchangeDialog(this);
+			dialog.show();
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
