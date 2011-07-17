@@ -123,7 +123,6 @@ public class BitcoinWallet extends Activity {
 
 		TableLayout tl = (TableLayout) findViewById(R.id.transactions);
 		tl.removeAllViews();
-
 		ArrayList<Transaction> transactions = appState.wallet.getAllTransactions();
 		
 		// Show only the first 100 transaction
