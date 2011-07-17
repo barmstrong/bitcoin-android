@@ -36,4 +36,8 @@
 	<string name="address_label">Bezahlen an Adresse</string>
 	<string name="memo_label">Info (optional)</string>
 	<string name="send_money_button">Senden</string>
+	
+	<string name="connecting_to_peers">Anschluss zu Gleichaltrigen...</string>
+	<string name="syncing_with_network">Synchronisieren mit Netz...</string>
+	<string name="run_in_background">Im Hintergrund laufen</string>
 </resources>
