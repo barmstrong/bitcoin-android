@@ -7,13 +7,12 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -38,15 +37,20 @@ import com.google.bitcoin.core.WalletEventListener;
 import com.google.zxing.client.android.CaptureActivity;
 
 public class BitcoinWallet extends Activity {
-
-	ProgressThread progressThread;
-	ProgressDialog progressDialog;
+	
+	BackgroundTask backgroundTask;
+	ProgressBar spinner;
 	ApplicationState appState;
+	SharedPreferences settings;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		appState = ((ApplicationState) getApplication());
+		settings = getPreferences(MODE_PRIVATE);
+		
 		setContentView(R.layout.main);
 		Button sendButton = (Button) this.findViewById(R.id.send_button);
 		sendButton.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +65,6 @@ public class BitcoinWallet extends Activity {
 				startActivity(new Intent(BitcoinWallet.this, ReceiveMoney.class));
 			}
 		});
-
-		appState = ((ApplicationState) getApplication());
 
 		updateUI();
 		updateBlockChain();
@@ -99,36 +101,23 @@ public class BitcoinWallet extends Activity {
 	}
 
 	private void updateBlockChain() {
-		progressDialog = new ProgressDialog(BitcoinWallet.this);
-		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		progressDialog.setMessage("Syncing with network...");
-		progressDialog.setProgress(0);
-
-		Handler handler = new Handler() {
-			ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-			public void handleMessage(Message msg) {
-				int total = msg.arg1;
-				progressDialog.setProgress(total);
-				if (total < 80) {
-					// progressDialog.show();
-				} else if (total < 100) {
-					progressBar.setVisibility(View.VISIBLE);
-				} else if (total >= 100) {
-					progressDialog.hide();
-					progressBar.setVisibility(View.GONE);
-					updateUI();
-					Log.d("Wallet", "Download complete");
-				}
-			}
-		};
-		((ProgressBar) findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
-
-		progressThread = new ProgressThread(handler);
-		progressThread.start();
+		if (backgroundTask == null || backgroundTask.getStatus() != AsyncTask.Status.RUNNING) {
+			backgroundTask = new BackgroundTask(this);
+			backgroundTask.execute();
+			((ProgressBar)findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
+		} else if (backgroundTask.getStatus() == AsyncTask.Status.RUNNING){
+			backgroundTask.downloadingProgress.show();
+		}
+	}
+	
+	public void hideSpinner() {
+		((ProgressBar)findViewById(R.id.progressBar)).setVisibility(View.GONE);
 	}
 
 	private void updateUI() {
+		if (appState == null || appState.wallet == null) {
+			return;
+		}
 		TextView balance = (TextView) findViewById(R.id.balanceLabel);
 		balance.setText("BTC " + Utils.bitcoinValueToFriendlyString(appState.wallet.getBalance(BalanceType.ESTIMATED)));
 
