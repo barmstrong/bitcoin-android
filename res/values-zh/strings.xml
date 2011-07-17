@@ -35,4 +35,8 @@
 	<string name="address_label">收款地址</string>
 	<string name="memo_label">备注 (可选)</string>
 	<string name="send_money_button">发送</string>
+	
+	<string name="connecting_to_peers">连接同行...</string>
+	<string name="syncing_with_network">同步网络...</string>
+	<string name="run_in_background">在后台运行</string>
 </resources>
