@@ -36,7 +36,7 @@
     <string name="memo_label">Заметка (необязательно)</string>
     <string name="send_money_button">Послать</string>
     
-    <string name="connecting_to_peers">Подключение к сверстникам...</string>
+    <string name="connecting_to_peers">Подключение к пирам...</string>
 	<string name="syncing_with_network">Синхронизация с сетью...</string>
 	<string name="run_in_background">Запустить в фоновом</string>
 </resources>
