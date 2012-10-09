@@ -1,6 +1,9 @@
 Bitcoin Android
 ==============
 
+> NOTE: This app is no longer supported or under development.  Please visit [Coinbase.com](https://coinbase.com) for the latest (this is my full time project going forward).  The app below was an early experiment in bitcoin, and it had some limitations since it was operating a full bitcoin client on the mobile device (which used lots of storage, bandwidth, CPU - took too long to sync with the blockchain).  My future mobile apps will make use of the [Coinbase API](https://coinbase.com/api/doc) so that the heavy lifting can be done in the cloud while the mobile device acts as a thin client.
+
+
 Send and receive bitcoins from your Android phone!
 
 Note that this app is still under development and may lose your coins!  Test it with small amounts.
