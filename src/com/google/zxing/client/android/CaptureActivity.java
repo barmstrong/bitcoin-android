@@ -51,6 +51,7 @@ import android.widget.Toast;
 
 import com.bitcoinandroid.R;
 import com.bitcoinandroid.SendMoney;
+import com.bitcoinandroid.YouTipIt;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
@@ -307,10 +308,15 @@ public final class CaptureActivity extends Activity implements
 			playBeepSoundAndVibrate();
 			drawResultPoints(barcode, rawResult);
 
+			boolean bIsTipIt=false;
 			try {
 				Bundle b = new Bundle();
 				String link = rawResult.getText();
 				if (!link.startsWith("bitcoin:")) {
+					if (link.contains("youtipit.org/") || link.contains("utip.it/")) {
+					    bIsTipIt=true;
+						link=YouTipIt.getLink(link);
+					} else
 					throw new RuntimeException("Trigger reset");
 				}
 
@@ -331,9 +337,14 @@ public final class CaptureActivity extends Activity implements
 				intent.putExtras(b);
 				startActivity(intent);
 			} catch (Exception e) {
+			    if (!bIsTipIt)
 				 Toast.makeText(this,
 				 "Not a valid Bitcoin address.  Please try again.",
 				 Toast.LENGTH_LONG).show();
+				 else Toast.makeText(this,
+		                 "Not a valid YouTipIt address or unable to get Bitcoin address.  Please try again.",
+		                 Toast.LENGTH_LONG).show();
+
 
 				resetStatusView();
 				// sleep 3 seconds before restarting scanning
